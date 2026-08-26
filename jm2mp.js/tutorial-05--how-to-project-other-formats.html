@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSON Model-to-Model Projection (JM2MP) Documentation</title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/jm2mp-jsdoc.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header class="layout-header">
+  
+    <a href="./">
+      <img
+        src="./images/JM2MP-Logo.png" width="48"
+        alt="JSON Model-to-Model Projection (JM2MP) Documentation"
+      >
+    </a>
+  
+  <h1>
+    <a href="./index.html">
+      JSON Model-to-Model Projection (JM2MP) Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <ul><li class="nav-heading">Tutorials</li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-01--getting-started.html">Getting Started!</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-02--jm2mp-syntax.html">JM2MP Syntax</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-03--nql-syntax.html">Native Query Language</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-04--examples.html">Examples</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-06--use-cases.html">Use Cases</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-07--jsdoc.html">Documentation Generation Using Tidy-JSDoc</a></span></li></ul><ul><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#_adapters">_adapters</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#names">names</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.AdapterError.html">AdapterError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ParseError.html">ParseError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ResolutionError.html">ResolutionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ValidationError.html">ValidationError</a></span></li></ul><ul><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_helpers.html">jm2mp/adapters/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_helpers.html#.createNativeRegistry">createNativeRegistry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jmespath.html">jm2mp/adapters/jmespath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jmespath.html#.createJmesPathAdapter">createJmesPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonata.html">jm2mp/adapters/jsonata</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonata.html#.createJsonataAdapter">createJsonataAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpath.html">jm2mp/adapters/jsonpath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpath.html#.createJsonPathAdapter">createJsonPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpointer.html">jm2mp/adapters/jsonpointer</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpointer.html#.createJsonPointerAdapter">createJsonPointerAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonquery.html">jm2mp/adapters/jsonquery</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonquery.html#.createJsonQueryAdapter">createJsonQueryAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native.html">jm2mp/adapters/native</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native.html#.createNativeAdapter">createNativeAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native_paths.html">jm2mp/adapters/native_paths</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_native_paths.html#.EXECUTION_ENVIRONMENT_FROM">EXECUTION_ENVIRONMENT_FROM</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.navigate">navigate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.parsePath">parsePath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isDigit">isDigit</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierContinue">isIdentifierContinue</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierStart">isIdentifierStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readIdentifier">readIdentifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readNonNegativeInteger">readNonNegativeInteger</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readQuotedString">readQuotedString</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_registry.html">jm2mp/adapters/registry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v4_middleware.html">jm2mp/api/express/v4/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~asyncHandler">asyncHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v5_middleware.html">jm2mp/api/express/v5/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#.PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_cli.html">jm2mp/cli</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_errors.html">jm2mp/errors</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_evaluator.html">jm2mp/evaluator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~compareOrdered">compareOrdered</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepen">deepen</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepEqual">deepEqual</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalLiteralObject">evalLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalOperation">evalOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalProjection">evalProjection</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~expectType">expectType</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~typeName">typeName</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_index.html">jm2mp/index</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.createAdapterRegistry">createAdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.project">project</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_helpers.html">jm2mp/modules/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_helpers.html#.ROOT_TEMPLATE_NAME">ROOT_TEMPLATE_NAME</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isModule">isModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isPackagedEsmModuleAvailable">isPackagedEsmModuleAvailable</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleOf">moduleOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleWith">moduleWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.ThrowsValidationErrorWhenIsNotAModule">ThrowsValidationErrorWhenIsNotAModule</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_loaders.html">jm2mp/modules/loaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createFileLoader">createFileLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createStringLoader">createStringLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createUrlLoader">createUrlLoader</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_normalizer.html">jm2mp/modules/normalizer</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_normalizer.html#.MODULE_METADATA_KEYS">MODULE_METADATA_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#.normalizeModule">normalizeModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~getDefaultSyntax">getDefaultSyntax</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeGet">normalizeGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeNode">normalizeNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_resolver.html">jm2mp/modules/resolver</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">DEFAULT_MAX_MODULES</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#.resolve">resolve</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#~importInto">importInto</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_validator.html">jm2mp/validator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~KNOWN_OPS">KNOWN_OPS</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~OP_ARGS">OP_ARGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isOperation">isOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isValidName">isValidName</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.validateModule">validateModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateCall">validateCall</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateGet">validateGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLet">validateLet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLiteralObject">validateLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateOperation">validateOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateProjection">validateProjection</a></span></li></ul><ul><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JMESPath.html">JMESPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONata.html">JSONata</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPath.html">JSONPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPointer.html">JSONPointer</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONQuery.html">JSONQuery</a></span></li></ul><ul><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace" title="namespace">N</span><span class="nav-item-name is-namespace"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.abs">abs</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.and">and</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.call">call</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.coalesce">coalesce</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.concat">concat</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.cons">cons</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.div">div</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.eq">eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldArr">foldArr</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldObj">foldObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gt">gt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gte">gte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.if">if</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.length">length</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.let">let</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lookup">lookup</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lower">lower</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lt">lt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lte">lte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.merge">merge</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mod">mod</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neg">neg</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neq">neq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.not">not</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.or">or</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sort">sort</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.substring">substring</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.typeof">typeof</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.upper">upper</a></span></li></ul>
+  </nav>
+</header>
+
+
+<main class="layout-main ">
+  <div class="container">
+    <p class="page-kind"></p>
+    <h1 class="page-title"></h1>
+    
+<section class="tutorial">
+  <header>
+    <h1>How to Project Other Usual Document Formats</h1>
+  </header>
+  
+  <article>
+    <h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#other-usual-document-formats">Other usual document formats</a>
+<ul>
+<li><a href="#variants-of-json">Variants of JSON</a>
+<ul>
+<li><a href="#jsonc">JSONC</a></li>
+<li><a href="#json5">JSON5</a></li>
+</ul>
+</li>
+<li><a href="#json-lines">JSON Lines</a></li>
+<li><a href="#yaml">YAML</a></li>
+<li><a href="#toml">TOML</a></li>
+<li><a href="#toml">XML</a></li>
+</ul>
+</li>
+</ul>
+<h2>Introduction</h2>
+<p>As you can read in the <a href="./tutorial-05--use-cases.html">Use Cases</a> tutorial,
+several file formats are commonly used today to manage configurations and
+data. In addition to <a href="https://www.json.org/json-en.html">JSON</a> itself,
+these include <a href="https://www.w3.org/XML/">XML</a>, <a href="https://yaml.org/">YAML</a>,
+and <a href="https://toml.io/en/">TOML</a>, to name just a few of the most widely
+used ones.</p>
+<h2>Other usual document formats</h2>
+<p>This tutorial presents several ideas for using the <code>JM2MP.JS</code> library to
+perform data transformations also on these formats, albeit indirectly.</p>
+<p>The general idea is to convert such formats to JSON, transform it using
+<code>JM2MP</code> and finally convert back to the original file format.</p>
+<p>And it's not just a matter of considering the <em>source</em> and <em>resultant</em>
+documents; the <em>projection documents</em> themselves could be stored in
+formats other than pure JSON (such as <a href="#jsonc">JSONC</a> or <a href="#json5">JSON5</a>).
+It's worth noting, however, that currently the
+<a href="./tutorial-02--jm2mp-syntax.html#modularization">modularization mechanism</a>
+of <code>JM2MP.JS</code> only supports <code>JM2MP</code> as pure JSON.</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <msub><mi>source</mi><ms>JM2MP</ms></msub>
+    <mo>=</mo>
+    <mrow>
+      <msub><mi>Retrieve-As-JSON</mi><ms>Other-Format</ms></msub>
+      <mo>(</mo>
+      <msub><mi>input</mi><ms>Other-Format</ms></msub>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math>
+<br />
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <msub><mi>projection</mi><ms>JM2MP</ms></msub>
+    <mo>=</mo>
+    <mrow>
+      <msub><mi>Retrieve-As-JSON</mi><ms>Other-Format</ms></msub>
+      <mo>(</mo>
+      <msub><mi>projection</mi><ms>Other-Format</ms></msub>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mrow>
+    <mspace width="1em" />
+    <ms style="color:Orange; background:WhiteSmoke;">Optional!</ms>
+  </mrow>
+</math>
+<br />
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <msub><mi>resultant</mi><ms>JM2MP</ms></msub>
+    <mo>=</mo>
+    <mrow>
+      <msub><mi>Project</mi><ms>JM2MP</ms></msub>
+      <mo>(</mo>
+      <msub><mi>source</mi><ms>JM2MP</ms></msub>
+      <mo>,</mo>
+      <msub><mi>projection</mi><ms>JM2MP</ms></msub>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math>
+<br />
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <msub><mi>output</mi><ms>Other-Format</ms></msub>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msub><mi>Store-From-JSON</mi><ms>Other-Format</ms></msub>
+    <mo>(</mo>
+    <msub><mi>resultant</mi><ms>JM2MP</ms></msub>
+    <mo>)</mo>
+  </mrow>
+</math>
+<h3>Variants of JSON</h3>
+<p>Because the JSON format was conceived as a subset of JavaScript but
+omitted certain features that greatly simplify users' work, such as,
+on the one hand, the use of comments and, on the other, the use of
+commas as terminators rather than separators (which allows a comma to be
+written at the end of an array element or at the end of an object's last
+property), minor variations of JSON have been created to accommodate
+these features.</p>
+<p>Two of the best-known and most widely used are
+<a href="#jsonc">JSONC</a> and <a href="#json5">JSON5</a>, which we present below. But other
+variants exists, like <a href="https://amazon-ion.github.io/ion-docs/">Amazon Ion</a>
+or <a href="https://bsonspec.org/">MongoDB BSON</a> with also offer binary
+serialization.</p>
+<h4>JSONC</h4>
+<p>The <a href="https://jsonc.org/">JSONC</a> format was created by
+<a href="https://www.microsoft.com/">Microsoft</a> as part of its
+<a href="https://code.visualstudio.com/">Visual Studio Code</a> integrated
+development environment (IDE), initially with the goal of just
+supporting comments; nowadays it also supports the use of the trailing
+commas (both as terminators and separators).</p>
+<p>Since comments and trailing commas are lost during data retrieval and
+projection, saving the <em>resultant document</em> as JSON or JSONC should make
+no difference.</p>
+<pre class="prettyprint source lang-bash"><code># How to install JSONC using NPM.
+npm install --save jsonc-parser
+</code></pre>
+<pre class="prettyprint source lang-javascript"><code>import * as fs from 'node:fs';
+import jsonc from 'jsonc-parser';
+
+// It reads the JSONC file using Node.JS.
+const jsonc_content = fs.readFileSync('./sample-source.jsonc', 'utf8');
+// It parses its JSONC content as a real JSON object.
+const jsonc_parse_errors = [] ;
+const jsonc_parse_options = {
+  disallowComments : false,
+  allowTrailingComma: true,
+  allowEmptyContent : true,
+};
+const actual_json = jsonc.parse(
+                                jsonc_content,
+                                jsonc_parse_errors,
+                                jsonc_parse_options);
+if (jsonc_parse_errors.length === 0)
+{
+  // You can now use 'actual_json' as source document
+  // for JM2MP.JS library...
+}
+</code></pre>
+<p>More information about this format can be found in the following references:</p>
+<ul>
+<li><a href="https://github.com/JSONC-org/JSONC">https://github.com/JSONC-org/JSONC</a></li>
+<li><a href="https://www.npmjs.com/package/jsonc-parser">https://www.npmjs.com/package/jsonc-parser</a></li>
+<li><a href="https://github.com/microsoft/node-jsonc-parser">https://github.com/microsoft/node-jsonc-parser</a></li>
+</ul>
+<h4>JSON5</h4>
+<p>Like <a href="#jsonc">JSONC</a>, the extended <a href="https://json5.org/">JSON5</a> format
+expands the original <a href="https://www.json.org/json-en.html">JSON</a> syntax to
+include some features of <a href="https://262.ecma-international.org/5.1/">ECMAScript 5.1 (ES5)</a>,
+notably: the use of comments and trailing commas, the ability to use
+both double and single quotes for text strings, the use of multi-line
+strings by escaping their line breaks, and the ability to write numeric
+values in a wide variety of formats.</p>
+<pre class="prettyprint source lang-bash"><code># How to install JSON5 using NPM.
+npm install --save json5
+</code></pre>
+<pre class="prettyprint source lang-javascript"><code>// How to use JSON5 in Node.JS.
+import * as JSON5 from 'json5';
+// How to import JSON5 files and content.
+const json5_register = require('json5/lib/register');
+const json5_content_one = require('${FILE_PATH}/file.json5');
+const text_string = &quot;...&quot;;
+const json5_content_two = JSON5.parse(text_string) ;
+// How to export to JSON5 format.
+let object_model = {...};
+const json5_string = JSON5.stringify(object_model) ;
+</code></pre>
+<p>More information about this format can be found in the following references:</p>
+<ul>
+<li><a href="https://spec.json5.org/">The JSON5 Data Interchange Format (1.0.0, March 2018)</a></li>
+<li><a href="https://www.npmjs.com/package/json5">https://www.npmjs.com/package/json5</a></li>
+<li><a href="https://github.com/json5/json5">https://github.com/json5/json5</a></li>
+</ul>
+<h3>JSON Lines</h3>
+<p>The <a href="https://jsonlines.org/">JSON Lines</a> format uses a few conventions
+to store a JSON value on each line of a single file. This way, instead
+of having many different files, all the content can be stored together
+in a contiguous manner.</p>
+<p>To do this, it requires adherence to the following conventions:</p>
+<ul>
+<li>All content must be encoded in UTF-8.</li>
+<li>Each line of the file must consist of a single JSON value representing
+a complete, standalone document.</li>
+<li>The file delimiter is the <em>line feed character</em> (<code>'\n'</code>).</li>
+</ul>
+<p>The <code>JM2MP</code> format and the <code>JM2MP.JS</code> library always work with complete
+documents. If, for example, you wanted to use the <code>JSON Lines</code> format to
+store multiple <em>source documents</em>, you could simply iterate through each
+line, applying the same <em>projection</em> to all of them, and saving the
+respective <em>resultant documents</em> in a final <code>JSON Lines</code> file that
+stores them all together again.</p>
+<pre class="prettyprint source lang-javascript"><code>import * as fs from 'node:fs';
+import * as JM2MP from '@json-mde/jm2mp';
+// All (future) resultants from JM2MP projections.
+const jsonl_resultant_contents = [] ;
+// It reads the JSONL file using Node.JS and iterates for each line.
+fs.readFileSync('./sample-sources.jsonl')
+  .split('\n')
+  .forEach( (actual_source) => {
+    // Project each source document independently...
+    jsonl_resultant_contents.push(
+      JSON.stringify(
+        JM2MP.project( { actual_source, same_projection, ... } )
+      )
+    );
+  });
+// ...and saves them all in a new JSONL file.
+const jsonl_resultant_full_content = jsonl_resultant_contents.join('\n')
+fs.writeFileSync('./sample-resultants.jsonl', jsonl_resultant_full_content);
+</code></pre>
+<h3>YAML</h3>
+<p><a href="https://yaml.org/">YAML Ain't Markup Language (YAML)</a> is a text-based
+data serialization format that originally supported both scalar values
+and complex data structures (lists and maps) in a manner similar to JSON
+(JSON was initially considered as a subset of YAML); its latest
+specification <a href="https://yaml.org/spec/1.2.2/">1.2.2</a> describes a complex
+data format with type inference, information node tagging, multiple
+representation formats, and directives capable of configuring the
+YAML processor in various ways.</p>
+<p><a href="https://yaml.org/about/#why-yaml-matters-today">YAML</a> has always been
+widely used for configuring systems and applications.</p>
+<p>Due to its popularity, there are many
+<a href="https://yaml.org/libraries/">YAML libraries</a> available for dozens of
+programming languages. For this exercise, we have selected one that is
+compatible with both <em>JavaScript</em> and <em>Node.JS</em> (same language and
+runtime environment of <code>JM2MP2.JS</code>):
+<a href="https://www.npmjs.com/package/yaml">Eemeli's YAML</a>.</p>
+<pre class="prettyprint source lang-bash"><code># Installing Eemeli's YAML package from NPM.
+npm install yaml
+</code></pre>
+<pre class="prettyprint source lang-javascript"><code>import * as fs from 'node:fs';
+import * as YAML from 'yaml';
+import * as JM2MP from '@json-mde/jm2mp';
+try
+{
+  // It loads YAML source document.
+  const yaml_source_content = fs.readFileSync('./sample-source.yml')
+  const yaml_source_document = YAML.parse(yaml_content, undefined, {});
+  // It loads JM2MP projection document.
+  const jm2mp_projection_content = fs.readFileSync('./sample-jm2mp-proyection.json')
+  const jm2mp_projection_document = JSON.parse(jm2mp_projection_content);
+  // It projects and gets the resultant document...
+  const json_resultant_document = JM2MP.project({yaml_source_document, jm2mp_projection_document});
+  // ...and save it back as YAML.
+  const yaml_resultant_content = YAML.stringify(json_resultant_document, undefined, {});
+  fs.writeFileSync('./sample-resultant.yml', yaml_resultant_content);
+}
+catch (err)
+{
+  console.error(`Error ${err} with cause ${err.cause}.`);
+}
+
+</code></pre>
+<p>Below, we present some references about the <code>YAML</code> language:</p>
+<ul>
+<li><a href="https://yaml.org/">https://yaml.org/</a>
+<ul>
+<li><a href="https://yaml.org/spec/1.2.2/">https://yaml.org/spec/1.2.2/</a></li>
+</ul>
+</li>
+<li><a href="https://eemeli.org/yaml/">https://eemeli.org/yaml/</a>
+<ul>
+<li><a href="https://www.npmjs.com/package/yaml">https://www.npmjs.com/package/yaml</a></li>
+<li><a href="https://github.com/eemeli/yaml">https://github.com/eemeli/yaml</a></li>
+</ul>
+</li>
+</ul>
+<h3>TOML</h3>
+<p><a href="https://toml.io/en/">Tom's Obvious, Minimal Language (TOML)</a> is a
+document format designed for configuration files, with an easy-to-read
+syntax. Unlike JSON, it supports comments and can handle date and time
+formats natively, among other features.</p>
+<pre class="prettyprint source lang-bash"><code># Installing 'toml' package for Node.JS using NPM.
+npm install toml
+</code></pre>
+<pre class="prettyprint source lang-javascript"><code>import * as fs from 'node:fs';
+import * as TOML from 'toml';
+try
+{
+  const toml_content = fs.readFileSync('./sample-source.toml')
+  const data = TOML.parse(toml_content, {bigint: true, maxDepth: 100 });
+}
+catch (err)
+{
+  console.error(`Parsing error on line ${err.line}, column ${err.column}: ${err.message}`);
+}
+</code></pre>
+<p>Because working with date and time values are one of strongs of
+<a href="https://github.com/BinaryMuse/toml-node#temporal-support">TOML</a>
+format, if you are using modern versions of
+<a href="https://nodejs.org/es/blog/release/v26.0.0#temporal-api">Node.JS</a>,
+you can use the recently released
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal">Temporal API</a>.
+If you are using older versions, it exists a
+<a href="https://betterstack.com/community/guides/scaling-nodejs/temporal-explained/">polyfill</a>
+to allow you to work with such functionality.</p>
+<p>Additional information about <code>TOML</code> can be found in:</p>
+<ul>
+<li><a href="https://toml.io/en/">https://toml.io/en/</a>
+<ul>
+<li><a href="https://toml.io/en/v1.1.0">TOML v1.1.0 Specification</a></li>
+</ul>
+</li>
+<li><a href="https://www.npmjs.com/package/toml">https://www.npmjs.com/package/toml</a>
+<ul>
+<li><a href="https://github.com/BinaryMuse/toml-node">https://github.com/BinaryMuse/toml-node</a></li>
+<li><a href="https://binarymuse.github.io/toml-node/">https://binarymuse.github.io/toml-node/</a></li>
+</ul>
+</li>
+</ul>
+<h3>XML</h3>
+<p>For <a href="https://www.w3.org/XML/">XML</a>, please... use <a href="https://www.w3.org/TR/xslt/">XSLT</a>! 😀</p>
+<p>Packages like <a href="https://www.npmjs.com/package/fast-xml-parser">fast-xml-parser</a>
+and <a href="https://www.npmjs.com/package/fast-xml-builder">fast-xml-builder</a>
+from <a href="https://github.com/NaturalIntelligence">NaturalIntelligence</a> can
+help you loading and saving XML data. See
+<a href="https://github.com/NaturalIntelligence/fast-xml-builder/blob/main/docs/Builder_v1.md#round-tripping-xml--json--xml-xml-declaration">Round-tripping XML → JSON → XML (XML declaration)</a>
+for more information.</p>
+<p>However, the data structures of XML and JSON are not exactly the same,
+so first it is necessary to make certain design decisions. There are
+many online tools that can help you make these decisions; for
+instance: <a href="https://jsonlint.com/xml-to-json">https://jsonlint.com/xml-to-json</a>.</p>
+  </article>
+  <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
+    const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
+    const all_tutorial_sections = all_tutorials.filter( (e) => ( e?.tagName?.toLowerCase() === "section" ) ) ;
+    // console.log('all_tutorial_sections',all_tutorial_sections);
+    const this_tutorial_sections = all_tutorial_sections &&
+                                   all_tutorial_sections.length &&
+                                   all_tutorial_sections[0] ;
+    // console.log('this_tutorial_sections',this_tutorial_sections);
+    if ( this_tutorial_sections ) {
+        ['h1','h2','h3','h4','h5','h6'].forEach( (tag) => {
+            const tutorial_headers = Array.from( this_tutorial_sections.getElementsByTagName(tag) ) ;
+            // console.log('tutorial_headers',tutorial_headers);
+            tutorial_headers.forEach( (current_header) => {
+                let header_text = current_header.innerText ;
+                header_text = header_text.replace(/\s/ig,"-")
+                                         .replace(/[^-A-Za-z0-9]/g,"")
+                                         .toLowerCase() ;
+                // console.log(tag,'header_text',header_text);
+                current_header.id = header_text ;
+            });
+        }) ;
+    }
+  </script>
+  <script type="module" id="LCamara8_TableOfCOntents">
+    const toc_header = document.getElementById( "table-of-contents" ) ;
+    // console.log('toc_header',toc_header) ;
+    if ( toc_header ) {
+        let toc_ul = toc_header.nextElementSibling ;
+        // console.log('toc_ul',toc_ul) ;
+        if ( toc_ul.tagName.toLowerCase() === "ul" ) {
+            toc_ul.className = ( ((toc_ul.className)?(toc_ul.className+" "):("")) + "table-of-contents" ) ;
+        }
+    }
+  </script>
+  <script type="module" id="LCamara8_TargetExternalUrls">
+    const this_tutorial_origin = document.location.origin ;
+    // console.log('this_tutorial_origin',this_tutorial_origin);
+    const all_anchors = Array.from( document.getElementsByTagName("a") ) ;
+    // console.log('all_anchors',all_anchors);
+    const all_external_anchors = all_anchors.filter(
+      (a) => ( !!(a.href) && !(a.target) && URL.canParse(a.href) &&
+               URL.canParse(this_tutorial_origin) &&
+               ["http:","https:"].includes( URL.parse(a.href,this_tutorial_origin).protocol ) &&
+               ( URL.parse(a.href,this_tutorial_origin).origin !== URL.parse(this_tutorial_origin).origin ) )
+    ) ;
+    // console.log('all_external_anchors',all_external_anchors);
+    all_external_anchors.forEach( (a) => {
+        a.target = "_blank" ;
+        a.className = ( ((a.className)?(a.className+" "):("")) + "external" ) ;
+        a.insertAdjacentHTML( "afterend", "&nbsp;<span class=\"external\">&#x1F875</span>" ) ;
+    });
+  </script>
+</section>
+
+  </div>
+</main>
+
+<!-- LCamara8 -->
+
+  <footer class="layout-footer">
+    <div class="container">
+        Copyright &copy; 2026 Luis Mar&iacute;a C&Aacute;MARA ROSSI.<br />
+        Trademark &trade; Copyright &copy; 2026 Universidad Nacional de Educaci&oacute;n a Distancia (U.N.E.D.).<br />
+        The <strong><code>JM2MP</code></strong> syntax and this library <strong><code>JM2MP.JS</code></strong> are licensed under <code>BSD-3-Clause</code>
+        <sup>
+          <a target="BSD1" href="https://opensource.org/license/bsd-3-clause">[1]</a>
+          <a target="BSD2" href="https://spdx.org/licenses/BSD-3-Clause.html">[2]</a>
+        </sup> license.
+        <br />
+        See <a href="./LICENSE.txt" target="LICENSE">LICENSE.txt</a> for more info.
+    </div>
+    <br />
+    <div class="container">
+      Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
+      and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
+       on 2026-08-26T15:45:19.766Z
+    </div>
+  </footer>
+
+
+<script src="scripts/prism.dev.js"></script>
+</body>
+</html>

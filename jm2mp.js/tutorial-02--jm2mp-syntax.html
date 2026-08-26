@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSON Model-to-Model Projection (JM2MP) Documentation</title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/jm2mp-jsdoc.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header class="layout-header">
+  
+    <a href="./">
+      <img
+        src="./images/JM2MP-Logo.png" width="48"
+        alt="JSON Model-to-Model Projection (JM2MP) Documentation"
+      >
+    </a>
+  
+  <h1>
+    <a href="./index.html">
+      JSON Model-to-Model Projection (JM2MP) Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <ul><li class="nav-heading">Tutorials</li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-01--getting-started.html">Getting Started!</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-02--jm2mp-syntax.html">JM2MP Syntax</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-03--nql-syntax.html">Native Query Language</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-04--examples.html">Examples</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-06--use-cases.html">Use Cases</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-07--jsdoc.html">Documentation Generation Using Tidy-JSDoc</a></span></li></ul><ul><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#_adapters">_adapters</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#names">names</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.AdapterError.html">AdapterError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ParseError.html">ParseError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ResolutionError.html">ResolutionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ValidationError.html">ValidationError</a></span></li></ul><ul><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_helpers.html">jm2mp/adapters/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_helpers.html#.createNativeRegistry">createNativeRegistry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jmespath.html">jm2mp/adapters/jmespath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jmespath.html#.createJmesPathAdapter">createJmesPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonata.html">jm2mp/adapters/jsonata</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonata.html#.createJsonataAdapter">createJsonataAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpath.html">jm2mp/adapters/jsonpath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpath.html#.createJsonPathAdapter">createJsonPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpointer.html">jm2mp/adapters/jsonpointer</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpointer.html#.createJsonPointerAdapter">createJsonPointerAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonquery.html">jm2mp/adapters/jsonquery</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonquery.html#.createJsonQueryAdapter">createJsonQueryAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native.html">jm2mp/adapters/native</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native.html#.createNativeAdapter">createNativeAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native_paths.html">jm2mp/adapters/native_paths</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_native_paths.html#.EXECUTION_ENVIRONMENT_FROM">EXECUTION_ENVIRONMENT_FROM</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.navigate">navigate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.parsePath">parsePath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isDigit">isDigit</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierContinue">isIdentifierContinue</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierStart">isIdentifierStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readIdentifier">readIdentifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readNonNegativeInteger">readNonNegativeInteger</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readQuotedString">readQuotedString</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_registry.html">jm2mp/adapters/registry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v4_middleware.html">jm2mp/api/express/v4/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~asyncHandler">asyncHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v5_middleware.html">jm2mp/api/express/v5/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#.PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_cli.html">jm2mp/cli</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_errors.html">jm2mp/errors</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_evaluator.html">jm2mp/evaluator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~compareOrdered">compareOrdered</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepen">deepen</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepEqual">deepEqual</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalLiteralObject">evalLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalOperation">evalOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalProjection">evalProjection</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~expectType">expectType</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~typeName">typeName</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_index.html">jm2mp/index</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.createAdapterRegistry">createAdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.project">project</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_helpers.html">jm2mp/modules/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_helpers.html#.ROOT_TEMPLATE_NAME">ROOT_TEMPLATE_NAME</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isModule">isModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isPackagedEsmModuleAvailable">isPackagedEsmModuleAvailable</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleOf">moduleOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleWith">moduleWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.ThrowsValidationErrorWhenIsNotAModule">ThrowsValidationErrorWhenIsNotAModule</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_loaders.html">jm2mp/modules/loaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createFileLoader">createFileLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createStringLoader">createStringLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createUrlLoader">createUrlLoader</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_normalizer.html">jm2mp/modules/normalizer</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_normalizer.html#.MODULE_METADATA_KEYS">MODULE_METADATA_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#.normalizeModule">normalizeModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~getDefaultSyntax">getDefaultSyntax</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeGet">normalizeGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeNode">normalizeNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_resolver.html">jm2mp/modules/resolver</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">DEFAULT_MAX_MODULES</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#.resolve">resolve</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#~importInto">importInto</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_validator.html">jm2mp/validator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~KNOWN_OPS">KNOWN_OPS</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~OP_ARGS">OP_ARGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isOperation">isOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isValidName">isValidName</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.validateModule">validateModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateCall">validateCall</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateGet">validateGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLet">validateLet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLiteralObject">validateLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateOperation">validateOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateProjection">validateProjection</a></span></li></ul><ul><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JMESPath.html">JMESPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONata.html">JSONata</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPath.html">JSONPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPointer.html">JSONPointer</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONQuery.html">JSONQuery</a></span></li></ul><ul><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace" title="namespace">N</span><span class="nav-item-name is-namespace"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.abs">abs</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.and">and</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.call">call</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.coalesce">coalesce</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.concat">concat</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.cons">cons</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.div">div</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.eq">eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldArr">foldArr</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldObj">foldObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gt">gt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gte">gte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.if">if</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.length">length</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.let">let</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lookup">lookup</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lower">lower</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lt">lt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lte">lte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.merge">merge</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mod">mod</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neg">neg</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neq">neq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.not">not</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.or">or</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sort">sort</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.substring">substring</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.typeof">typeof</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.upper">upper</a></span></li></ul>
+  </nav>
+</header>
+
+
+<main class="layout-main ">
+  <div class="container">
+    <p class="page-kind"></p>
+    <h1 class="page-title"></h1>
+    
+<section class="tutorial">
+  <header>
+    <h1>JM2MP Syntax</h1>
+  </header>
+  
+  <article>
+    <h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#basic-terminology">Basic Terminology</a></li>
+<li><a href="#notation">Notation</a></li>
+<li><a href="#overview-of-jm2mp">Overview of JM2MP</a></li>
+<li><a href="#data-types">Data Types</a></li>
+<li><a href="#steps-and-paths">Steps and Paths</a></li>
+<li><a href="#template-commands">Template Commands</a>
+<ul>
+<li><a href="#execution-environment">Execution Environment</a>
+<ul>
+<li><a href="#let">let</a></li>
+<li><a href="#call">call</a></li>
+</ul>
+</li>
+<li><a href="#projections">Projections</a>
+<ul>
+<li><a href="#pipe">pipe</a></li>
+<li><a href="#get">get</a></li>
+<li><a href="#if">if</a></li>
+<li><a href="#coalesce">coalesce</a></li>
+<li><a href="#foldarr">foldArr</a></li>
+<li><a href="#foldobj">foldObj</a></li>
+<li><a href="#cons">cons</a></li>
+<li><a href="#insert">insert</a></li>
+<li><a href="#sort">sort</a></li>
+<li><a href="#lookup">lookup</a></li>
+<li><a href="#merge">merge</a></li>
+</ul>
+</li>
+<li><a href="#predicates-and-operators">Predicates and Operators</a>
+<ul>
+<li><a href="#boolean-logic-operators">Boolean logic operators</a>
+<ul>
+<li><a href="#not">not</a></li>
+<li><a href="#and">and</a></li>
+<li><a href="#or">or</a></li>
+</ul>
+</li>
+<li><a href="#logic-predicates">Logic predicates</a>
+<ul>
+<li><a href="#has">has</a></li>
+<li><a href="#eq">eq</a></li>
+<li><a href="#lt">lt</a></li>
+<li><a href="#gt">gt</a></li>
+<li><a href="#lte">lte</a></li>
+<li><a href="#gte">gte</a></li>
+<li><a href="#neq">neq</a></li>
+</ul>
+</li>
+<li><a href="#aritmetic-operators-for-numbers">Aritmetic Operators (for Numbers)</a>
+<ul>
+<li><a href="#add">add</a></li>
+<li><a href="#sub">sub</a></li>
+<li><a href="#mul">mul</a></li>
+<li><a href="#div">div</a></li>
+<li><a href="#mod">mod</a></li>
+<li><a href="#neg">neg</a></li>
+<li><a href="#abs">abs</a></li>
+</ul>
+</li>
+<li><a href="#operators-for-strings">Operators (for Strings)</a>
+<ul>
+<li><a href="#concat">concat</a></li>
+<li><a href="#lenght">lenght</a></li>
+<li><a href="#substring">substring</a></li>
+<li><a href="#upper">upper</a></li>
+<li><a href="#lower">lower</a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">Miscellaneous</a>
+<ul>
+<li><a href="#typeof">typeof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#named-templates">Named Templates</a></li>
+<li><a href="#query-languages">Query Languages</a>
+<ul>
+<li><a href="#available-query-languages">Available Query Languages</a>
+<ul>
+<li><a href="#native">Native</a></li>
+<li><a href="#external-references">External References</a>
+<ul>
+<li><a href="#jmespath">JMESPath</a></li>
+<li><a href="#jsonata">JSONata</a></li>
+<li><a href="#jsonpath">JSONPath</a></li>
+<li><a href="#json-pointer">JSON Pointer</a></li>
+<li><a href="#json-query">JSON Query</a></li>
+</ul>
+</li>
+<li><a href="#other-query-languages">Other Query Languages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#modularization">Modularization</a></li>
+<li><a href="#options">Options</a>
+<ul>
+<li><a href="#version">Version</a></li>
+<li><a href="#annotations">Annotations</a></li>
+<li><a href="#default-query-language">Default Query Language</a></li>
+<li><a href="#depends-on">Depends On</a></li>
+</ul>
+</li>
+<li><a href="#json-schema">JSON Schema</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+<h2>Introduction</h2>
+<p>In this tutorial, we will explain the syntax of the <code>JSON Model-to-Model Projections (JM2MP)</code> format, which is based entirely on the <em>de jure</em>
+<a href="https://ecma-international.org/publications-and-standards/standards/ecma-404/">ECMA-404: The JSON data interchange syntax (2nd edition, December 2017)</a>
+and <em>de facto</em>
+<a href="https://www.rfc-editor.org/info/rfc8259/">RFC 8259: STD 90: The JavaScript Object Notation (JSON) Data Interchange Format</a>
+standards.</p>
+<p>You can find more information about the JSON format at
+<a href="https://www.json.org/">JSON.org</a>.</p>
+<h2>Basic Terminology</h2>
+<p>The following concepts are important terms defined as part of <code>JM2MP</code>:</p>
+<ul>
+<li>
+<p><strong>Source</strong></p>
+<p>The <strong>source</strong> is the <em>input</em> JSON document that is transformed by a
+<strong>projection</strong> JSON document to obtain the <strong>resultant</strong> <em>output</em> JSON
+document.</p>
+</li>
+<li>
+<p><strong>Resultant</strong></p>
+<p>Similarly, the <strong>resultant</strong> is the <em>output</em> JSON document transformed
+by the <strong>projection</strong>.</p>
+</li>
+<li>
+<p><strong>Projection</strong></p>
+<p>It is the algebraic concept of a (macro) function, a JSON document used
+to transform a <strong>source</strong> input JSON document into a <strong>resultant</strong>
+output JSON document.</p>
+<p>A <strong>projection document</strong> is composed by at least one <strong>named template</strong>
+(called the <strong>root template</strong>) and which composes the functions (each
+one called <strong>template command</strong>) that actually transforms specified input
+JSON values into the desired output.</p>
+</li>
+<li>
+<p><strong>Template Command</strong></p>
+<p>It is the algebraic concept equivalent to a transformation function.
+<code>JM2MP</code> defines a number of <strong>template commands</strong>, each of which performs a
+specific operation.</p>
+</li>
+<li>
+<p><strong>Named Template</strong></p>
+<p>Just as in most programming languages with functions or procedures,
+when you want to reuse the functionality provided by the composition
+of multiple instructions in JM2MP, you can declare <em>named templates</em>.</p>
+</li>
+<li>
+<p><strong>Execution Environment</strong></p>
+<p>The <strong>execution environment</strong> maintains information about the complete
+<em>source document</em>, the value of the <em>source document</em> currently being
+processed, as well as any <em>aliases</em> that may have been defined to
+simplify the use of <em>template commands</em> and <em>named templates</em>.</p>
+<p>The section <a href="#execution-environment">execution environment</a> below
+offers more information about this concept.</p>
+</li>
+</ul>
+<h2>Notation</h2>
+<p>We denote 𝕁 as the complete set of all possible JSON values.</p>
+<p>We denote ℙ as the complete set of all <em>template commands</em>.</p>
+<p>Due to the literality and homoiconicity of <code>JM2MP</code> with respect to JSON,
+this means that any <code>JM2MP</code> <em>projection</em> is a valid JSON value, and since
+its <em>resultant</em> value of such a <em>projection</em> must also be a valid JSON
+value, we can therefore conclude that ℙ⊆𝕁.</p>
+<p>We will denote
+<span style="background-color:whitesmoke;">⟦Operator⟧</span>
+as the named operation to be formalized. When such operation acts over a
+list of arguments, we will represent the entire operation as
+<span style="background-color:whitesmoke;">⟦Operator⟧(arguments,…)</span>.
+When the operation is a composition of several operators, we will represent it as
+<span style="background-color:whitesmoke;">⟦MainOperator(Op<sub>1</sub>,…,Op<sub>n</sub>)⟧(arguments,…)</span>.</p>
+<h2>Overview of JM2MP</h2>
+<p>The <code>JSON Model-to-Model Projection (JM2MP)</code> is designed in two parts:
+a <em>projection document</em> and a <em>toolkit</em>.</p>
+<ul>
+<li>
+<p>The former is a specific document format based on JSON syntax called
+the <strong>projection document</strong>, which defines different transformation
+rules that we will call <strong>template commands</strong> that can be grouped into
+<strong>named templates</strong>.</p>
+</li>
+<li>
+<p>The latter is a set of tools (a <em>toolkit</em>) based on programming
+modules, capable of both transforming any input JSON document (which
+we will call the <strong>source document</strong>) into an arbitrary output JSON
+document (called the <strong>resultant document</strong>) following the operations
+that <em>named templates</em> and <em>template commands</em> describe in the
+<em>projection document</em> (also based on JSON).</p>
+</li>
+</ul>
+<p>The <code>JM2MP</code> document or <em>projection document</em> is a JSON document that
+must contain an object as its root value. This object must contain a
+property named <code>$</code>, called the <strong>root template</strong>, because as its name
+implies, it will be the first <em>named template</em> to be invoked as part
+of the <em>projection process</em>.</p>
+<p>To preserve compatibility with the
+<a href="https://json-schema.org/">JSON Schema standard</a>, the declaration of a
+property called <code>$schema</code> is also supported.</p>
+<p>Optionally, it may contain another property called <code>$options</code> to allow
+certain parameters or conditions to be set when processing the <em>projection</em>,
+making it possible to configure the behavior of the programming module
+in some way, as we will see later.</p>
+<p>If there are other properties in this <em>root object</em>, they will be
+considered as additional <strong>named templates</strong>, invocable through their
+respective names, during the projection process.</p>
+<p>Both <code>$schema</code> and <code>$options</code> properties of the <em>root element</em> will
+always be considered as <em>projection metadata</em> and never <em>named
+templates</em>.</p>
+<p>The only mandatory property in the <em>root object</em> is the <em>root template</em>,
+with the rest of the properties being entirely optional. So, the only
+mandatory <em>template</em> for a <em>projection document</em> is the <em>root template</em>.</p>
+<p>It will be the author of the projection who, depending on the complexity
+required and at their sole discretion, determines the appropriate number
+of templates in each case.</p>
+<p>Therefore, the simplest <em>projection</em> that can be constructed is as
+following:</p>
+<pre class="prettyprint source lang-JSON"><code>{ &quot;$&quot; : null }
+</code></pre>
+<p>This <em>projection</em> always generates a JSON document where the <em>output</em>
+value (the <em>resultant</em> document) is the <code>null</code> literal, regardless of
+the <em>source document</em>. We will refer to this particular <em>projection</em> as
+the <strong>null projection</strong>.</p>
+<p>Based in our experience using <code>JM2MP</code>, we recommend to construct
+<em>projections</em> using a generative style of
+<a href="https://dl.acm.org/doi/10.1145/362575.362577">successive refinement</a>,
+starting with such <em>null projection</em> and building the required
+<em>projection</em> guided by the desired output, for instance, using classic
+Jackson's Structured Programming technics, like decomposition.</p>
+<p>Every template in a <em>projection</em>, whether it is the <em>root template</em> or
+an additional <em>named template</em>, is intended to return a JSON value
+obtained from the resolution of that <em>template</em>. Therefore, <em>templates</em>
+can be seen as functions that operate on two set values: the JSON value
+(a fragment from the <em>projection document</em>) representing the operation
+itself (which can be arbitrarily complex), and the <em>execution environment</em>
+(which references the <em>source document</em>, from the root value and from
+the current value to process, plus additional <em>aliases</em> that can be
+declared to ease the operations). The result of the <em>template</em> will be a
+new JSON value that will form part of the <em>resultant document</em>.</p>
+<p>As previously stated, the <code>JM2MP.JS</code>library will start to project (to
+transform) the <em>source document</em> into the <em>resultant document</em> invoking
+the <em>root template</em> (a kind of <em>applying</em> or <em>executing</em> its equivalent
+function) over the initial <em>executon environment</em>.</p>
+<p>This initial <em>execution environment</em> will consider the root value of the
+<em>source document</em> as an argument. Such root value will be, usually in
+any non-trivial JSON documents, a top-level object; but, let's not
+forget, could be an array or even a simple constant literal.</p>
+<p><code>JM2MP</code> achieves dynamism when generating <em>projections</em> through certain
+elements called <strong>template commands</strong>. These <em>commands</em> are
+actually JSON objects that will be processed by the <code>JM2MP.JS</code> library
+to obtain their <em>resultant</em> values, calculated according to the
+corresponding <em>command</em>. These <em>template commands</em> emulate control
+statements in a programming language or lambda functions that are
+automatically invoked; in fact, in the JavaScript language from which
+JSON is derived, there is an idiom called
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">immediately invoked anonymous functions (IIFE)</a>.</p>
+<p>Note that the <em>projection document</em> of <code>JM2MP</code> is always interpreted as
+literally as possible, except for <em>template commands</em>. So:</p>
+<ul>
+<li>
+<p>Any scalar literal value that appears as part of a <em>projection</em> will
+be part of the <em>resultant</em> as is (except <em>strings</em> considered as
+<strong>paths</strong>, as it will be explained below in the
+<a href="#steps-and-paths">steps and paths</a> section).</p>
+</li>
+<li>
+<p>When an array is part of a <em>projection</em>, all its items will be
+processed as potential <em>template commands</em>.</p>
+</li>
+<li>
+<p>When an object is part of a <em>projection</em>, all its property values will
+be processed as potential <em>template commands</em>.</p>
+</li>
+</ul>
+<p>Furthermore, since the process is based on three documents (<em>source</em>,
+<em>projection</em>, and <em>resultant</em>), all of them in JSON format, both the
+knowledge and the operations required to construct such <em>projections</em>
+and <em>templates</em> are greatly simplified.</p>
+<p>Is in the nature of <code>JM2MP</code> to treat both <em>source</em> and <em>projection</em> documents as immutable,
+<a href="https://wiki.haskell.org/index.php?title=Referential_transparency">achieving referential transparency and avoiding side effects</a>,
+and considering all <em>named templates</em> and <em>template commands</em> as
+<a href="https://wiki.haskell.org/index.php?title=Pure"><em>pure functions</em></a>.
+So, to put it simply, mathematically speaking, we could say that:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>projection</ms>
+      <mo>&#x27E7;</mo>
+    </mrow>
+    <mrow>
+      <mo>(</mo>
+      <mi>source</mi>
+      <mo>,</mo>
+      <mi>execution_environment</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <ms>resultant</ms>
+</math>
+<p>For all these reasons, we can conclude that the <code>JM2MP</code> syntax offers a
+combination of both declarative and functional paradigms for transforming
+JSON documents, while also achieving a level of interoperability that a
+simple script or application might not provide.</p>
+<h2>Data types</h2>
+<p>The <a href="https://www.json.org/json-en.html">JSON</a> standard only considers
+following data types:</p>
+<ul>
+<li>Scalar values:
+<ul>
+<li><code>null</code></li>
+<li>Boolean: <code>true</code> and <code>false</code></li>
+<li><code>string</code></li>
+<li><code>number</code></li>
+</ul>
+</li>
+<li>Complex values:
+<ul>
+<li>Array</li>
+<li>Object</li>
+</ul>
+</li>
+</ul>
+<p>Current versions of <code>JM2MP</code> and <code>JM2MP.JS</code> are strict handling data
+types, providing a function to identify the type of a value (see
+<a href="#typeof">typeof projection</a> below) but not providing functions to
+implictly cast neither explicitly convert values from one type to
+another.</p>
+<h2>Steps and Paths</h2>
+<p>To locate a specific value within a JSON document, we need to define a
+mechanism for accessing its structure.</p>
+<p>Due to the data types offered by JSON, its information set, we can
+consider its structure as recursive, because of complex types (arrays
+and objects). In fact, the information in JSON documents is typically
+structured as a tree, where the nodes are values and the edges represent
+membership relationships to arrays and objects. Therefore, all scalar
+values will be leaf nodes, as will arrays with no elements and objects
+with no properties. The root node of the tree will thus be the
+document's root JSON value.</p>
+<p>Consequently, to access a specific value in the document (a node within
+the tree), we need a mechanism to specify how to traverse that tree.</p>
+<p>Since the edges (membership relationships) are limited solely to arrays
+and objects, we can use only: integers to indicate the position of an
+element in the list (the item’s index in the array) and strings to
+indicate an object’s property (the name of the key for that property).</p>
+<p>With these considerations in mind, we can define a <strong>step</strong> as an
+integer or a text string and a <strong>path</strong> as the finite sequence of
+<strong>steps</strong> required to reach and access a specific value.</p>
+<p>Currently exist a multitude of mechanisms for locating, searching, and
+querying JSON documents. For this reason, the <code>JM2MP.JS</code> library
+facilitates the use of any of these mechanisms, defining an
+adapter-based interface to make them easy to use within the <code>JM2MP</code>
+format and incorporating newer ones in the future.</p>
+<p>In fact, it is possible to use several of them simultaneously within the
+same <em>projection</em>, so that you can always choose the most suitable
+option based on the features offered by that query mechanism.</p>
+<p>The <em>template command</em> used for queries is <a href="#get">get</a>. By default,
+<code>JM2MP</code> incorporates a syntax known as <code>native</code>, which simplifies
+querying by simply using text string literals prefixed in a specific way.</p>
+<p>See below the <a href="#query-languages">query languages</a> section for more
+information about this topic.</p>
+<h2>Template Commands</h2>
+<p><strong>Template commands</strong> are the functions that transforms JSON values.</p>
+<p>We divide <em>template commands</em> in different families due of the nature
+of its intentions inside <code>JM2MP</code> syntax:
+<a href="#execution-environment">execution environment</a>,
+<a href="#projections">projections</a>,
+<a href="#predicates">predicates</a>, and <a href="#operators">operators</a>.</p>
+<h3>Execution environment</h3>
+<p>The <strong>execution environment</strong>, formally defined in <code>JM2MP</code> as an
+immutable tuple ρ, maintains information about:</p>
+<ul>
+<li>
+<p>The <strong>root context</strong>, represented by the <em>path</em> prefix <code>$</code>, is always a
+reference to the root value of the entire <em>source document</em>.</p>
+</li>
+<li>
+<p>The <strong>current context</strong>, represented by the <em>path</em> prefix <code>@</code>, is a
+reference the value from the <em>source document</em> currently being
+processed by a <em>template command</em> within a <em>named template</em>.</p>
+<p>Note that two specific <em>template commands</em> enrich their own
+<em>current context</em> to provide additional capabilities:
+<a href="#foldarr">foldArr</a> and <a href="#foldobj">foldObj</a>.</p>
+</li>
+<li>
+<p>Named <strong>aliases</strong>, represented by the path prefix <code>%</code>, are expressions
+bound to the current <strong>scope</strong> in which a <em>template command</em> is being
+applied (executed), with the intent of simplifying the use of such
+<em>template command</em>.</p>
+</li>
+</ul>
+<p>As part of any <em>named template</em>, you can use the <em>template commands</em>
+<a href="#let">let</a> and <a href="#call">call</a> to define new <em>scopes</em>, specifically to
+obtain a new <em>execution environment</em> to work with (because, remember,
+they are immutable).</p>
+<p>In its current version, <code>JM2MP.JS</code> will only allow access to the
+<em>execution environment</em> using these prefixes for the
+<a href="./tutorial-03--nql-syntax.html#textual-string-variant">textual variant</a>
+of the <a href="#native">native query language</a>. Thanks to the definition of the
+<a href="./module-jm2mp_adapters_registry.html#.QueryAdapter">QueryAdapter interface</a>,
+any implementation could propose minor modifications to its represented
+<em>external query language</em> to allow it to access to this <em>execution
+environment</em> as well.</p>
+<h4>let</h4>
+<p>The <code>let</code> <em>template command</em> is used to create new <em>alias bindings</em>.</p>
+<p>An <em>alias</em> is an immutable expression that substitutes for that
+expression every time it is used, providing
+<a href="https://wiki.haskell.org/index.php?title=Referential_transparency">referential transparency</a>.</p>
+<p>Every <code>let</code> creates a new <strong>scope</strong> where <em>bindings</em> are defined.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot; : &quot;let&quot;,
+  &quot;$bindings&quot;: [
+    &quot;&lt;alias_1>&quot; : &#x2119;,
+    &quot;...&quot;       : &#x2119;,
+    &quot;&lt;alias_n>&quot; : &#x2119;
+  ],
+  &quot;$in&quot;: &#x2119;
+}
+</code></pre>
+<p>All <em>aliases</em> are computed in parallel, so two sibling aliases (defined in
+same <em>scope</em>) cannot depend on each another.</p>
+<p>When you need to create a second <em>alias</em> that depends on a first <em>alias</em>,
+you must define an inner scope (for the second <em>alias</em>) inside the outer
+<em>scope</em> (where the first <em>alias</em> is defined), since the <code>bindings</code> clause
+is evaluated before the <code>in</code> clause.</p>
+<p>For example:</p>
+<pre class="prettyprint source lang-JSON"><code>{ &quot;$op&quot; : &quot;let&quot;,
+  &quot;$bindings&quot;: [
+    &quot;outer_alias&quot; : &quot;&lt;Free expression>&quot;
+   ],
+  &quot;$in&quot; : {
+    &quot;$op&quot; : &quot;let&quot;,
+    &quot;$bindings&quot; : [
+      &quot;inner_alias&quot; : &quot;&lt;Dependant expression of %outer_alias>&quot;
+    ],
+    &quot;$in&quot; : &#x2119;
+  }
+}
+</code></pre>
+<h4>call</h4>
+<p>The <code>call</code> <em>template command</em> is used to invoke an existing
+<a href="#named-templates">named template</a>, just as if it were a function.</p>
+<p>Its basic JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;  : &quot;call&quot;,
+  &quot;$ref&quot; : &quot;&lt;Declared named template>&quot;
+}
+</code></pre>
+<p>Optionally, it allows to change the <a href="#execution-environment">current context</a>
+using its <code>at</code> clause:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;  : &quot;call&quot;,
+  &quot;$ref&quot; : &quot;&lt;Declared named template>&quot;,
+  &quot;$at&quot;  :  &#x2119;
+}
+</code></pre>
+<h3>Projections</h3>
+<p><strong>Projections</strong> are operations that actually transform an input JSON
+value (or values) into an output JSON value.</p>
+<h4>pipe</h4>
+<p>The <code>pipe</code> <em>template command</em> is the <em>projection</em> that represents the
+sequential associative composition and, as its name implies, it composes
+all declared transformations left to right.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;     : &quot;pipe&quot;,
+  &quot;$stages&quot; : [ &#x2119;_1 , &hellip; , &#x2119;_n ]
+}
+</code></pre>
+<p>where its algebraic equivalence is as follows:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>pipe</ms>
+      <mo>(</mo>
+      <msub><mi>&#x2119;</mi><mn>1</mn></msub>
+      <mo>,</mo>
+      <mo>&hellip;</mo>
+      <mo>,</mo>
+      <msub><mi>&#x2119;</mi><mn>n</mn></msub>
+      <mo>)</mo>
+      <mo>&#x27E7;</mo>
+    </mrow>
+    <mrow>
+      <mo>(</mo>
+      <mi>&rho;</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msub><mi>&#x2119;</mi><mn>n</mn></msub>
+    <mo>&#x2218;</mo>
+    <mi>&hellip;</mi>
+    <mo>&#x2218;</mo>
+    <msub><mi>&#x2119;</mi><mn>1</mn></msub>
+    <mo>(</mo>
+    <mi>&rho;</mi>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msub><mi>&#x2119;</mi><mn>n</mn></msub>
+    <mo>(</mo>
+    <mi>&hellip;</mi>
+    <mo>(</mo>
+    <msub><mi>&#x2119;</mi><mn>1</mn></msub>
+    <mo>(</mo>
+    <mi>&rho;</mi>
+    <mo>)</mo>
+    <mo>)</mo>
+    <mi>&hellip;</mi>
+    <mo>)</mo>
+  </mrow>
+</math>
+<h4>get</h4>
+<p>The <code>get</code> <em>template command</em> is the <em>projection</em> that does a selection
+of values in the specified path and, optionally, from the specified
+<em>environment</em> (context, root or alias).</p>
+<p>Its basic JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;get&quot;,
+  &quot;$path&quot; : &quot;&lt;Path to the specified source values>&quot;
+}
+</code></pre>
+<p>It is also possible to define which <a href="#query-languages">query language</a>
+is used (clause <code>syntax</code>), and also change its <em>current context</em> (clause
+<code>from</code>):</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;     : &quot;get&quot;,
+  &quot;$syntax&quot; : &quot;&lt;Name of the query language used in $path>&quot;,
+  &quot;$path&quot;   : &quot;&lt;Path to the specified source values>&quot;,
+  &quot;$from&quot;   : &#x2119;
+}
+</code></pre>
+<h4>if</h4>
+<p>The <code>if</code> <em>template command</em> is the <em>projection</em> that projects its <code>then</code>
+clause when the <code>cond</code> clause is evaluated as <code>true</code>; otherwise, it
+projects its <code>else</code> clause.</p>
+<p>The <code>if</code> <em>template command</em> uses short-circuit evaluation, meaning that
+the <code>else</code> clause is only projected if and only if the <em>resultant value</em>
+from <code>cond</code> <em>projection</em> is <code>false</code>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;if&quot;,
+  &quot;$cond&quot; : &#x2119;,
+  &quot;$then&quot; : &#x2119;,
+  &quot;$else&quot; : &#x2119;
+}
+</code></pre>
+<p>where its algebraic equivalence is as follows:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>if</ms>
+      <mrow>
+        <mo>(</mo>
+        <ms>cond</ms>
+        <mo>,</mo>
+        <ms>then</ms>
+        <mo>,</mo>
+        <ms>else</ms>
+        <mo>)</mo>
+      </mrow>
+      <mo>&#x27E7;</mo>
+    </mrow>
+    <mrow>
+      <mo>(</mo>
+      <mi>&rho;</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mo>{</mo>
+    <mtable columnalign="left">
+      <mtr>
+        <mtd>
+          <mo>&#x27E6;</mo>
+          <ms>then</ms>
+          <mo>&#x27E7;</mo>
+          <mrow>
+            <mo>(</mo>
+            <mi>&rho;</mi>
+            <mo>)</mo>
+          </mrow>
+        </mtd>
+        <mtd>
+          <mrow>
+            <ms>, when </ms>
+            <mo>&#x27E6;</mo>
+            <ms>cond</ms>
+            <mo>&#x27E7;</mo>
+            <mrow>
+              <mo>(</mo>
+              <mi>&rho;</mi>
+              <mo>)</mo>
+            </mrow>
+            <mo>=</mo>
+            <mi>true</mi>
+          </mrow>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mo>&#x27E6;</mo>
+          <ms>else</ms>
+          <mo>&#x27E7;</mo>
+          <mrow>
+            <mo>(</mo>
+            <mi>&rho;</mi>
+            <mo>)</mo>
+          </mrow>
+        </mtd>
+        <mtd>
+          <ms>, otherwise</ms>
+        </mtd>
+      </mtr>
+    </mrow>
+  </mrow>
+</math>
+<h4>coalesce</h4>
+<p>The <code>coalesce</code> <em>template command</em> mixes the <code>if</code> and <code>get</code> <em>projections</em>
+in order to simplify obtaining a <code>default</code> value only when it is not
+possible getting the specified one.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;      : &quot;coalesce&quot;,
+  &quot;$value&quot;   : &#x2119;,
+  &quot;$default&quot; : &#x2119;
+}
+</code></pre>
+<h4>foldArr</h4>
+<p>The <code>foldArr</code> <em>template command</em> is the <em>projection</em> that projects its
+<code>step</code> clause over all items of array <code>over</code>, from right to the left,
+starting by <code>init</code>.</p>
+<p>It is a <em>catamorphism</em> over ARRAY(𝕁),
+meaning that <code>step</code> is actually a <em>template command</em> used as a function
+to reduce, transform or eliminate every item resultant from <code>over</code> clause:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <ms>foldArr</ms>
+    <mo>:</mo>
+    <msup>
+      <mi>A</mi>
+      <mo>*</mo>
+    </msup>
+    <mo>&times;</mo>
+    <mi>B</mi>
+    <mo>&times;</mo>
+    <mrow>
+      <mo>(</mo>
+      <mi>A</mi>
+      <mo>&times;</mo>
+      <mi>B</mi>
+      <mo>&rarr;</mo>
+      <mi>B</mi>
+      <mo>)</mo>
+    </mrow>
+    <mo>&rarr;</mo>
+    <mi>B</mi>
+  </mrow>
+</math>
+<p>where: A,B⊆ℙ.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;foldArr&quot;,
+  &quot;$over&quot; : &#x2119;,
+  &quot;$init&quot; : &#x2119;,
+  &quot;$step&quot; : &#x2119;
+}
+</code></pre>
+<p>The <code>foldArr</code> <em>projection</em> changes the <em>context</em> in every <code>step</code>
+evaluation, considering the following object as its <em>current context</em>:</p>
+<pre class="prettyprint source lang-JavaScript"><code>const foldArr_step_context = {
+  // The current item from OVER array.
+  /** @type {*} */ item: over[i],
+  // The current value of the accumulator.
+  /** @type {*} */ acc,
+  // The index of the current element from OVER array.
+  /** @type {integer} */ index: i
+};
+</code></pre>
+<h4>foldObj</h4>
+<p>Similarly, the <code>foldArr</code> <em>template command</em> is the <em>projection</em> that projects its
+<code>step</code> clause over all properties of object <code>over</code>, starting by <code>init</code>.</p>
+<p>It is a <em>catamorphism</em> over MAP(Σ*⇀𝕁),
+meaning that <code>step</code> is actually a <em>template command</em> used as a function
+to reduce, transform or eliminate every property of <code>over</code>:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <ms>foldObj</ms>
+    <mo>:</mo>
+    <mrow>
+      <mrow>
+        <mo>{</mo>
+        <msup>
+          <mi>&Sigma;</mi>
+          <mo>*</mo>
+        </msup>
+        <mo>&#x21C0;</mo>
+        <mi>A</mi>
+        <mo>}</mo>
+      </mrow>
+      <mo>&times;</mo>
+      <mi>B</mi>
+      <mo>&times;</mo>
+      <mrow>
+        <mo>(</mo>
+        <msup>
+          <mi>&Sigma;</mi>
+          <mo>*</mo>
+        </msup>
+        <mo>&times;</mo>
+        <mi>A</mi>
+        <mo>&times;</mo>
+        <mi>B</mi>
+        <mo>&rarr;</mo>
+        <mi>B</mi>
+        <mo>)</mo>
+      </mrow>
+      <mo>&rarr;</mo>
+      <mi>B</mi>
+    </mrow>
+  </mrow>
+</math>
+<p>where: A,B⊆ℙ.</p>
+<p>Becase <code>foldObj</code> operates over objects (the finite set of partial
+functions from keys to values), its <code>step</code> operation must be commutative
+respect property names (distinct key-values pairs). It is responsibility
+of the author of such projection to guarantee this restriction;
+otherwise, <code>JM2MP.JS</code> cannot guarantee deterministic results.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;foldObj&quot;,
+  &quot;$over&quot; : &#x2119;,
+  &quot;$init&quot; : &#x2119;,
+  &quot;$step&quot; : &#x2119;
+}
+</code></pre>
+<p>The <code>foldObj</code> <em>projection</em> changes the <em>context</em> in every <code>step</code>
+evaluation, considering the following object as its <em>current context</em>:</p>
+<pre class="prettyprint source lang-JavaScript"><code>const foldObj_step_context = {
+  // The current property's name from OVER object.
+  /** @type {string} */ key,
+  // The current property's value from OVER object.
+  /** @type {*} */ value: obj[key],
+  // The current accumulator.
+  /** @type {*} */ acc
+};
+</code></pre>
+<h4>cons</h4>
+<p>The <code>cons</code> <em>template command</em> is the <em>projection</em> used to create new a
+item into an existing array, and insert it as its first element.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;cons&quot;,
+  &quot;$head&quot; : &#x2119;,
+  &quot;$tail&quot; : &#x2119;
+}
+</code></pre>
+<h4>insert</h4>
+<p>The <code>insert</code> <em>template command</em> is the <em>projection</em> used to create new a
+property into an existing object.</p>
+<p>If the existing object <code>into</code> already has a property with name <code>key</code>,
+its old value will be lost and <code>value</code> will be its new value
+(overriding it).</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;insert&quot;,
+  &quot;$key&quot;   : &#x2119;,
+  &quot;$value&quot; : &#x2119;,
+  &quot;$into&quot;  : &#x2119;
+}
+</code></pre>
+<h4>sort</h4>
+<p>The <code>sort</code> <em>template command</em> is a <em>projection</em> used to sort the items
+of an array, using a specified criteria.</p>
+<p>The <code>sort</code> <em>template command</em> is actually a derived <em>projection</em>,
+included by its reduced algorithmic complexity <em>O(n)</em> againts the
+non-trivial combination of <code>foldArr</code>, <code>if</code> and <code>lt</code> <em>projections</em>
+of complexity <em>O(n<sup>2</sup>)</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;   : &quot;sort&quot;,
+  &quot;$over&quot; : &#x2119;,
+  &quot;$by&quot;   : &#x2119;,
+  &quot;$desc&quot; : &#x2119;
+}
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>over</code> is the mandatory list to sort.</li>
+<li><code>by</code> is an optional <em>projection</em> to produce the ordering key; if
+ommited, then the ordering criteria will be to sort by the items
+themselves.</li>
+<li><code>desc</code> is an optional clause that must be evaluated as a <em>logic
+predicate</em> (Boolean); by default, its value <code>false</code> will order
+<code>over</code> in ascending order.</li>
+</ul>
+<h4>lookup</h4>
+<p>The <code>lookup</code> <em>template command</em> is a <em>projection</em> used to get the value
+of the property's name specified by the <code>key</code> clause of the object
+specified by the <code>in</code> clause.</p>
+<p>The <code>lookup</code> <em>projection</em> can be derived from the <code>foldObj</code> <em>projection</em>,
+but with a higher complexitiy of <em>O(n)</em> instead of just <em>O(1)</em>;
+nowadays, objects are hash tables and getting any key is considered a
+constant-time operation.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;  : &quot;lookup&quot;,
+  &quot;$key&quot; : &#x2119;,
+  &quot;$in&quot;  : &#x2119;
+}
+</code></pre>
+<p>The <code>lookup</code> <em>projection</em> returns a <code>null</code> value whenever <code>in</code> is evaluated to <code>null</code> or <code>key</code> does not belongs to the resultant (object) value of <code>in</code>.</p>
+<p>An <a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a> will be raised if the resultant value of <code>in</code> were not of <em>object</em> type.</p>
+<h4>merge</h4>
+<p>The <code>merge</code> <em>template command</em> is a <em>projection</em> used to merge two
+objects, <code>left</code> and <code>right</code>, into a newer resultant one, getting all
+properties from both but, in case of duplicate keys, returning only the
+values from the <code>right</code> object (applying priority right-to-left, or
+overriding the <code>left</code> values with the <code>right</code> ones on equally-named
+properties).</p>
+<p>The <code>merge</code> <em>projection</em> can be derived from the <code>foldObj</code> and <code>insert</code>
+<em>projections</em>, but with a higher complexitiy of <em>O(m<sup>2</sup>+m·n)</em>
+instead of just <em>O(m+n)</em>; nowadays, objects can be efficiently combined (for instance, using the
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals">JavaScript's spread syntax in object literals</a>).</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;merge&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h3>Predicates and Operators</h3>
+<p>Because some <code>JM2MP</code> <em>projections</em> evaluates conditions, it is neccesary
+to consider predicates, that is, functions or operations that obtains a
+logical value (a Boolean <code>true</code> or <code>false</code> value) in order to take some
+considerations.</p>
+<p>At the same time, it is neccessary to establish mechanisms that allow
+operations to be performed on scalar values in order to obtain
+<em>resultant</em> values derived from one or more <em>source</em> values.</p>
+<p>In general, their algebraic equivalence is as follows:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>UnaryOperation</ms>
+      <mrow>
+        <mo>(</mo>
+        <ms>value</ms>
+        <mo>)</mo>
+      </mrow>
+      <mo>&#x27E7;</mo>
+    </mrow>
+    <mrow>
+      <mo>(</mo>
+      <mi>&rho;</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mo>Operator</mo>
+    <mo>(</mo>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>value</ms>
+      <mo>&#x27E7;</mo>
+      <mrow>
+        <mo>(</mo>
+        <mi>&rho;</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+    <mo>)</mo>
+  </mrow>
+</math>
+<br />
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>BinaryOperator</ms>
+      <mrow>
+        <mo>(</mo>
+        <ms>left</ms>
+        <mo>,</mo>
+        <ms>right</ms>
+        <mo>)</mo>
+      </mrow>
+      <mo>&#x27E7;</mo>
+    </mrow>
+    <mrow>
+      <mo>(</mo>
+      <mi>&rho;</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mo>(</mo>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>left</ms>
+      <mo>&#x27E7;</mo>
+      <mrow>
+        <mo>(</mo>
+        <mi>&rho;</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+    <mo>Operator</mo>
+    <mrow>
+      <mo>&#x27E6;</mo>
+      <ms>right</ms>
+      <mo>&#x27E7;</mo>
+      <mrow>
+        <mo>(</mo>
+        <mi>&rho;</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+    <mo>)</mo>
+  </mrow>
+</math>
+<p>Predicates and operators are divided in several categories due to its
+nature:
+<a href="#boolean-logic-operators">Boolean logic operators</a>,
+<a href="#logic-predicates">logic predicates</a>,
+<a href="#aritmetic-operators-for-numbers">aritmetic (for numbers)</a>,
+<a href="#operators-for-strings">operators (for strings)</a>,
+and the last one <a href="#miscellaneous">miscellaneous</a> category.</p>
+<h4>Boolean logic operators</h4>
+<p>Although, strictly speaking from an algebraic standpoint, only the <code>not</code>
+and <code>and</code> operators are needed to combine any predicate in propositional
+logic, the <code>or</code> operator has also been added for convenience.</p>
+<p>Each of them is explained below.</p>
+<h5>not</h5>
+<p>The <code>not</code> <em>template command</em> <em>projects</em> the negation of its <code>value</code> clause.</p>
+<p>Only <em>projections</em> that <em>resultant</em> in Boolean values are considered,
+raising an <a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a>
+exception otherwise.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;not&quot;,
+  &quot;$value&quot; : &#x2119;
+}
+</code></pre>
+<h5>and</h5>
+<p>The <code>and</code> <em>template command</em> <em>projects</em> the conjunction of its <code>left</code> and <code>right</code> clauses.</p>
+<p>Only <em>projections</em> that <em>resultant</em> in Boolean values are considered,
+raising an <a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a>
+exception otherwise.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;and&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>or</h5>
+<p>The <code>or</code> <em>template command</em> <em>projects</em> the disjunction of its <code>left</code> and <code>right</code> clauses.</p>
+<p>Only <em>projections</em> that <em>resultant</em> in Boolean values are considered,
+raising an <a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a>
+exception otherwise.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;or&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h4>Logic predicates</h4>
+<p>Once again, although strictly speaking from an algebraic point of view,
+only the operators <code>eq</code> and <code>lt</code> are needed to combine any predicate in
+propositional logic that involves a numerical order, the rest of the
+operators commonly used in these cases have been also defined for the
+sake of convenience.</p>
+<p>Each of them is explained below.</p>
+<h5>has</h5>
+<p>Because <code>JM2MP</code> provides an algebraic closure for JSON data types, any
+<em>undefined</em> operation (such as searching for a value using a path that
+does not exist) returns a <code>null</code> value.</p>
+<p>For this reason, the <code>has</code> <em>projection</em> is provided, which determines
+whether a <code>key</code> exists <code>in</code> the specified object.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;  : &quot;has&quot;,
+  &quot;$key&quot; : &#x2119;,
+  &quot;$in&quot;  : &#x2119;
+}
+</code></pre>
+<h5>eq</h5>
+<p>The <code>eq</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>equal</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;eq&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>lt</h5>
+<p>The <code>lt</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>less than</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;lt&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>gt</h5>
+<p>The <code>lt</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>greater than</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;gt&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>lte</h5>
+<p>The <code>lt</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>less than or equal</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;lte&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>gte</h5>
+<p>The <code>lt</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>greater than or equal</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;gte&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>neq</h5>
+<p>The <code>neq</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>not equal</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;neq&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h4>Aritmetic Operators (for Numbers)</h4>
+<p>The classic arithmetic operations, both binary and unary, have been
+defined in <code>JM2MP</code>, namely: <a href="#add">addition</a>, <a href="#sub">subtraction</a>,
+<a href="#mul">multiplication</a>, <a href="#div">division</a>, <a href="#mod">modulo</a>,
+<a href="#neg">negation</a>, and <a href="#abs">absolute value</a>.</p>
+<h5>add</h5>
+<p>The <code>add</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>addition</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;add&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>sub</h5>
+<p>The <code>sub</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>substraction</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;sub&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>mul</h5>
+<p>The <code>mul</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>multiplication</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;mul&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>div</h5>
+<p>The <code>mul</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>division</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;div&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>mod</h5>
+<p>The <code>mul</code> <em>projection</em> provides in <code>JM2MP</code> binary numerical operation <em>modulo</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;mod&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>neg</h5>
+<p>The <code>neg</code> <em>projection</em> provides in <code>JM2MP</code> unary numerical operation <em>negation</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;neg&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h5>abs</h5>
+<p>The <code>abs</code> <em>projection</em> provides in <code>JM2MP</code> unary numerical operation <em>absolute value</em>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;abs&quot;,
+  &quot;$left&quot;  : &#x2119;,
+  &quot;$right&quot; : &#x2119;
+}
+</code></pre>
+<h4>Operators (for Strings)</h4>
+<p>Similar to numbers, but in this case for text strings,
+the classic operations, both binary and unary, have been
+defined in <code>JM2MP</code>, namely:
+<a href="#concat">concatenation</a>,
+<a href="#lenght">lenght</a>,
+<a href="#substring">substring</a>,
+<a href="#upper">to-upper-case</a>, and
+<a href="#lower">to-lower-case</a>.</p>
+<h5>concat</h5>
+<p>The <code>concat</code> <em>projection</em> provides in <code>JM2MP</code> functionality to concatenate several strings into a newer one.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;concat&quot;,
+  &quot;$parts&quot; : &#x2119;
+}
+</code></pre>
+<h5>lenght</h5>
+<p>The <code>length</code> <em>projection</em> provides in <code>JM2MP</code> the ability to count
+characters from a <em>string</em> value, but also items from an array.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;length&quot;,
+  &quot;$value&quot; : &#x2119;
+}
+</code></pre>
+<h5>substring</h5>
+<p>The <code>substring</code> <em>projection</em> provides in <code>JM2MP</code> the ability to select
+inner characters from a <em>string</em> value, specifying the position of
+initial character (zero-based) and, optionally, also the position of the
+final character (but not including it).</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;substring&quot;,
+  &quot;$value&quot; : &#x2119;,
+  &quot;$start&quot; : &#x2119;,
+  &quot;$end&quot;   : &#x2119;
+}
+</code></pre>
+<h5>upper</h5>
+<p>The <code>upper</code> <em>projection</em> provides in <code>JM2MP</code> the ability to transform
+all characters from a <em>string</em> value into their corresponding upper-case
+character.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;upper&quot;,
+  &quot;$value&quot; : &#x2119;
+}
+</code></pre>
+<h5>lower</h5>
+<p>Similarly, the <code>lower</code> <em>projection</em> provides in <code>JM2MP</code> the ability to
+transform all characters from a <em>string</em> value into their corresponding
+lower-case character.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;lower&quot;,
+  &quot;$value&quot; : &#x2119;
+}
+</code></pre>
+<h4>Miscellaneous</h4>
+<p>Th miscellaneous category currently offers only one <em>template command</em>
+for type identification. In future lines of work this functionality
+could be expanded to allow, for instance, conversions between data
+types.</p>
+<h5>typeof</h5>
+<p>The <code>typeof</code> <em>template command</em> provides in <code>JM2MP</code> the ability to
+detect the exact JSON data type of a value, that is: <code>null</code>, <code>boolean</code>,
+<code>number</code>, <code>string</code>, <code>array</code> or <code>object</code>.</p>
+<p>Its JSON form is:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$op&quot;    : &quot;typeof&quot;,
+  &quot;$value&quot; : &#x2119;
+}
+</code></pre>
+<p>Note that JSON data types are a subset of JavaScript's data types. In
+the above <a href="#data-types">data types</a> section, you can examine them all.</p>
+<h2>Named Templates</h2>
+<p><strong>Named templates</strong> are all properties of the <em>root object</em> from the
+<em>projection document</em> or <em>projection module</em> whose identifier is neither
+the <em>root template</em> (<code>$</code>) nor <em>metadata</em> (<code>$options</code> and <code>$schema</code>).</p>
+<p>Just as in any programming languages, where a sequence of instructions
+is given a name and encapsulated in a function or procedure so that it
+can be called multiple times from different points in the program,
+<em>named templates</em> are used to group a set of <em>template commands</em> and
+JSON values to obtain a <em>resultant value</em> each time they are invoked
+(using <a href="#call">call</a> <em>template command</em>), thereby avoiding the
+repetition of the same structure at different points in the <em>projection</em>.</p>
+<p>Since <code>JM2MP</code> treats object properties as commutative sets, the order in
+which <em>named templates</em> appear in the <em>projection document</em> is
+irrelevant. However, you must take into account the <a href="#modularization">import rules for
+projection modules</a>, because when the same <em>named
+template</em> identifier is used in several different <em>modules</em>, the last
+ones to be imported might <em>override</em> previously imported <em>named
+templates</em>.</p>
+<p>Also important to note is that <code>call</code> resets <em>aliases</em> to ∅ (the
+empty set) deliberately: no previously <em>aliases</em> can be used by a invoked
+<em>named template</em>). <em>Named templates</em> are autonomous functions of their
+<em>context</em>, so their behaviour is predictable regardless of who invoked
+them (and when).</p>
+<p>Considering the next example, where the <em>source document</em> contains
+only an integer (<code>number</code>) value:</p>
+<pre class="prettyprint source lang-JSON"><code>5
+</code></pre>
+<p>the <em>projection document</em> contains the
+<a href="https://www.kirupa.chat/p/life-of-pi-calculating-its-value">Gregory-Liebniz (or Madhava-Leibniz) Series</a>
+formula to calculate an approximation of number
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI">Pi (π)</a>
+in a recursive manner:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mi>&pi;</mi>
+    <mo>=</mo>
+    <mrow>
+      <mn>4</mn>
+      <mo>&middot;</mo>
+      <mrow>
+        <munderover>
+          <mo>&sum;</mo>
+          <mrow>
+            <mi>n</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow>
+            <mn>&infin;</mn>
+          </mrow>
+        </munderover>
+        <mo>(</mo>
+        <mfrac>
+          <mrow>
+            <msup>
+              <mrow>
+                <mo>(</mo>
+                <mn>-1</mn>
+                <mo>)</mo>
+              </mrow>
+              <mi>n</mi>
+            </msup>
+          </mrow>
+          <mrow>
+            <mo>(</mo>
+            <mo>(</mo>
+            <mn>2</mn>
+            <mo>&middot;</mo>
+            <mi>n</mi>
+            <mo>)</mo>
+            <mo>+</mo>
+            <mn>1</mn>
+            <mo>)</mo>
+          </mrow>
+        </mfrac>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mrow>
+</math>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$&quot;: {
+    &quot;$op&quot;: &quot;mul&quot;,
+    &quot;$left&quot;: 4,
+    &quot;$right&quot;: { &quot;$op&quot;: &quot;call&quot;,
+                &quot;$ref&quot;: &quot;Pi&quot;,
+                &quot;$at&quot;: 0 }
+  },
+
+  &quot;Pi&quot;: {
+    &quot;$op&quot;: &quot;if&quot;,
+    &quot;$cond&quot;: {
+      &quot;$op&quot;: &quot;lt&quot;,
+      &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; },
+      &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$&quot; }
+    },
+    &quot;$then&quot;: {
+      &quot;$op&quot;: &quot;sub&quot;,
+      &quot;$left&quot;: { &quot;$op&quot;: &quot;div&quot;,
+                 &quot;$left&quot;: 1,
+                 &quot;$right&quot;: { &quot;$op&quot;: &quot;add&quot;,
+                             &quot;$left&quot;: { &quot;$op&quot;: &quot;mul&quot;,
+                                        &quot;$left&quot;: 2,
+                                        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; } },
+                             &quot;$right&quot;: 1 }
+      },
+      &quot;$right&quot;: { &quot;$op&quot;: &quot;call&quot;,
+                  &quot;$ref&quot;: &quot;Pi&quot;,
+                  &quot;$at&quot;: { &quot;$op&quot;: &quot;add&quot;,
+                           &quot;$left&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; },
+                           &quot;$right&quot;: 1 }
+      }
+    },
+    &quot;$else&quot;: 0
+  }
+}
+</code></pre>
+<p>and the <em>resultant document</em> of such projection will be the π
+approximation for such number of iterations:</p>
+<pre class="prettyprint source lang-JSON"><code>3.33968253968254
+</code></pre>
+<h2>Query Languages</h2>
+<p>A <em>query language</em> is the mechanism used to locate (search for and
+select) JSON values within a JSON document.</p>
+<p>There are several languages designed for this purpose, ranging from the
+simplest (which simply allow you to locate any element in the document)
+to the most sophisticated (which offer pattern-matching searches, as
+well as additional filtering and sorting operations, among others).</p>
+<p>The <code>JM2MP</code> syntax provides a mechanism for using any (hypothetical)
+<em>query language</em> that can be embedded in JSON, either as a string
+literal or as any other JSON value (tipically arrays or objects). To do
+this, there are two options:</p>
+<ol>
+<li>
+<p>Any <em>document or projection module</em> can tell the <code>JM2MP.JS</code> library
+which <em>query language</em> to use by default in that <em>document</em> by
+declaring its name in the <a href="#default-query-language">$default-query-language</a>
+property of the <a href="#options">$options</a> object.</p>
+</li>
+<li>
+<p>The <em>template command</em> <a href="#get">get</a> supports the <code>syntax</code> clause to
+indicate that the query written in the <code>path</code> clause uses such language.</p>
+</li>
+</ol>
+<h3>Available Query Languages</h3>
+<p>The <code>JM2MP.JS</code> library provides built-in support for several <em>query
+languages</em> widely used in the industry: <a href="#jmespath">JMESPath</a>,
+<a href="#jsonata">JSONata</a>, <a href="#jsonpath">JSONPath</a>,
+<a href="#json-pointer">JSON Pointer</a>, and <a href="#json-query">JSON Query</a>. You can
+find information about each one of them in the
+<a href="#external-references">external references</a> section, below.</p>
+<p>In addition, the <code>JM2MP</code> format offers its own <em>query language</em> syntax,
+simply called <a href="#native">native</a>, which we will briefly describe next.</p>
+<h4>Native</h4>
+<p>The <code>JM2MP</code> format offers its own <em>query language</em> syntax, simply named
+<code>native</code>. Both formats, <code>JM2MP</code> and <code>native</code>, have been designed to be
+algebraically complete, in the sense that they provide, with mathematical
+rigor, at least the minimal set of operations necessary to achieve
+complete location and transformations between JSON documents.</p>
+<p>The <code>native query language</code> features two syntactically different but
+semantically equivalent notations: one based on text strings and another
+based on JSON syntax.</p>
+<p>Please refer to the <a href="./tutorial--03--nql-syntax.html">Native Query Language</a>
+tutorial for complete details about this <em>query language syntax</em> and how
+to use it.</p>
+<h4>External References</h4>
+<p>The <code>JM2MP.JS</code> library also references several external libraries to
+enable the use of different <em>query languages</em> as part of <code>JM2MP</code>
+<em>projections</em>.</p>
+<p>At the same time, it is possible to use additional <em>query languages</em>
+if proper <em>adapter class</em> is developed. Please, refer to any <em>external
+reference</em> to see how to do so.</p>
+<h5>JMESPath</h5>
+<p>See <a href="./external-JMESPath.html">JMESPath</a> <em>external reference</em> for more information.</p>
+<h5>JSONata</h5>
+<p>See <a href="./external-JSONata.html">JSONata</a> <em>external reference</em> for more information.</p>
+<h5>JSONPath</h5>
+<p>See <a href="./external-JSONPath.html">JSONPath</a> <em>external reference</em> for more information.</p>
+<h5>JSON Pointer</h5>
+<p>See <a href="./external-JSONPointer.html">JSON Pointer</a> <em>external reference</em> for more information.</p>
+<h5>JSON Query</h5>
+<p>See <a href="./external-JSONQuery.html">JSON Query</a> <em>external reference</em> for more information.</p>
+<h4>Other Query Languages</h4>
+<p>It is possible to use other <em>query languages</em> not initially referenced
+by <code>JM2MP.JS</code>... or even create your own! In order to do so, it is
+required to develop an <em>adapter class</em> that complies with the
+<a href="./module-jm2mp_adapters_registry.html#.QueryAdapter">QueryAdapter</a>
+interface, same as any other external reference that has already been
+mentioned.</p>
+<p>Remember that any <em>JM2MP module</em> that will use any <em>query language</em>
+different than <code>native</code>, needs to declare its usage as part of
+<a href="#options">$options</a> <em>root property</em> or as part of any <a href="#get">$get</a>
+<em>template command</em>.</p>
+<h2>Modularization</h2>
+<p>In order to simplify large or complex <em>projection documents</em>,
+<strong>modularization</strong> can be achieved using an optional <code>$depends-on</code>
+property inside the <a href="#options">$options</a> inner object of the <em>root object</em>;
+the value of this property must be an array of string items, where each
+string will be interpreted by <code>JM2MP.JS</code> in different manners (as
+filenames, as URLs or as literal JSON content) whose content will be
+imported into current projection document following the exact order of
+this list.</p>
+<p>Each new projection content, in turn, could have its own (ordered) list
+of_dependencies. It is worth mentioning that, in case of conflict,
+<em>named templates</em> that already exist in the <em>projection document</em>
+performing the import will take precedence, overriding (substituting)
+any <em>named templates</em> with the same name that may exist in the imported
+<em>document</em>.</p>
+<ul>
+<li>
+<p><em>Projection document</em> and <em>projections modules</em></p>
+<p>There is no real difference between a <em>projection document</em> and a
+<em>projection module</em>. It is customary to name <em>document</em> to whatever
+file (URL or content) that will be used as a starting point to run a
+<em>projection</em>, considered then as the <em>root projection document</em>.</p>
+</li>
+<li>
+<p><em>Root and named templates</em></p>
+<p>Any <em>projection document or module</em> can contain any <em>named template</em>,
+including the <em>root template</em>. Or any at all, just dependencies.</p>
+</li>
+<li>
+<p><em>Overriding templates</em></p>
+<p>Any <em>root or named template</em> can be <em>overriden</em> by any <em>module</em> with
+higher precedence.</p>
+<p>If a <em>projection module</em> <code>Higher</code> depends on a <em>projection module</em>
+<code>Lower</code> then both will have a form similar to:</p>
+</li>
+</ul>
+<pre class="prettyprint source lang-JSON"><code>// Higher
+{
+  &quot;$options&quot;: {
+    &quot;$depend-on&quot; : [ &quot;Lower&quot;, ... ],
+    // If no default query language is declared, then NATIVE is considered.
+  },
+  &quot;$&quot; : &quot;The root template.&quot;,
+  &quot;CommonNamedTemplate&quot; : &quot;Higher precedence, it will remain.&quot;
+}
+
+// Lower
+{
+  &quot;$option&quot; : {
+    &quot;$default-query-language&quot;: &quot;Language only considered to be default in this LOWER module.&quot;
+   },
+  &quot;CommonNamedTemplate&quot; : &quot;Lower precedence, it will be overriden.&quot;
+}
+</code></pre>
+<ul>
+<li>
+<p><em>Metadata</em></p>
+<p>Both <code>$options</code> and <code>$schema</code> properties of can appear on any
+<em>projection document or module</em> affecting only to that <em>module</em>
+and not propagating its respectives values outside that <em>module</em>.</p>
+<p>That means that if some <em>projection module</em> configure its
+<code>$default-query-language</code>, such configuration only affects to that
+<em>module</em> and no other one (neither dependant nor imported).</p>
+<p>Please, refear to <a href="#options">$options</a> and <a href="#json-schema">$schema</a>
+sections for more information.</p>
+</li>
+</ul>
+<h2>Options</h2>
+<p>The <code>$options</code> property of the <em>root object</em> of any <em>projection</em> is always
+considered as <em>metadata</em> (not a <em>named template</em>) and is always optional.</p>
+<p>It is possible to define certain values at this special object <code>$options</code>
+as property of the <em>projection</em>'s <em>root element</em>, which will be
+interpreted by <code>JM2MP.JS</code> processors to get:
+<a href="#version">version assurance</a>,
+<a href="#annotations">simple user's documentation</a>,
+to set the <a href="#default-query-language">default query language</a> to be considered,
+and to declare the <a href="#depends-on">dependencies</a> for modularization purposes.</p>
+<p>So, <code>$options</code> object for a <em>projection document or module</em> should
+comply with the following form:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$options&quot;: {
+    &quot;$version&quot;: &quot;1.0&quot;,
+    &quot;$annotations&quot;: &#x1D541;,
+    &quot;$default-query-language&quot;: STRING,
+    &quot;$depends-on&quot;: [ STRING_1, ..., STRING_n ]
+  }
+}
+</code></pre>
+<h3>Version</h3>
+<p>An optional <code>$version</code> property can be declared to specify which version
+of <code>JM2MP</code> may be interpreted; currently only a value of <code>&quot;1.0&quot;</code> is
+accepted, which is the format described in this documentation.</p>
+<h3>Annotations</h3>
+<p>An optional <code>$annotations</code> property can be declared to specify
+user's documentation; any JSON value can be used, as simple or complex
+as authors of the <em>projection document or module</em> consider; its value
+will be fully ignored.</p>
+<h3>Default Query Language</h3>
+<p>An optional <code>$default-query-language</code> property can be declared to
+specify which <a href="#available-query-languages">available query language</a>
+will be used by default by the <code>JM2MP.JS</code> processor (that is,
+<code>JM2MP.JS</code>) whenever a
+<a href="#text-literal-query-language-syntax">text literal query language expression</a>
+was used instead of a
+<a href="#json-query-language-syntax">JSON query language expression</a>,
+as part of any <a href="#query-language-syntaxes">query language syntax</a> used in
+the <em>projection document or module</em>. If it is not declared, its value will be
+considered as <code>&quot;native&quot;</code> (see <a href="#native">native query language</a>).</p>
+<h3>Depends On</h3>
+<p>In order to simplify large or complex projection documents,
+<a href="#modularization">modularization</a> can be achieved using an optional
+<code>$depends-on</code> property; the value of this property must be an array of
+strings, where each string would be interpreted by <code>JM2MP.JS</code> in
+different manners (as filenames, as URLs or as literal JSON content)
+whose content will be imported into current <em>projection document</em>
+following the exact order of this list.</p>
+<p>Each new <em>projection</em> content, in turn, could have its own (ordered)
+list of <em>dependencies</em>. It is worth mentioning that, in case of
+conflict, <em>named templates</em> that already exist in the <em>projection
+document</em> performing the import will take precedence, overriding
+(substituting) any <em>named templates</em> with the same name that may exist
+in the imported <em>documents</em>.</p>
+<h2>JSON Schema</h2>
+<p>The <code>$schema</code> property of the <em>root object</em> of any <em>projection</em> is always
+considered as <em>metadata</em> (not a <em>named template</em>) and is always optional.</p>
+<p>For compatibility reasons, <code>JM2MP</code> supports the declaration of such
+property in any <em>projection document</em>, in order to comply with the
+<a href="https://json-schema.org/">JSON Schema</a> standard. Although currently the
+<code>JM2MP.JS</code> library neither uses nor validates against this schema, it
+was considered useful to reserve such possibility from the outset.</p>
+<p>The URL <code>https://json-mde.tech/schemas/json-schema/draft--2020-12/jm2mp--1-0-0.json</code>
+can be used to specifify the current version of <code>JM2MP</code> using
+<a href="https://json-schema.org/draft/2020-12">JSON Schema (Draft 2020-12)</a>.</p>
+<h2>Examples</h2>
+<p>Please, refer to the <a href="./tutorial-03--nql-syntax.html#combining-operations">Native Query Language</a>
+and <a href="./tutorial-04--examples.html">Examples</a> tutorials, for various
+examples of how to use the <code>JM2MP</code> format to transform JSON documents.</p>
+  </article>
+  <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
+    const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
+    const all_tutorial_sections = all_tutorials.filter( (e) => ( e?.tagName?.toLowerCase() === "section" ) ) ;
+    // console.log('all_tutorial_sections',all_tutorial_sections);
+    const this_tutorial_sections = all_tutorial_sections &&
+                                   all_tutorial_sections.length &&
+                                   all_tutorial_sections[0] ;
+    // console.log('this_tutorial_sections',this_tutorial_sections);
+    if ( this_tutorial_sections ) {
+        ['h1','h2','h3','h4','h5','h6'].forEach( (tag) => {
+            const tutorial_headers = Array.from( this_tutorial_sections.getElementsByTagName(tag) ) ;
+            // console.log('tutorial_headers',tutorial_headers);
+            tutorial_headers.forEach( (current_header) => {
+                let header_text = current_header.innerText ;
+                header_text = header_text.replace(/\s/ig,"-")
+                                         .replace(/[^-A-Za-z0-9]/g,"")
+                                         .toLowerCase() ;
+                // console.log(tag,'header_text',header_text);
+                current_header.id = header_text ;
+            });
+        }) ;
+    }
+  </script>
+  <script type="module" id="LCamara8_TableOfCOntents">
+    const toc_header = document.getElementById( "table-of-contents" ) ;
+    // console.log('toc_header',toc_header) ;
+    if ( toc_header ) {
+        let toc_ul = toc_header.nextElementSibling ;
+        // console.log('toc_ul',toc_ul) ;
+        if ( toc_ul.tagName.toLowerCase() === "ul" ) {
+            toc_ul.className = ( ((toc_ul.className)?(toc_ul.className+" "):("")) + "table-of-contents" ) ;
+        }
+    }
+  </script>
+  <script type="module" id="LCamara8_TargetExternalUrls">
+    const this_tutorial_origin = document.location.origin ;
+    // console.log('this_tutorial_origin',this_tutorial_origin);
+    const all_anchors = Array.from( document.getElementsByTagName("a") ) ;
+    // console.log('all_anchors',all_anchors);
+    const all_external_anchors = all_anchors.filter(
+      (a) => ( !!(a.href) && !(a.target) && URL.canParse(a.href) &&
+               URL.canParse(this_tutorial_origin) &&
+               ["http:","https:"].includes( URL.parse(a.href,this_tutorial_origin).protocol ) &&
+               ( URL.parse(a.href,this_tutorial_origin).origin !== URL.parse(this_tutorial_origin).origin ) )
+    ) ;
+    // console.log('all_external_anchors',all_external_anchors);
+    all_external_anchors.forEach( (a) => {
+        a.target = "_blank" ;
+        a.className = ( ((a.className)?(a.className+" "):("")) + "external" ) ;
+        a.insertAdjacentHTML( "afterend", "&nbsp;<span class=\"external\">&#x1F875</span>" ) ;
+    });
+  </script>
+</section>
+
+  </div>
+</main>
+
+<!-- LCamara8 -->
+
+  <footer class="layout-footer">
+    <div class="container">
+        Copyright &copy; 2026 Luis Mar&iacute;a C&Aacute;MARA ROSSI.<br />
+        Trademark &trade; Copyright &copy; 2026 Universidad Nacional de Educaci&oacute;n a Distancia (U.N.E.D.).<br />
+        The <strong><code>JM2MP</code></strong> syntax and this library <strong><code>JM2MP.JS</code></strong> are licensed under <code>BSD-3-Clause</code>
+        <sup>
+          <a target="BSD1" href="https://opensource.org/license/bsd-3-clause">[1]</a>
+          <a target="BSD2" href="https://spdx.org/licenses/BSD-3-Clause.html">[2]</a>
+        </sup> license.
+        <br />
+        See <a href="./LICENSE.txt" target="LICENSE">LICENSE.txt</a> for more info.
+    </div>
+    <br />
+    <div class="container">
+      Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
+      and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
+       on 2026-08-26T15:45:19.759Z
+    </div>
+  </footer>
+
+
+<script src="scripts/prism.dev.js"></script>
+</body>
+</html>

@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSON Model-to-Model Projection (JM2MP) Documentation · jm2mp/evaluator</title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/jm2mp-jsdoc.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header class="layout-header">
+  
+    <a href="./">
+      <img
+        src="./images/JM2MP-Logo.png" width="48"
+        alt="JSON Model-to-Model Projection (JM2MP) Documentation"
+      >
+    </a>
+  
+  <h1>
+    <a href="./index.html">
+      JSON Model-to-Model Projection (JM2MP) Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <ul><li class="nav-heading">Tutorials</li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-01--getting-started.html">Getting Started!</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-02--jm2mp-syntax.html">JM2MP Syntax</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-03--nql-syntax.html">Native Query Language</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-04--examples.html">Examples</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-06--use-cases.html">Use Cases</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-07--jsdoc.html">Documentation Generation Using Tidy-JSDoc</a></span></li></ul><ul><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#_adapters">_adapters</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#names">names</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.AdapterError.html">AdapterError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ParseError.html">ParseError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ResolutionError.html">ResolutionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ValidationError.html">ValidationError</a></span></li></ul><ul><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_helpers.html">jm2mp/adapters/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_helpers.html#.createNativeRegistry">createNativeRegistry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jmespath.html">jm2mp/adapters/jmespath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jmespath.html#.createJmesPathAdapter">createJmesPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonata.html">jm2mp/adapters/jsonata</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonata.html#.createJsonataAdapter">createJsonataAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpath.html">jm2mp/adapters/jsonpath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpath.html#.createJsonPathAdapter">createJsonPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpointer.html">jm2mp/adapters/jsonpointer</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpointer.html#.createJsonPointerAdapter">createJsonPointerAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonquery.html">jm2mp/adapters/jsonquery</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonquery.html#.createJsonQueryAdapter">createJsonQueryAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native.html">jm2mp/adapters/native</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native.html#.createNativeAdapter">createNativeAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native_paths.html">jm2mp/adapters/native_paths</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_native_paths.html#.EXECUTION_ENVIRONMENT_FROM">EXECUTION_ENVIRONMENT_FROM</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.navigate">navigate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.parsePath">parsePath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isDigit">isDigit</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierContinue">isIdentifierContinue</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierStart">isIdentifierStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readIdentifier">readIdentifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readNonNegativeInteger">readNonNegativeInteger</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readQuotedString">readQuotedString</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_registry.html">jm2mp/adapters/registry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v4_middleware.html">jm2mp/api/express/v4/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~asyncHandler">asyncHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v5_middleware.html">jm2mp/api/express/v5/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#.PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_cli.html">jm2mp/cli</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_errors.html">jm2mp/errors</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_evaluator.html">jm2mp/evaluator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~compareOrdered">compareOrdered</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepen">deepen</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepEqual">deepEqual</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalLiteralObject">evalLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalOperation">evalOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalProjection">evalProjection</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~expectType">expectType</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~typeName">typeName</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_index.html">jm2mp/index</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.createAdapterRegistry">createAdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.project">project</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_helpers.html">jm2mp/modules/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_helpers.html#.ROOT_TEMPLATE_NAME">ROOT_TEMPLATE_NAME</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isModule">isModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isPackagedEsmModuleAvailable">isPackagedEsmModuleAvailable</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleOf">moduleOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleWith">moduleWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.ThrowsValidationErrorWhenIsNotAModule">ThrowsValidationErrorWhenIsNotAModule</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_loaders.html">jm2mp/modules/loaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createFileLoader">createFileLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createStringLoader">createStringLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createUrlLoader">createUrlLoader</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_normalizer.html">jm2mp/modules/normalizer</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_normalizer.html#.MODULE_METADATA_KEYS">MODULE_METADATA_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#.normalizeModule">normalizeModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~getDefaultSyntax">getDefaultSyntax</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeGet">normalizeGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeNode">normalizeNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_resolver.html">jm2mp/modules/resolver</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">DEFAULT_MAX_MODULES</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#.resolve">resolve</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#~importInto">importInto</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_validator.html">jm2mp/validator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~KNOWN_OPS">KNOWN_OPS</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~OP_ARGS">OP_ARGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isOperation">isOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isValidName">isValidName</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.validateModule">validateModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateCall">validateCall</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateGet">validateGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLet">validateLet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLiteralObject">validateLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateOperation">validateOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateProjection">validateProjection</a></span></li></ul><ul><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JMESPath.html">JMESPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONata.html">JSONata</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPath.html">JSONPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPointer.html">JSONPointer</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONQuery.html">JSONQuery</a></span></li></ul><ul><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace" title="namespace">N</span><span class="nav-item-name is-namespace"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.abs">abs</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.and">and</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.call">call</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.coalesce">coalesce</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.concat">concat</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.cons">cons</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.div">div</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.eq">eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldArr">foldArr</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldObj">foldObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gt">gt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gte">gte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.if">if</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.length">length</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.let">let</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lookup">lookup</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lower">lower</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lt">lt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lte">lte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.merge">merge</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mod">mod</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neg">neg</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neq">neq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.not">not</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.or">or</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sort">sort</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.substring">substring</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.typeof">typeof</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.upper">upper</a></span></li></ul>
+  </nav>
+</header>
+
+
+<main class="layout-main ">
+  <div class="container">
+    <p class="page-kind">Module</p>
+    <h1 class="page-title">jm2mp/evaluator</h1>
+    
+
+
+
+
+
+
+<section>
+
+
+<header class="not-class">
+
+
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+
+    
+        
+            <div class="description"><p>This module implements the <strong>evaluation process</strong> of the <em>projection
+language</em> <code>JM2MP</code>: given a resolved and normalized <em>projection
+document</em>, it evaluates its <em>root template</em> over a <em>source document</em>.</p>
+<p>The <strong>evaluation process</strong> is <em>asynchronous</em> because the
+<a href="module-jm2mp_adapters_registry.html#.QueryAdapter">QueryAdapter</a>'s
+contract is <code>async</code>.</p>
+<p><strong>Two API levels:</strong></p>
+<ul>
+<li>
+<p>The <a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a> function is
+part of the <strong>low level API</strong>. If it is invoked without first
+passing through
+<a href="module-jm2mp_validator.html#.validateModule">validateModule</a>,
+errors that <strong>validation</strong> would have detected (like non-existent
+references or out-of-scope aliases) will manifest as
+<a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a>
+at runtime.</p>
+</li>
+<li>
+<p>Use <a href="module-jm2mp_index.html#.project">project</a> as the <strong>high level
+API</strong> for the full workflow with: module resolution, projection
+validation and projection evaluation.</p>
+</li>
+</ul>
+<p><strong>Adapter error handling:</strong></p>
+<ul>
+<li>The <code>get</code> <em>template command</em> wraps any
+<a href="module-jm2mp_adapters_registry.html#.QueryAdapter">QueryAdapter</a>
+exception that is <strong>not</strong> a
+<a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a>
+in an
+<a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a>.
+This ensures that the language’s error hierarchy is closed: any
+error catchable in a <code>try/catch</code> block (and of type
+<a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a>)
+will be one of JM2MP's.</li>
+</ul>
+<p><strong>Isolation between evaluations:</strong></p>
+<ul>
+<li>Each call to
+<a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a>
+creates its own <code>cache</code> of compiled expressions (independent
+by <code>$syntax</code>). There is no shared state between concurrent
+evaluations; two
+<a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a>
+calls running in parallel do not interfere with each other.
+This allows for safe use in concurrent applications (such as
+web servers) without the need for an additional synchronization
+mechanism.</li>
+</ul></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.10">, line 10</a>
+        </li>
+    </ul>
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+     
+
+    
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+
+    
+        <h3 class="subtitle">Members</h3>
+
+        
+            
+
+<article class="member">
+    <div class="method-type">
+        <span class="method-type-signature is-static">static</span><span class="method-type-signature is-constant">constant</span>
+    </div>
+<h4 class="member-name" id=".DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH<span class="type-signature">integer</span></h4>
+
+
+
+
+<div class="description">
+    <p>It sets the default value to <code>1000</code> for the maximum logical nesting
+depth of expressions evaluated by <code>JM2MP.JS</code>.</p>
+<p>This serves as a safeguard against infinite recursion and extremely
+nested logical expressions, whether created inadvertently or
+maliciously.</p>
+<p>It is not affected by the JavaScript stack, since evaluation is
+performed asynchronously (<code>async/await</code>).</p>
+</div>
+
+
+
+    <h4>Type</h4>
+    <ul>
+        <li>
+            
+
+
+    <span class="param-type">
+        <code>integer</code>
+    </span>
+    
+
+        </li>
+    </ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    <h4>Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.86">, line 86</a>
+        </li>
+    </ul>
+
+
+</article>
+        
+    
+
+    
+        <h3 class="subtitle">Methods</h3>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-static">static</span>
+    </div>
+
+    <h4 class="method-name" id=".evaluate">evaluate<span class="signature">(module, document, options)</span><span class="return-type-signature"> &rarr; {Promise.&lt;*>}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>Evalúa un módulo resuelto sobre un documento de origen.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">module</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>object</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>A <em>projection module</em> previously resolved and normalized.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">document</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The <em>source document</em>.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">options</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>object</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>Mandatory options for evaluation.</p></div>
+            
+                <p class="param-properties">Properties</p>
+                
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">registry</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>AdapterRegistry</code>
+    </span>
+    
+
+            
+
+            
+                <span class="param-attributes">
+                
+
+                
+
+                
+                </span>
+            
+
+            
+                
+            
+
+            <div class="param-description"><p>The mandatory
+<a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a>
+used to evaluate each <em>query language</em> expression.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">maxDepth</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>number</code>
+    </span>
+    
+
+            
+
+            
+                <span class="param-attributes">
+                
+                    &lt;optional&gt;<br>
+                
+
+                
+
+                
+                </span>
+            
+
+            
+                
+                    <span class="param-default">
+                        1000
+                    </span>
+                
+            
+
+            <div class="param-description"><p>See DEFAULT_MAX_DEPTH.</p></div>
+            
+        </li>
+
+    
+</ul>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>Promise.&lt;*></code>
+            
+            
+                <p>The (promised) <em>resultant document</em> of apply the <em>root template</em>
+from <code>module</code>.</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.109">, line 109</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~compareOrdered">compareOrdered<span class="signature">(a, b, opName)</span><span class="return-type-signature"> &rarr; {integer}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It compares two ordinal values (sortables):
+number/number or string/string.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">a</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The left operand.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">b</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The right operand.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">opName</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The name of the operation/operator.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>integer</code>
+            
+            
+                <p>(-1)|(+1)|(0) when (a&lt;b)|(a&gt;b)|(a===b)</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 class="method-heading">Throws</h4>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>Whenever types of a/b are neither number/number nor string/string.</p>
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+
+
+    <span class="param-type">
+        <code>EvaluationError</code>
+    </span>
+    
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.1307">, line 1307</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~deepen">deepen<span class="signature">(env)</span><span class="return-type-signature"> &rarr; {object}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It returns an <em>execution environment</em> with its <em>depth</em> value
+increased by one (1).</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">env</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The JM2MP's <em>execution environment</em>.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>object</code>
+            
+            
+                <p>Same as <code>env</code> but with <code>env.depth</code> increased by <code>1</code>.</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.223">, line 223</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~deepEqual">deepEqual<span class="signature">(a, b)</span><span class="return-type-signature"> &rarr; {boolean}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It test the recursive structural equality over JSON values.</p>
+<p>The rules are:</p>
+<ul>
+<li>For scalar (primitive) types it applies <code>equal</code> according to <code>===</code>.</li>
+<li>Arrays are equal if they have the same length and corresponding
+elements are equal.</li>
+<li>Objects are equal if they have the same set of keys and
+corresponding values are equal.</li>
+<li>Different types means that they never are equal (type casting
+neither implicit nor explicit is implemented in JM2MP 1.0).</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">a</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The left operand.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">b</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The right operand.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>boolean</code>
+            
+            
+                <p>(a==b)</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.1262">, line 1262</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-async">async</span><span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~evalLiteralObject">evalLiteralObject<span class="signature">(obj, env)</span><span class="return-type-signature"> &rarr; {*}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It <em>projects</em> (evaluates) a literal object (JSON value) <code>obj</code> over
+the <em>execution environment</em> <code>env</code> and returns its <em>resultant value</em>.</p>
+<p>For literal objects: each property's value is projected and each
+property's name (key) can be escaped (using '$' to start literally
+by '$').</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">obj</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The literal object (JSON value) to <em>project</em>.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">env</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The <em>execution environment</em></p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>*</code>
+            
+            
+                <p>It returns the <em>resultant value</em> of <em>project</em> every object's property.</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.245">, line 245</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-async">async</span><span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~evalOperation">evalOperation<span class="signature">(op, env)</span><span class="return-type-signature"> &rarr; {*}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It invokes the specified operation handler from the specified
+operation's name.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">op</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>function</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The name of the operation (<em>template command</em>, <em>predicate</em> or
+<em>operator</em>) to evaluate.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">env</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The <em>execution environment</em> where the operation will be evaluated.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>*</code>
+            
+            
+                <p>The <em>resultant value</em> obtained.</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.276">, line 276</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-async">async</span><span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~evalProjection">evalProjection<span class="signature">(proj, env)</span><span class="return-type-signature"> &rarr; {*}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It evaluates the <em>projection</em> <code>proj</code> over the <em>execution environment</em>
+<code>env</code> and returns its <em>resultant value</em>.</p>
+<p>It is <code>async</code> to support asynchronous
+<a href="module-jm2mp_adapters_registry.html#.QueryAdapter">QueryAdapter</a>s.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">proj</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The <em>projection</em> to evaluatue.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">env</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The <em>execution environment</em> where <code>proj</code> is evaluated.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>*</code>
+            
+            
+                <p>The result of the <code>proj</code> over <code>env</code>.</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.164">, line 164</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~expectType">expectType<span class="signature">(value, expectedType, opName, argName)</span><span class="return-type-signature"></span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>Asegura que <code>value</code> sea del tipo esperado o lanza EvaluationError.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">value</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The JSON value to test its type.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">expectedType</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The expected type's name.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">opName</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The name of the operation in which the value is evaluated.</p></div>
+            
+        </li>
+
+    
+
+        <li>
+            
+                <span class="param-name">argName</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The argument's name.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.303">, line 303</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+            
+
+
+    <article class="method">
+
+
+
+
+    
+
+
+    
+
+    <div class="method-type">
+    <span class="method-type-signature is-inner">inner</span>
+    </div>
+
+    <h4 class="method-name" id="~typeName">typeName<span class="signature">(v)</span><span class="return-type-signature"> &rarr; {string}</span>
+    </h4>
+
+
+
+
+
+<div class="method-description">
+    
+    <p>It returns the name of the JSON data type associated to <code>v</code>, one of:</p>
+<ul>
+<li>null</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>array</li>
+<li>object</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Parameters</h4>
+    
+
+<ul class="method-params">
+    
+
+        <li>
+            
+                <span class="param-name">v</span>
+            
+
+            
+                
+
+
+    <span class="param-type">
+        <code>*</code>
+    </span>
+    
+
+            
+
+            
+
+            
+
+            <div class="param-description"><p>The value to be tested.</p></div>
+            
+        </li>
+
+    
+</ul>
+
+
+
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+
+    <h4 class="method-heading">Returns</h4>
+    <ul>
+    
+        <li class="method-returns">
+            
+                <code>string</code>
+            
+            
+                <p>A text string with the corresponding JSON data type
+(not exactly like JavaScript).</p>
+            
+        </li>
+    
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h4 class="method-heading">Source</h4>
+    <ul>
+        <li class="method-source">
+            <a href="evaluator.js.html">evaluator.js</a><a href="evaluator.js.html#source.1344">, line 1344</a>
+        </li>
+    </ul>
+
+
+
+    </article>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+  </div>
+</main>
+
+<!-- LCamara8 -->
+
+  <footer class="layout-footer">
+    <div class="container">
+        Copyright &copy; 2026 Luis Mar&iacute;a C&Aacute;MARA ROSSI.<br />
+        Trademark &trade; Copyright &copy; 2026 Universidad Nacional de Educaci&oacute;n a Distancia (U.N.E.D.).<br />
+        The <strong><code>JM2MP</code></strong> syntax and this library <strong><code>JM2MP.JS</code></strong> are licensed under <code>BSD-3-Clause</code>
+        <sup>
+          <a target="BSD1" href="https://opensource.org/license/bsd-3-clause">[1]</a>
+          <a target="BSD2" href="https://spdx.org/licenses/BSD-3-Clause.html">[2]</a>
+        </sup> license.
+        <br />
+        See <a href="./LICENSE.txt" target="LICENSE">LICENSE.txt</a> for more info.
+    </div>
+    <br />
+    <div class="container">
+      Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
+      and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
+       on 2026-08-26T15:45:19.716Z
+    </div>
+  </footer>
+
+
+<script src="scripts/prism.dev.js"></script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSON Model-to-Model Projection (JM2MP) Documentation · adapters/native-paths.js</title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/jm2mp-jsdoc.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header class="layout-header">
+  
+    <a href="./">
+      <img
+        src="./images/JM2MP-Logo.png" width="48"
+        alt="JSON Model-to-Model Projection (JM2MP) Documentation"
+      >
+    </a>
+  
+  <h1>
+    <a href="./index.html">
+      JSON Model-to-Model Projection (JM2MP) Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <ul><li class="nav-heading">Tutorials</li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-01--getting-started.html">Getting Started!</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-02--jm2mp-syntax.html">JM2MP Syntax</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-03--nql-syntax.html">Native Query Language</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-04--examples.html">Examples</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-06--use-cases.html">Use Cases</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-07--jsdoc.html">Documentation Generation Using Tidy-JSDoc</a></span></li></ul><ul><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#_adapters">_adapters</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#names">names</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.AdapterError.html">AdapterError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ParseError.html">ParseError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ResolutionError.html">ResolutionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ValidationError.html">ValidationError</a></span></li></ul><ul><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_helpers.html">jm2mp/adapters/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_helpers.html#.createNativeRegistry">createNativeRegistry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jmespath.html">jm2mp/adapters/jmespath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jmespath.html#.createJmesPathAdapter">createJmesPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonata.html">jm2mp/adapters/jsonata</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonata.html#.createJsonataAdapter">createJsonataAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpath.html">jm2mp/adapters/jsonpath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpath.html#.createJsonPathAdapter">createJsonPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpointer.html">jm2mp/adapters/jsonpointer</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpointer.html#.createJsonPointerAdapter">createJsonPointerAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonquery.html">jm2mp/adapters/jsonquery</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonquery.html#.createJsonQueryAdapter">createJsonQueryAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native.html">jm2mp/adapters/native</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native.html#.createNativeAdapter">createNativeAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native_paths.html">jm2mp/adapters/native_paths</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_native_paths.html#.EXECUTION_ENVIRONMENT_FROM">EXECUTION_ENVIRONMENT_FROM</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.navigate">navigate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.parsePath">parsePath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isDigit">isDigit</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierContinue">isIdentifierContinue</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierStart">isIdentifierStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readIdentifier">readIdentifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readNonNegativeInteger">readNonNegativeInteger</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readQuotedString">readQuotedString</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_registry.html">jm2mp/adapters/registry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v4_middleware.html">jm2mp/api/express/v4/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~asyncHandler">asyncHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v5_middleware.html">jm2mp/api/express/v5/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#.PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_cli.html">jm2mp/cli</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_errors.html">jm2mp/errors</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_evaluator.html">jm2mp/evaluator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~compareOrdered">compareOrdered</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepen">deepen</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepEqual">deepEqual</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalLiteralObject">evalLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalOperation">evalOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalProjection">evalProjection</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~expectType">expectType</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~typeName">typeName</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_index.html">jm2mp/index</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.createAdapterRegistry">createAdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.project">project</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_helpers.html">jm2mp/modules/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_helpers.html#.ROOT_TEMPLATE_NAME">ROOT_TEMPLATE_NAME</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isModule">isModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isPackagedEsmModuleAvailable">isPackagedEsmModuleAvailable</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleOf">moduleOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleWith">moduleWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.ThrowsValidationErrorWhenIsNotAModule">ThrowsValidationErrorWhenIsNotAModule</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_loaders.html">jm2mp/modules/loaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createFileLoader">createFileLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createStringLoader">createStringLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createUrlLoader">createUrlLoader</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_normalizer.html">jm2mp/modules/normalizer</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_normalizer.html#.MODULE_METADATA_KEYS">MODULE_METADATA_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#.normalizeModule">normalizeModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~getDefaultSyntax">getDefaultSyntax</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeGet">normalizeGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeNode">normalizeNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_resolver.html">jm2mp/modules/resolver</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">DEFAULT_MAX_MODULES</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#.resolve">resolve</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#~importInto">importInto</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_validator.html">jm2mp/validator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~KNOWN_OPS">KNOWN_OPS</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~OP_ARGS">OP_ARGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isOperation">isOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isValidName">isValidName</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.validateModule">validateModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateCall">validateCall</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateGet">validateGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLet">validateLet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLiteralObject">validateLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateOperation">validateOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateProjection">validateProjection</a></span></li></ul><ul><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JMESPath.html">JMESPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONata.html">JSONata</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPath.html">JSONPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPointer.html">JSONPointer</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONQuery.html">JSONQuery</a></span></li></ul><ul><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace" title="namespace">N</span><span class="nav-item-name is-namespace"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.abs">abs</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.and">and</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.call">call</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.coalesce">coalesce</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.concat">concat</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.cons">cons</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.div">div</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.eq">eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldArr">foldArr</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldObj">foldObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gt">gt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gte">gte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.if">if</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.length">length</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.let">let</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lookup">lookup</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lower">lower</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lt">lt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lte">lte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.merge">merge</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mod">mod</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neg">neg</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neq">neq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.not">not</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.or">or</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sort">sort</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.substring">substring</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.typeof">typeof</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.upper">upper</a></span></li></ul>
+  </nav>
+</header>
+
+
+<main class="layout-main  layout-content--source">
+  <div class="container">
+    <p class="page-kind">source</p>
+    <h1 class="page-title">adapters/native-paths.js</h1>
+    
+
+
+
+
+
+
+<section>
+
+
+<header class="not-class">
+
+
+    
+</header>
+
+<article>
+    <div class="container-overview">
+
+    
+        
+            <div class="description"><p>The module [native_paths]{@link jm2mp/adapters/native_paths} implements
+the EBNF parser for <code>native</code> paths and navigation/location functions.</p></div>
+        
+
+        
+<!-- details.tmpl -->
+
+
+
+<div class="details">
+<!---->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h4 class="method-heading">Author</h4>
+        <ul>
+            
+                <li>Luis Maria CAMARA ROSSI</li>
+            
+        </ul>
+    
+
+    
+        <h4 class="method-heading">Copyright</h4>
+        <ul>
+            <li>Universidad Nacional de Educación a Distancia (U.N.E.D.) 2026</li>
+        </ul>
+    
+
+    
+        <h4 class="method-heading">License</h4>
+        <ul>
+            <li>BSD-3-Clause</li>
+        </ul>
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+     
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+    
+
+<section>
+    <article>
+        <pre id="source" class="source-page line-numbers"><code class="language-js">/**
+ * @author Luis Maria CAMARA ROSSI
+ * @copyright Universidad Nacional de Educación a Distancia (U.N.E.D.) 2026
+ * @license BSD-3-Clause
+ * @file
+ * The module [native_paths]{@link jm2mp/adapters/native_paths} implements
+ * the EBNF parser for `native` paths and navigation/location functions.
+**/
+
+/**
+ * @module jm2mp/adapters/native_paths
+ * @description
+ * This module implements the EBNF parser for `native` paths and
+ * navigation/location functions.
+ * 
+ * This modules encapsules `native syntaxes` for `JM2MP`. It is invoked
+ * exclusively for the
+ * [native]{@link module:jm2mp/adapters/native} _query language_
+ * [QueryAdapter]{@link module:jm2mp/adapters/registry.QueryAdapter};
+ * there are no other sites of invocation (neither evaluator nor generic
+ * validator).
+ * 
+ * A `native` _path_ with text string syntax has following form:
+ * &lt;div style="text-align:center;">
+ * 
+ * `root ( "." identifier | "[" array-index "]" | "[" named-property "]" )*`
+ * 
+ * &lt;/div>
+ *
+ * where `root` must be one of the following:
+ * - `$`: represents the source document's root value (`root`).
+ * - `@`: represents the current context (`ctx`).
+ * - `%AliasName`: represents a lexical _alias_ bound using a `let`
+ *   _template command_ (`alias`).
+ *
+ * `native` syntax also allows `$path` to be an array literal which
+ * items will represent _accessors_ (strings for named-properties of
+ * objects and natural numbers for indexed-items in arrays); that allows
+ * navigation/location without additional parsing.
+ * 
+ * In practice, `native_paths` are really similar to
+ * [JSONPointer (external)]{@link external:JSONPointer} syntax, which
+ * [QueryAdapter]{@link module:jm2mp/adapters/registry.QueryAdapter}
+ * is developed in [JSONPointer (module)]{@link module:jm2mp/adapters/jsonpointer}.
+**/
+
+/* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+
+import { ParseError, EvaluationError } from "../errors.js";
+
+/* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+
+/**
+ * @constant {object}
+ * @enum
+ * @description
+ * It lists the starting points of a `path` from the `execution environment`.
+**/
+export const EXECUTION_ENVIRONMENT_FROM = {
+  /**
+   * @memberof EXECUTION_ENVIRONMENT_FROM
+   * @property {string}
+   * @readonly
+   * @description "root"
+  **/
+  get ROOT() { return "root"; },
+
+  /**
+   * @memberof EXECUTION_ENVIRONMENT_FROM
+   * @property {string}
+   * @readonly
+   * @description "ctx"
+  **/
+  get CTX(){ return "ctx"; },
+
+  /**
+   * @memberof EXECUTION_ENVIRONMENT_FROM
+   * @property {string}
+   * @readonly
+   * @description "alias"
+  **/
+  get ALIAS() { return "alias"; },
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @typedef {object} ParsedPath
+ * @property {"root" | "ctx" | "alias"} kind
+ * The base kind of the parsed path.
+ * @property {string|null} aliasName
+ * The name of the alias only if `kind` is `'alias'`; otherwise, it is `null`.
+ * @property {Array.&lt;string|number>} accessors
+ * The accessors after the base (it is always an array, empty or not).
+ * @description
+ * It represents a parsed path (from string-based syntax).
+**/
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @default
+ * It parses 'input' string as a native path.
+ * @param {string} input
+ * The input path to parse.
+ * @returns {ParsedPath}
+ * The _abstract syntax tree_ (AST) of 'input' path.
+ * @throws {module:jm2mp/errors.ParseError}
+ * Whenever 'input' string were not a valid path.
+ */
+export function parsePath(input)
+{
+  // Argument validation.
+  if ( ((typeof input) !== "string") || (input.length === 0) ) {
+    throw new ParseError("Syntax error: a native path must be a non-empty string.");
+  }
+  else
+  {
+    // Initial position of the parse inside the input string (path).
+    let pos = 0;
+
+    /**
+     * @description
+     * Helper function to consume the next character if it is the expected;
+     * otherwise, it will raise an exception.
+     * @param {string} ch The character to look for.
+     * @throws {ParseError} Whenever 'ch' were not the next 'input' character.
+     */
+    const expect = (ch) => {
+      if (input[pos] !== ch) {
+        throw new ParseError(
+          `Syntax error: unexpected character '${input[pos]}' instead of '${ch}' at position '${pos}' of input path '${input}'.`
+        );
+      }
+      pos++;
+    };
+
+    // It determines the kind of root depending of first character.
+    let kind, aliasName = null;
+    if (input[0] === "$") {
+      // "$" means root document's value.
+      kind = EXECUTION_ENVIRONMENT_FROM.ROOT;
+      pos = 1;
+    } else if (input[0] === "@") {
+      // "@" means current context.
+      kind = EXECUTION_ENVIRONMENT_FROM.CTX;
+      pos = 1;
+    } else if (input[0] === "%") {
+      // "%name" means a lexical alias.
+      kind = EXECUTION_ENVIRONMENT_FROM.ALIAS;
+      pos = 1;
+      aliasName = readIdentifier(input, pos);
+      if (aliasName === null) {
+        throw new ParseError(
+          `Syntax error: missing identifier right after '%' in input path '${input}'.`
+        );
+      }
+      // It advances the current position until the end of the alias identifier.
+      pos += aliasName.length;
+    } else {
+      throw new ParseError(
+        `Syntax error: unknown root path in input '${input}'; only '$', '@' or '%' is expected.`
+      );
+    }
+    // The list of accessors, which will be extracted from 'input' path
+    // after the execution context.
+    /** @type {Array.&lt;string|number>} */
+    const accessors = [];
+    // It parses accessors until the end of the 'input' string.
+    while (pos &lt; input.length) {
+      // Current character.
+      const ch = input[pos];
+      if (ch === ".")
+      {
+        // It is an accessor by dot: ".identifier".
+        pos++;
+        const id = readIdentifier(input, pos);
+        if (id === null) {
+          throw new ParseError(
+            `Syntax error: missing identifier after dot ('.') at position '${pos}' of input path '${input}'.`
+          );
+        }
+        accessors.push(id);
+        pos += id.length;
+      }
+      else if (ch === "[")
+      {
+        // It is an accessor by square brackts: "[number (array index)]" or "[string (property name)]".
+        pos++;
+        // String: property name.
+        if (input[pos] === '"')
+        {
+          const { value, length } = readQuotedString(input, pos);
+          accessors.push(value);
+          pos += length;
+        }
+        // Number: array index.
+        else if ( isDigit(input[pos]) )
+        {
+          const { value, length } = readNonNegativeInteger(input, pos);
+          accessors.push(value);
+          pos += length;
+        }
+        // Else, meaning... syntax error.
+        else
+        {
+          throw new ParseError(
+            `Syntax error: expected number (array-index) or string (property-name) after '[' at position '${pos}' of input path '${input}'.`
+          );
+        }
+        expect("]");
+      } else {
+        throw new ParseError(
+          `Syntax error: unexpected character '${ch}' at position '${pos}' of input path '${input}'.`
+        );
+      }
+    }
+    // It buids and returns the abstract syntax tree (AST) of the parsed path.
+    /** @constant {ParsedPath} */
+    const result = { kind, aliasName, accessors };
+    return result;
+  }
+}  // export function parsePath
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * It reads an identifier from 'input' with starting delimiter character
+ * 'start'. An identifier starts by `[A-Za-z_]` (see {@link isIdentifierStart})
+ * and continues by `[A-Za-z_0-9]` (see {@link isIdentifierContinue}).
+ * It returns the identifier found, or `null` otherwise.
+ * @param {string} input
+ * The input string containing the full path.
+ * @param {number} start
+ * The initial position to read the expected identifier.
+ * @returns {string|null}
+ * The identifier found, or `null` if no one valid is in such position.
+**/
+function readIdentifier(input, start) {
+  // Current start at input must be a valid identifier-start-character.
+  if (start >= input.length || !isIdentifierStart(input[start])) {
+    return null;
+  }
+  // It continues until no identifier-character is found.
+  let end = start + 1;
+  while (end &lt; input.length &amp;&amp; isIdentifierContinue(input[end])) {
+    end++;
+  }
+  // It returns the slice for the identifier.
+  return input.slice(start, end);
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * It reads a natural number (non-negative integer) from 'start'
+ * position in 'input', and returns its numeric value.
+ * @param {string} input
+ * The input string containing the full path.
+ * @param {number} start
+ * The initial position to read the expected natural number.
+ * @returns {{value: number, length: number}}
+ * Tuple with both: numeric value and number of characters consumed by
+ * the parser.
+**/
+function readNonNegativeInteger(input, start) {
+  let end = start;
+  while ( ( end &lt; input.length ) &amp;&amp; isDigit(input[end]) )
+  {
+    end++;
+  }
+  const value = Number(input.slice(start, end));
+  return { value, length: end - start };
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * It reads an string quoted only as JSON supports (`&amp;quote;` is allowed
+ * but not `&amp;apos;`) from 'input' path, starting at 'start' position
+ * character. It also supports escaping characters like JSON:
+ * `\"`, `\\`, `\/`, `\b`, `\f`, `\n`, `\r`, `\t`, and `\uXXXX`.
+ * @param {string} input
+ * The input string containing the full path.
+ * @param {integer} start
+ * The initial position to read the quoted string, considering that
+ * `input[start]` must be a `&amp;quote;`.
+ * @returns {{value: string, length: integer}}
+ * Tuple with both: unquoted string value and the number of characters
+ * consumed by the parser reading the value (and both `&amp;quote;s`).
+ */
+function readQuotedString(input, start) {
+  if (input[start] !== '"')
+  {
+    // Assert (argument validation, theoric but not possible).
+    throw new ParseError(`Syntax error: expected '"' at position '${start}' of input path '${input}'.`);
+  }
+  else
+  {
+    // Resulting value (unquoted string).
+    /** @type {string} */
+    let value = "";
+    /** @type {boolean} */
+    let found = false ;
+    // It consumes characters until the end of the 'input' path.
+    let end = start + 1;
+    while ( (!found) &amp;&amp; (end &lt; input.length) )
+    {
+      // It inspects the current character.
+      const ch = input[end];
+      if (ch === '"')
+      {
+        found = true ;
+      }
+      else if (ch === "\\")
+      {
+        // Escaping characters like JSON.
+        end++;
+        if (end >= input.length)
+        {
+          throw new ParseError(`Syntax error: incomplete escape character at the end of input path '${input}'.`);
+        }
+        const esc = input[end];
+        switch (esc)
+        {
+          case '"':  value += '"';  break;
+          case "\\": value += "\\"; break;
+          case "/":  value += "/";  break;
+          case "b":  value += "\b"; break;
+          case "f":  value += "\f"; break;
+          case "n":  value += "\n"; break;
+          case "r":  value += "\r"; break;
+          case "t":  value += "\t"; break;
+          case "u": {
+            // Escape unicode \uXXXX.
+            if (end + 4 >= input.length) {
+              throw new ParseError(`Syntax error: incomplete Unicode escape '\\uXXXX' at '${end}' in input path '${input}'.`);
+            }
+            const hex = input.slice(end + 1, end + 5);
+            if (!/^[0-9A-Fa-f]{4}$/.test(hex)) {
+              throw new ParseError(`Syntax error: invalid Unicode escape '\\uXXXX' at '${end}' in pinput path '${input}'.`);
+            }
+            value += String.fromCharCode(parseInt(hex, 16));
+            end += 4;
+            break;
+          }
+          default: throw new ParseError(`Syntax error: unrecognized escape character '\\X' at '${end}' of input path '${input}'.`);
+        }
+        end++;
+      }
+      else
+      {
+        value += ch;
+        end++;
+      }
+    }
+    // It returns the result found, or raises an exception otherwise.
+    if (found)
+    {
+      const result = { value, length: end - start + 1 };
+      return result;
+    }
+    else
+    {
+      throw new ParseError(`Syntax error: quoted string not closed at the end of input path '${input}'.`);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * True whenever 'ch' can starts an identifier
+ * (ASCII letter or underline characters).
+ * @param {string} ch
+ * The character to test.
+ * @returns {boolean}
+ * Is 'ch' in [A-Za-z_] ?
+**/
+function isIdentifierStart(ch) {
+  return (
+    (ch >= "A" &amp;&amp; ch &lt;= "Z") ||
+    (ch >= "a" &amp;&amp; ch &lt;= "z") ||
+    ( ch === "_" )
+  );
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * True whenever 'ch' can continue an identifier
+ * (ASCII letter, digit or underline characters).
+ * @param {string} ch
+ * The character to test.
+ * @returns {boolean}
+ * Is 'ch' in {@link isIdentifierStart} and {@link isDigit} ?
+**/
+function isIdentifierContinue(ch) {
+  return ( isIdentifierStart(ch) || isDigit(ch) );
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * True whenever 'ch' is an ASCII digit.
+ * @param {string} ch
+ * The character to test.
+ * @returns {boolean}
+ * Is 'ch' in [0-9] ?
+**/
+function isDigit(ch) {
+  return ( ( ch >= "0" ) &amp;&amp; ( ch &lt;= "9" ) );
+}
+
+/* ------------------------------------------------------------------ */
+
+/**
+ * @description
+ * It applies the sequence of accessors to an initial JSON value,
+ * navigating/location inside of such value.
+ * 
+ * It follows the _null absorption_ rule: if in any step the resulting
+ * value is `null` or the _accessor_ is not applicable (not named
+ * property found, index out of range, dot navigation over scalar value,
+ * ...), then the final resultant value will be `null`.
+ * @param {*} value
+ * The initial JSON value.
+ * @param {Array&lt;string|number>} accessors
+ * The list of accessors to be orderly applied.
+ * @returns {*}
+ * El valor tras la navegación, o null si la navegación falla.
+ * The resultant JSON value found after the navigation/locate.
+ * @throws {EvaluationError}
+ * Whenever ... is not supported.
+ */
+export function navigate(value, accessors)
+{
+  // Argument validation.
+  if (!Array.isArray(accessors))
+  {
+    throw new ParseError('Accessors must be an array, empty or not!');
+  }
+  else
+  {
+    // It follows every accessor, one by one, updating the
+    // current value, to determine the resultant value.
+    let current = value;
+    for (const acc of accessors)
+    {
+      // Null absorption rule.
+      if (current === null || current === undefined)
+      {
+        break;
+      }
+      // String accessor means property name, only supported by object traversal.
+      else if (typeof acc === "string")
+      {
+        if (typeof current !== "object" || Array.isArray(current))
+        {
+          // Semantic error, actually, but resolved as 'not found' without raising errors.
+          current = null;
+        }
+        else
+        {
+          // Only owned properties and not from the prototype.
+          current = (
+            Object.hasOwn(current, acc)
+            ? current[acc]
+            : null
+          );
+        }
+      }
+      else if ( (typeof acc === "number") &amp;&amp; Number.isSafeInteger(acc) )
+      {
+        // Numeric accessor means an index, only supported by array traversal.
+        if ( ! Array.isArray(current) )
+        {
+          // Semantic error, actually, but resolved as 'not found' without raising error.
+          current = null;
+        }
+        else
+        {
+          current = (
+            ( ( acc >= 0 ) &amp;&amp; ( acc &lt; current.length ) )
+            ? current[acc]
+            : null
+          );
+        }
+      }
+      else
+      {
+        throw new EvaluationError(
+          `Parser error: unsupported kind of accessor '${(typeof acc)}'.`
+        );
+      }
+    }
+    return current;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------ */
+/* End of file: ${JM2MP.JS}/src/adapters/native-paths.js              */
+</code></pre>
+    </article>
+</section>
+
+
+
+
+  </div>
+</main>
+
+<!-- LCamara8 -->
+
+  <footer class="layout-footer">
+    <div class="container">
+        Copyright &copy; 2026 Luis Mar&iacute;a C&Aacute;MARA ROSSI.<br />
+        Trademark &trade; Copyright &copy; 2026 Universidad Nacional de Educaci&oacute;n a Distancia (U.N.E.D.).<br />
+        The <strong><code>JM2MP</code></strong> syntax and this library <strong><code>JM2MP.JS</code></strong> are licensed under <code>BSD-3-Clause</code>
+        <sup>
+          <a target="BSD1" href="https://opensource.org/license/bsd-3-clause">[1]</a>
+          <a target="BSD2" href="https://spdx.org/licenses/BSD-3-Clause.html">[2]</a>
+        </sup> license.
+        <br />
+        See <a href="./LICENSE.txt" target="LICENSE">LICENSE.txt</a> for more info.
+    </div>
+    <br />
+    <div class="container">
+      Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
+      and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
+       on 2026-08-26T15:45:19.653Z
+    </div>
+  </footer>
+
+
+<script src="scripts/prism.dev.js"></script>
+</body>
+</html>

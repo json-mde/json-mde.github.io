@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSON Model-to-Model Projection (JM2MP) Documentation</title>
+    
+      <link type="text/css" rel="stylesheet" href="styles/vendor/prism-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/jm2mp-jsdoc.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+<header class="layout-header">
+  
+    <a href="./">
+      <img
+        src="./images/JM2MP-Logo.png" width="48"
+        alt="JSON Model-to-Model Projection (JM2MP) Documentation"
+      >
+    </a>
+  
+  <h1>
+    <a href="./index.html">
+      JSON Model-to-Model Projection (JM2MP) Documentation
+    </a>
+  </h1>
+  <nav class="layout-nav">
+    <ul><li class="nav-heading">Tutorials</li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-01--getting-started.html">Getting Started!</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-02--jm2mp-syntax.html">JM2MP Syntax</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-03--nql-syntax.html">Native Query Language</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-04--examples.html">Examples</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-06--use-cases.html">Use Cases</a></span></li><li class="nav-heading-tutorial"><span class="nav-item-type type-tutorial" title="tutorial">T</span><span class="nav-item-name is-tutorial"><a href="tutorial-07--jsdoc.html">Documentation Generation Using Tidy-JSDoc</a></span></li></ul><ul><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html">AdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#_adapters">_adapters</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#names">names</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_registry.AdapterRegistry.html#register">register</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.AdapterError.html">AdapterError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.EvaluationError.html">EvaluationError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ParseError.html">ParseError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ProjectionError.html">ProjectionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ResolutionError.html">ResolutionError</a></span></li><li class="nav-heading"><span class="nav-item-type type-class" title="class">C</span><span class="nav-item-name is-class"><a href="module-jm2mp_errors.ValidationError.html">ValidationError</a></span></li></ul><ul><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_helpers.html">jm2mp/adapters/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_helpers.html#.createNativeRegistry">createNativeRegistry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jmespath.html">jm2mp/adapters/jmespath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jmespath.html#.createJmesPathAdapter">createJmesPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonata.html">jm2mp/adapters/jsonata</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonata.html#.createJsonataAdapter">createJsonataAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpath.html">jm2mp/adapters/jsonpath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpath.html#.createJsonPathAdapter">createJsonPathAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonpointer.html">jm2mp/adapters/jsonpointer</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonpointer.html#.createJsonPointerAdapter">createJsonPointerAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_jsonquery.html">jm2mp/adapters/jsonquery</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_jsonquery.html#.createJsonQueryAdapter">createJsonQueryAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native.html">jm2mp/adapters/native</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native.html#.createNativeAdapter">createNativeAdapter</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_native_paths.html">jm2mp/adapters/native_paths</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_adapters_native_paths.html#.EXECUTION_ENVIRONMENT_FROM">EXECUTION_ENVIRONMENT_FROM</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.navigate">navigate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#.parsePath">parsePath</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isDigit">isDigit</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierContinue">isIdentifierContinue</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~isIdentifierStart">isIdentifierStart</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readIdentifier">readIdentifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readNonNegativeInteger">readNonNegativeInteger</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_adapters_native_paths.html#~readQuotedString">readQuotedString</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_adapters_registry.html">jm2mp/adapters/registry</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v4_middleware.html">jm2mp/api/express/v4/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v4_middleware.html#~PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~asyncHandler">asyncHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v4_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_api_express_v5_middleware.html">jm2mp/api/express/v5/middleware</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#.PROJECTIONS_DIR">PROJECTIONS_DIR</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_api_express_v5_middleware.html#~__dirname">__dirname</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.createApp">createApp</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.JM2MP_CreateMiddleware">JM2MP_CreateMiddleware</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#.projectionErrorHandler">projectionErrorHandler</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_api_express_v5_middleware.html#~statusForError">statusForError</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_cli.html">jm2mp/cli</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_errors.html">jm2mp/errors</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_evaluator.html">jm2mp/evaluator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">DEFAULT_MAX_DEPTH</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#.evaluate">evaluate</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~compareOrdered">compareOrdered</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepen">deepen</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~deepEqual">deepEqual</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalLiteralObject">evalLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalOperation">evalOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~evalProjection">evalProjection</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~expectType">expectType</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator.html#~typeName">typeName</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_index.html">jm2mp/index</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.createAdapterRegistry">createAdapterRegistry</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_index.html#.project">project</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_helpers.html">jm2mp/modules/helpers</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_helpers.html#.ROOT_TEMPLATE_NAME">ROOT_TEMPLATE_NAME</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isModule">isModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.isPackagedEsmModuleAvailable">isPackagedEsmModuleAvailable</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleOf">moduleOf</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.moduleWith">moduleWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_helpers.html#.ThrowsValidationErrorWhenIsNotAModule">ThrowsValidationErrorWhenIsNotAModule</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_loaders.html">jm2mp/modules/loaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createFileLoader">createFileLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createStringLoader">createStringLoader</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_loaders.html#.createUrlLoader">createUrlLoader</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_normalizer.html">jm2mp/modules/normalizer</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_normalizer.html#.MODULE_METADATA_KEYS">MODULE_METADATA_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#.normalizeModule">normalizeModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~getDefaultSyntax">getDefaultSyntax</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeGet">normalizeGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_normalizer.html#~normalizeNode">normalizeNode</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_modules_resolver.html">jm2mp/modules/resolver</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">DEFAULT_MAX_MODULES</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#.resolve">resolve</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_modules_resolver.html#~importInto">importInto</a></span></li><li class="nav-heading"><span class="nav-item-type type-module" title="module">M</span><span class="nav-item-name is-module"><a href="module-jm2mp_validator.html">jm2mp/validator</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~KNOWN_OPS">KNOWN_OPS</a></span></li><li class="nav-item"><span class="nav-item-type type-member" title="member">M</span><span class="nav-item-name is-member"><a href="module-jm2mp_validator.html#~OP_ARGS">OP_ARGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isOperation">isOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.isValidName">isValidName</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#.validateModule">validateModule</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateCall">validateCall</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateGet">validateGet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLet">validateLet</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateLiteralObject">validateLiteralObject</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateOperation">validateOperation</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_validator.html#~validateProjection">validateProjection</a></span></li></ul><ul><li class="nav-heading">Externals</li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JMESPath.html">JMESPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONata.html">JSONata</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPath.html">JSONPath</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONPointer.html">JSONPointer</a></span></li><li class="nav-heading"><span class="nav-item-type type-external" title="external">E</span><span class="nav-item-name is-external"><a href="external-JSONQuery.html">JSONQuery</a></span></li></ul><ul><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace" title="namespace">N</span><span class="nav-item-name is-namespace"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html">JM2MP_PROJECTIONS</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.abs">abs</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.and">and</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.call">call</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.coalesce">coalesce</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.concat">concat</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.cons">cons</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.div">div</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.eq">eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldArr">foldArr</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.foldObj">foldObj</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gt">gt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.gte">gte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.has">has</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.if">if</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.length">length</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.let">let</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lookup">lookup</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lower">lower</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lt">lt</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.lte">lte</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.merge">merge</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mod">mod</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neg">neg</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.neq">neq</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.not">not</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.or">or</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sort">sort</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.substring">substring</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.typeof">typeof</a></span></li><li class="nav-item"><span class="nav-item-type type-function" title="function">F</span><span class="nav-item-name is-function"><a href="module-jm2mp_evaluator-JM2MP_PROJECTIONS.html#.upper">upper</a></span></li></ul>
+  </nav>
+</header>
+
+
+<main class="layout-main ">
+  <div class="container">
+    <p class="page-kind"></p>
+    <h1 class="page-title"></h1>
+    
+<section class="tutorial">
+  <header>
+    <h1>Examples</h1>
+  </header>
+  
+  <article>
+    <h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#courses-and-studentss">Courses and Students</a>
+<ul>
+<li><a href="#source-document-cs">Source Document</a></li>
+<li><a href="#projection-document-cs">Projection Document</a></li>
+<li><a href="#resultant-document-cs">Resultant Document</a></li>
+</ul>
+</li>
+<li><a href="#inventory-management">Inventory Management</a>
+<ul>
+<li><a href="#source-document-im">Source Document</a></li>
+<li><a href="#projection-document-im">Projection Document</a></li>
+<li><a href="#resultant-document-im">Resultant Document</a></li>
+</ul>
+</li>
+</ul>
+<h2>Introduction</h2>
+<p>Apart from the simple examples described in the
+<a href="./tutorial-03--nql-syntax.html#combining-operations">Combining Operations</a>
+section from the
+<a href="./tutorial-03--nql-syntax.html">Native Query Language</a>
+tutorial, here we will present to more complex examples:
+<a href="#courses-and-students">Courses and Students</a> and
+<a href="#inventory-management">Inventory Management</a>.</p>
+<h2>Courses and Students</h2>
+<p>This example of <em>courses and students</em> shows how to generate a report
+that displays, for each student, their aggregated results over a
+specific time period, based on the enrollment data for each course.</p>
+<p>This section of the tutorial is based on the integration test found in
+the file <code>${JM2MP.JS}/src/test/integration/courses-students.test.js</code>.</p>
+<h3>Source Document (CS)</h3>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;university&quot;: &quot;Universidad Nacional de Educación a Distancia (U.N.E.D.)&quot;,
+  &quot;period&quot;: &quot;2026-Q1&quot;,
+  &quot;passing_grade&quot;: 5.0,
+  &quot;courses&quot;: {
+    &quot;ALG-101&quot;: {
+      &quot;title&quot;: &quot;Linear Algebra&quot;,
+      &quot;credits&quot;: 4,
+      &quot;enrollments&quot;: [
+        { &quot;student&quot;: &quot;Luis María&quot;,   &quot;grade&quot;: 7.5 },
+        { &quot;student&quot;: &quot;Inés&quot;,         &quot;grade&quot;: 4.0 },
+        { &quot;student&quot;: &quot;Elena&quot;,        &quot;grade&quot;: 8.5 },
+        { &quot;student&quot;: &quot;José Antonio&quot;, &quot;grade&quot;: null }
+      ]
+    },
+    &quot;FPROG-201&quot;: {
+      &quot;title&quot;: &quot;Functional Programming&quot;,
+      &quot;credits&quot;: 6,
+      &quot;enrollments&quot;: [
+        { &quot;student&quot;: &quot;Luis María&quot;,   &quot;grade&quot;: 9.0 },
+        { &quot;student&quot;: &quot;Elena&quot;,        &quot;grade&quot;: 6.5 },
+        { &quot;student&quot;: &quot;José Antonio&quot;, &quot;grade&quot;: 5.5 }
+      ]
+    },
+    &quot;DB-301&quot;: {
+      &quot;title&quot;: &quot;Databases&quot;,
+      &quot;credits&quot;: 9,
+      &quot;enrollments&quot;: [
+        { &quot;student&quot;: &quot;Inés&quot;,         &quot;grade&quot;: 7.0 },
+        { &quot;student&quot;: &quot;Elena&quot;,        &quot;grade&quot;: 3.0 },
+        { &quot;student&quot;: &quot;José Antonio&quot;, &quot;grade&quot;: 8.0 }
+      ]
+    }
+  }
+}
+</code></pre>
+<h3>Projection Document (CS)</h3>
+<pre class="prettyprint source lang-JSON"><code>{
+  // The $schema and $options metadata.
+  &quot;$schema&quot;: &quot;https://json-mde.tech/schemas/jm2mp/&quot;,
+  &quot;$options&quot;: {
+    &quot;$version&quot;: &quot;1.0&quot;,
+    &quot;$default-query-language&quot;: &quot;native&quot;,
+    &quot;annotations&quot;: &quot;Projection document for 'courses and students' example.&quot;
+  },
+  // The root template.
+  &quot;$&quot;: {
+    // Literal property: copy its value as is.
+    &quot;university&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.university&quot; },
+    // Literal property: copy its value as is.
+    &quot;period&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.period&quot; },
+    // Literal property: create the name but project its values (foldObj).
+    &quot;students&quot;: {
+      // Second pass: calculate aggregated marks
+      // for each student using first pass result.
+      &quot;$op&quot;: &quot;foldObj&quot;,
+      &quot;$over&quot;: {
+        // First pass: gets courses and enrollments for each student.
+        &quot;$op&quot;: &quot;foldObj&quot;,
+        &quot;$over&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.courses&quot; },  // Starting at root context.
+        &quot;$init&quot;: {},  // Empty object as neutral element; see insert in step.
+        &quot;$step&quot;: {
+          // It gets the credits for each course using an alias.
+          &quot;$op&quot;: &quot;let&quot;,
+          &quot;$bindings&quot;: {
+            &quot;credits&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.credits&quot; }
+          },
+          &quot;$in&quot;: {
+            // It iterates for each courses' enrollments.
+            &quot;$op&quot;: &quot;foldArr&quot;,
+            &quot;$over&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.enrollments&quot; },
+            &quot;$init&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; },
+            &quot;$step&quot;: {
+              // Null grades means that such enrollment is ignored.
+              &quot;$op&quot;: &quot;if&quot;,
+              &quot;$cond&quot;: {
+                &quot;$op&quot;: &quot;eq&quot;,
+                &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.item.grade&quot; },
+                &quot;$right&quot;: null
+              },
+              &quot;$then&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; },
+              &quot;$else&quot;: {
+                // Numeric grades means that such enrollment counts toward student's marks.
+                &quot;$op&quot;: &quot;let&quot;,
+                &quot;$bindings&quot;: {
+                  &quot;student&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.item.student&quot; },
+                  &quot;grade&quot;:   { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.item.grade&quot; },
+                  &quot;accI&quot;:    { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+                },
+                &quot;$in&quot;: {
+                  // Inner scope to accumulate (count and sum) by student's name,
+                  // outer scope for final statistics per student.
+                  &quot;$op&quot;: &quot;let&quot;,
+                  &quot;$bindings&quot;: {
+                    &quot;previous_step&quot;: {
+                      &quot;$op&quot;: &quot;lookup&quot;,
+                      &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%student&quot; },
+                      &quot;$in&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%accI&quot; }
+                    }
+                  },
+                  &quot;$in&quot;: {
+                    // Ad-hoc accumulator object for each student with three properties:
+                    // passing_credits, sum_of_grades, and enrolled_courses.
+                    // Each iteration's step accumulates its values.
+                    // Remember that {...{k:old},...{k:new}} => {...,k:new,...}
+                    &quot;$op&quot;: &quot;insert&quot;,
+                    &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%student&quot; },
+                    &quot;$value&quot;: {
+                      // %accI[%student].passing_credits += (
+                      //   ( %accI[%student].grade ) >= $.passing_grade )
+                      //   ? %credits
+                      //   : 0 );
+                      &quot;passing_credits&quot;: {
+                        &quot;$op&quot;: &quot;add&quot;,
+                        &quot;$left&quot;: {
+                          &quot;$op&quot;: &quot;coalesce&quot;,
+                          &quot;$value&quot;: {
+                            &quot;$op&quot;: &quot;lookup&quot;,
+                            &quot;$key&quot;: &quot;passing_credits&quot;,
+                            &quot;$in&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%previous_step&quot; }
+                          },
+                          &quot;$default&quot;: 0
+                        },
+                        &quot;$right&quot;: {
+                          &quot;$op&quot;: &quot;if&quot;,
+                          &quot;$cond&quot;: {
+                            &quot;$op&quot;: &quot;gte&quot;,
+                            &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%grade&quot; },
+                            &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.passing_grade&quot; }
+                          },
+                          &quot;$then&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%credits&quot; },
+                          &quot;$else&quot;: 0
+                        }
+                      },
+                      // %accI[%student].sum_of_grades +=
+                      //   ( %previous_step[%student].sum_of_grades ?? 0 ) ;
+                      &quot;sum_of_grades&quot;: {
+                        &quot;$op&quot;: &quot;add&quot;,
+                        &quot;$left&quot;: {
+                          &quot;$op&quot;: &quot;coalesce&quot;,
+                          &quot;$value&quot;: {
+                            &quot;$op&quot;: &quot;lookup&quot;,
+                            &quot;$key&quot;: &quot;sum_of_grades&quot;,
+                            &quot;$in&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%previous_step&quot; }
+                          },
+                          &quot;$default&quot;: 0
+                        },
+                        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%grade&quot; }
+                      },
+                      // %accI[%student].enrolled_courses +=
+                      //   ( %previous_step[%student].grade ? 1 : 0 );
+                      &quot;enrolled_courses&quot;: {
+                        &quot;$op&quot;: &quot;add&quot;,
+                        &quot;$left&quot;: {
+                          &quot;$op&quot;: &quot;coalesce&quot;,
+                          &quot;$value&quot;: {
+                            &quot;$op&quot;: &quot;lookup&quot;,
+                            &quot;$key&quot;: &quot;enrolled_courses&quot;,
+                            &quot;$in&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%previous_step&quot; }
+                          },
+                          &quot;$default&quot;: 0
+                        },
+                        &quot;$right&quot;: 1
+                      }
+                    },
+                    &quot;$into&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;%accI&quot; }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      // The final resultant value will be an object,
+      // initially empty as neutral element (foldObj), which
+      // keys will be the name of each student.
+      &quot;$init&quot;: {},
+      // For each student of first pass, in this second pass
+      // we calculate the average marks.
+      &quot;$step&quot;: {
+        // For each student from first pass,
+        // it calculates their average marks.
+        &quot;$op&quot;: &quot;insert&quot;,
+        &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.key&quot; },
+        &quot;$value&quot;: {
+          &quot;passing_credits&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.passing_credits&quot; },
+          &quot;sum_of_grades&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.sum_of_grades&quot; },
+          &quot;enrolled_courses&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.enrolled_courses&quot; },
+          &quot;average_grade&quot;: {
+            &quot;$op&quot;: &quot;div&quot;,
+            &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.sum_of_grades&quot; },
+            &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.enrolled_courses&quot; }
+          }
+        },
+        &quot;$into&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+      }
+   }
+  }
+}
+</code></pre>
+<p>The equivalent in a database environment to such projection_ would be an
+SQL query similar to:</p>
+<pre class="prettyprint source lang-SQL"><code>SELECT
+  U.Name AS &quot;University&quot;,
+  U.Period AS &quot;Period&quot;,
+  S.Name AS &quot;Student&quot;,
+  SUM( CASE WHEN E.Grade >= U.Passing_Grade
+            THEN C.Credits
+            ELSE 0.00
+            END ) AS &quot;Passing_Credits&quot;,
+  SUM( E.Grade ) AS &quot;Sum_of_Grades&quot;,
+  COUNT( E.Grade ) AS &quot;Enrolled_Courses&quot;,
+  AVG( E.Grade ) AS &quot;Average_Grade&quot;  
+FROM
+  Students AS S
+  LEFT JOIN
+  Enrollments AS E
+  ON ( S.Id = E.Student )
+  INNER JOIN
+  Courses AS C
+  ON ( E.Course = C.Code )
+  INNER JOIN
+  University AS U
+  ON ( C.University = U.Id )
+WHERE
+  ( E.Grade IS NOT NULL )
+GROUP BY
+  S.Id
+ORDER BY
+  S.Id ASC
+</code></pre>
+<p>Using a JavaScript <em>script</em>, the equivalent source code of the
+<em>projection</em>  would be like:</p>
+<pre class="prettyprint source lang-JavaScript"><code>const all_enrollments =
+    Object.entries(source_document.courses)
+        .map( ([course_name,course_info]) => (
+                course_info.enrollments
+                            .map( (enrollment)=>({
+                                    course:course_name,
+                                    title:course_info.title,
+                                    credits:course_info.credits,
+                                    student:enrollment.student,
+                                    grade:enrollment.grade
+                                    }) )
+                )
+        )
+        .flat();
+const expected_resultant_document = {
+    university: source_document.university,
+    period: source_document.period,
+    students: {},
+};
+all_enrollments.forEach( (enrollment) =>
+{
+  if (!Object.hasOwn(expected_resultant_document.students, enrollment.student))
+  {
+    expected_resultant_document.students[enrollment.student] = {
+        passing_credits: 0,
+        sum_of_grades: 0,
+        enrolled_courses: 0,
+        average_grade: 0
+    };
+  }
+  if ( enrollment.grade >= source_document.passing_grade) {
+    expected_resultant_document.students[enrollment.student].passing_credits += enrollment.credits;
+  }
+  if ( enrollment.grade ) {
+    expected_resultant_document.students[enrollment.student].sum_of_grades += enrollment.grade;
+    expected_resultant_document.students[enrollment.student].enrolled_courses += 1;
+  }
+});
+Object.keys(expected_resultant_document.students).forEach( (student) =>
+{
+  const current_student = expected_resultant_document.students[student];
+  if ( current_student.enrolled_courses > 0 ) {
+    current_student.average_grade = ( current_student.sum_of_grades / current_student.enrolled_courses ) ;
+  }
+});
+</code></pre>
+<h3>Resultant Document (CS)</h3>
+<p>The <em>resultant document</em> obtained is presented below:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;university&quot;: &quot;Universidad Nacional de Educación a Distancia (U.N.E.D.)&quot;,
+  &quot;period&quot;: &quot;2026-Q1&quot;,
+  &quot;students&quot;: {
+    &quot;Elena&quot;: {
+      &quot;passing_credits&quot;:  10,
+      &quot;sum_of_grades&quot;:    18,
+      &quot;enrolled_courses&quot;:  3,
+      &quot;average_grade&quot;:     6
+    },
+    &quot;Inés&quot;: {
+      &quot;passing_credits&quot;:   9,
+      &quot;sum_of_grades&quot;:    11,
+      &quot;enrolled_courses&quot;:  2,
+      &quot;average_grade&quot;:     5.5
+    },
+    &quot;Luis María&quot;: {
+      &quot;passing_credits&quot;:  10,
+      &quot;sum_of_grades&quot;:    16.5,
+      &quot;enrolled_courses&quot;:  2,
+      &quot;average_grade&quot;:     8.25
+    },
+    &quot;José Antonio&quot;: {
+      &quot;passing_credits&quot;:  15,
+      &quot;sum_of_grades&quot;:    13.5,
+      &quot;enrolled_courses&quot;:  2,
+      &quot;average_grade&quot;:     6.75
+    }
+  }
+}
+</code></pre>
+<h2>Inventory Management</h2>
+<p>This example involves an <em>inventory management</em> and shows how to
+generate a report that displays, for each stored product, some
+statistics about their inventory quantity, individual price, and
+grouping by category.</p>
+<p>This section of the tutorial is based on the integration test found
+in the file <code>${JM2MP.JS}/src/test/integration/inventory.test.js</code>.</p>
+<h3>Source Document (IM)</h3>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;store&quot; : &quot;Madrid-01&quot;,
+  &quot;threshold&quot; : 10,  // Critical threshold for replenishment (or reorder point).
+  &quot;products&quot; :
+  {
+    &quot;SKU-A100&quot; :
+    {
+      &quot;name&quot; :     &quot;Mechanical Keyboard&quot;,
+      &quot;category&quot; : &quot;peripheral&quot;,
+      &quot;stock&quot; :    45,
+      &quot;price&quot; :    89.90
+    },
+    &quot;SKU-A101&quot; :
+    {
+      &quot;name&quot; :     &quot;Wireless Mouse&quot;,
+      &quot;category&quot; : &quot;peripheral&quot;,
+      &quot;stock&quot; :    8,
+      &quot;price&quot; :    35.00
+    },
+    &quot;SKU-B200&quot; :
+    {
+      &quot;name&quot; :     &quot;Monitor 27 inches&quot;,
+      &quot;category&quot; : &quot;screen&quot;,
+      &quot;stock&quot; :    12,
+      &quot;price&quot; :    320.00
+    },
+    &quot;SKU-B201&quot; :
+    {
+      &quot;name&quot; :     &quot;Monitor 32 inches&quot;,
+      &quot;category&quot; : &quot;screen&quot;,
+      &quot;stock&quot; :    3,
+      &quot;price&quot; :    480.00
+    },
+    &quot;SKU-C300&quot; :
+    {
+      &quot;name&quot; :     &quot;Webcam HD&quot;,
+      &quot;category&quot; : &quot;peripheral&quot;,
+      &quot;stock&quot; :    0,
+      &quot;price&quot; :    65.00
+    },
+    &quot;SKU-D400&quot; :
+    {
+      &quot;name&quot; :     &quot;Bluetooth earphones&quot;,
+      &quot;category&quot; : &quot;audio&quot;,
+      &quot;stock&quot; :    25,
+      &quot;price&quot; :    120.00
+    }
+  }
+}
+</code></pre>
+<h3>Projection Document (IM)</h3>
+<p>The <code>JM2MP</code> <em>projection document</em> used to transform the
+<em>source document</em> into the <em>resultant document</em> is presented below.</p>
+<p>The <em>projection document</em> contains comments explaining the main steps,
+so it should be considered
+<a href="./tutorial-05--how-to-project-other-formats.html#jsonc">JSONC</a> syntax
+rather than pure JSON; if you wish to use it in <code>JM2MP.JS</code>, you must
+first remove the comments or convert the syntax (see
+<a href="./tutorial-05--how-to-project-other-formats.html">How to Project Other Usual Document Formats</a>
+<em>tutorial</em> for instructions).</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  // Store: literal copy.
+  &quot;store&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.store&quot; },
+  // Total inventory value.
+  &quot;total_inventory_value&quot;: {
+    &quot;$op&quot;: &quot;foldObj&quot;,
+    &quot;$over&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.products&quot; },
+    &quot;$init&quot;: 0,
+    &quot;$step&quot;: {
+      &quot;$op&quot;: &quot;add&quot;,
+      &quot;$left&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; },
+      &quot;$right&quot;: {
+        &quot;$op&quot;: &quot;mul&quot;,
+        &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.stock&quot; },
+        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.price&quot; }
+      }
+    }
+  },
+  // Products below the critical threshold.
+  &quot;products_below_critical_threshold&quot;: {
+    &quot;$op&quot;: &quot;foldObj&quot;,
+    &quot;$over&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.products&quot; },
+    &quot;$init&quot;: {},
+    &quot;$step&quot;: {
+      &quot;$op&quot;: &quot;if&quot;,
+      &quot;$cond&quot;: {
+        &quot;$op&quot;: &quot;lte&quot;,
+        &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.stock&quot; },
+        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.threshold&quot; }
+      },
+      &quot;$then&quot;: {
+        &quot;$op&quot;: &quot;insert&quot;,
+        &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.key&quot; },
+        &quot;$value&quot;: {
+          &quot;name&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.name&quot;  },
+          &quot;stock&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.stock&quot; }
+        },
+        &quot;$into&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+      },
+      &quot;$else&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+    }
+  },
+  // Units in stock, per category (aggregated).
+  &quot;stock_per_category&quot;: {
+    &quot;$op&quot;: &quot;foldObj&quot;,
+    &quot;$over&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$.products&quot; },
+    &quot;$init&quot;: {},
+    &quot;$step&quot;: {
+      &quot;$op&quot;: &quot;insert&quot;,
+      &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.category&quot; },
+      &quot;$value&quot;: {
+        &quot;$op&quot;: &quot;add&quot;,
+        &quot;$left&quot;: {
+          &quot;$op&quot;: &quot;coalesce&quot;,
+          &quot;$value&quot;: {
+            &quot;$op&quot;: &quot;lookup&quot;,
+            &quot;$key&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.category&quot; },
+            &quot;$in&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+          },
+          &quot;$default&quot;: 0
+        },
+        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.value.stock&quot; }
+      },
+      &quot;$into&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@.acc&quot; }
+    }
+  }
+}
+</code></pre>
+<h3>Resultant Document (IM)</h3>
+<p>The <em>resultant document</em> that was obtained is presented below:</p>
+<pre class="prettyprint source lang-JSON"><code>{
+  // Store identification.
+  &quot;store&quot;: &quot;Madrid-01&quot;,
+  // Total inventory value.
+  &quot;total_inventory_value&quot;: 12605.5,
+  // Products below its critical threshold.
+  &quot;products_below_critical_threshold&quot;:
+  {
+    &quot;SKU-A101&quot;:
+    {
+      &quot;name&quot;  : &quot;Wireless Mouse&quot;,
+      &quot;stock&quot; : 8
+    },
+    &quot;SKU-B201&quot;:
+    {
+      &quot;name&quot;  : &quot;Monitor 32 inches&quot;,
+      &quot;stock&quot; : 3
+    },
+    &quot;SKU-C300&quot;:
+    {
+      &quot;name&quot;  : &quot;Webcam HD&quot;,
+      &quot;stock&quot; : 0
+    }
+  },
+  // Units in stock, per category.
+  &quot;stock_per_category&quot;:
+  {
+    &quot;peripheral&quot; : 53,
+    &quot;screen&quot;     : 15,
+    &quot;audio&quot;      : 25
+  }
+}
+</code></pre>
+  </article>
+  <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
+    const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
+    const all_tutorial_sections = all_tutorials.filter( (e) => ( e?.tagName?.toLowerCase() === "section" ) ) ;
+    // console.log('all_tutorial_sections',all_tutorial_sections);
+    const this_tutorial_sections = all_tutorial_sections &&
+                                   all_tutorial_sections.length &&
+                                   all_tutorial_sections[0] ;
+    // console.log('this_tutorial_sections',this_tutorial_sections);
+    if ( this_tutorial_sections ) {
+        ['h1','h2','h3','h4','h5','h6'].forEach( (tag) => {
+            const tutorial_headers = Array.from( this_tutorial_sections.getElementsByTagName(tag) ) ;
+            // console.log('tutorial_headers',tutorial_headers);
+            tutorial_headers.forEach( (current_header) => {
+                let header_text = current_header.innerText ;
+                header_text = header_text.replace(/\s/ig,"-")
+                                         .replace(/[^-A-Za-z0-9]/g,"")
+                                         .toLowerCase() ;
+                // console.log(tag,'header_text',header_text);
+                current_header.id = header_text ;
+            });
+        }) ;
+    }
+  </script>
+  <script type="module" id="LCamara8_TableOfCOntents">
+    const toc_header = document.getElementById( "table-of-contents" ) ;
+    // console.log('toc_header',toc_header) ;
+    if ( toc_header ) {
+        let toc_ul = toc_header.nextElementSibling ;
+        // console.log('toc_ul',toc_ul) ;
+        if ( toc_ul.tagName.toLowerCase() === "ul" ) {
+            toc_ul.className = ( ((toc_ul.className)?(toc_ul.className+" "):("")) + "table-of-contents" ) ;
+        }
+    }
+  </script>
+  <script type="module" id="LCamara8_TargetExternalUrls">
+    const this_tutorial_origin = document.location.origin ;
+    // console.log('this_tutorial_origin',this_tutorial_origin);
+    const all_anchors = Array.from( document.getElementsByTagName("a") ) ;
+    // console.log('all_anchors',all_anchors);
+    const all_external_anchors = all_anchors.filter(
+      (a) => ( !!(a.href) && !(a.target) && URL.canParse(a.href) &&
+               URL.canParse(this_tutorial_origin) &&
+               ["http:","https:"].includes( URL.parse(a.href,this_tutorial_origin).protocol ) &&
+               ( URL.parse(a.href,this_tutorial_origin).origin !== URL.parse(this_tutorial_origin).origin ) )
+    ) ;
+    // console.log('all_external_anchors',all_external_anchors);
+    all_external_anchors.forEach( (a) => {
+        a.target = "_blank" ;
+        a.className = ( ((a.className)?(a.className+" "):("")) + "external" ) ;
+        a.insertAdjacentHTML( "afterend", "&nbsp;<span class=\"external\">&#x1F875</span>" ) ;
+    });
+  </script>
+</section>
+
+  </div>
+</main>
+
+<!-- LCamara8 -->
+
+  <footer class="layout-footer">
+    <div class="container">
+        Copyright &copy; 2026 Luis Mar&iacute;a C&Aacute;MARA ROSSI.<br />
+        Trademark &trade; Copyright &copy; 2026 Universidad Nacional de Educaci&oacute;n a Distancia (U.N.E.D.).<br />
+        The <strong><code>JM2MP</code></strong> syntax and this library <strong><code>JM2MP.JS</code></strong> are licensed under <code>BSD-3-Clause</code>
+        <sup>
+          <a target="BSD1" href="https://opensource.org/license/bsd-3-clause">[1]</a>
+          <a target="BSD2" href="https://spdx.org/licenses/BSD-3-Clause.html">[2]</a>
+        </sup> license.
+        <br />
+        See <a href="./LICENSE.txt" target="LICENSE">LICENSE.txt</a> for more info.
+    </div>
+    <br />
+    <div class="container">
+      Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
+      and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
+       on 2026-08-26T15:45:19.763Z
+    </div>
+  </footer>
+
+
+<script src="scripts/prism.dev.js"></script>
+</body>
+</html>
