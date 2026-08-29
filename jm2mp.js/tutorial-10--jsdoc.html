@@ -39,101 +39,153 @@
     <p class="page-kind"></p>
     <h1 class="page-title"></h1>
     
-
-
-
-
-
-    
-
-
-    <h3>@json-mde/jm2mp 1.0.0</h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section class="readme">
-        <article><h1>JSON Model-to-Model Projection (JM2MP)</h1>
+<section class="tutorial">
+  <header>
+    <h1>Documentation Generation</h1>
+  </header>
+  
+  <article>
+    <h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#customization-of-the-generation-template">Customization of the generation template</a></li>
+<li><a href="#generation-and-releasing">Generation and releasing</a></li>
+</ul>
 <h2>Introduction</h2>
-<p><strong>JSON Model-to-Model Projection (JM2MP)</strong> is both a JSON-based syntax
-to transform algebraically any input JSON document into another output
-JSON document, and a library to execute such transformations.</p>
-<h2>Source code</h2>
-<p>As part of this work, the <a href="https://github.com/JSON-MDE/">JSON-MDE</a>
-<em>organization</em> has been created on <a href="https://github.com/">GitHub</a>, which
-encompasses numerous projects, the main one
-<a href="https://GitHub.com/JSON-MDE/JM2MP.JS">JM2MP.JS</a> as well as others for
-illustrative and utility purposes.</p>
-<p>The source code for all projects related to <strong>JM2MP</strong> can be retrieved
-from there.</p>
-<h2>Documentation</h2>
-<p>The documentation about this <strong>JM2MP.JS</strong> library, the <strong>JM2MP</strong>
-syntax, and their related projects, can be found online at:</p>
+<p>The original repository for the <code>JM2MP</code> document format and this <code>JM2MP.JS</code> library,
+<a href="https://github.com/JSON-MDE/JM2MP.JS">https://github.com/JSON-MDE/JM2MP.JS</a>,
+contains not only  the source code but also a complete set of documentation.</p>
+<p>This tutorial will guide you through the process of generating that
+documentation, combining comments from the original source code with
+additional material like all existing tutorials.</p>
+<h2>Dependencies</h2>
+<p>The <code>JM2MP.JS</code> library uses the <em>documentation template</em>
+<a href="https://julie.io/projects/tools/tidy-jsdoc">tidy-jsdoc</a>, which in turn
+is based on and uses <a href="https://jsdoc.app/">JSDoc</a> as <em>documentation
+generation engine</em>.</p>
+<p>Both dependencies parse, extract and manage all
+<a href="https://jsdoc.app/about-getting-started">JSDoc comments</a>
+found in the library's source code.</p>
+<p>In addition, several tutorials have been written using
+<a href="https://daringfireball.net/projects/markdown/">Markdown</a> (such as this
+one), to introduce, guide you through, and document all aspects
+of the <code>JM2MP</code> document format and this <code>JM2MP.JS</code> JavaScript library.</p>
+<h2>Customization of the generation template</h2>
+<p>The <a href="https://www.npmjs.com/package/tidy-jsdoc">tidy-jsdoc</a> template used
+by <code>JM2MP.JS</code> requires some customizations in order to produce the
+desired results.</p>
+<p>The directory <code>./doc/jsdoc/</code> contains all these customizations:</p>
 <ul>
-<li><a href="https://GitHub.JSON-MDE.Tech/jm2mp.js/">https://GitHub.JSON-MDE.Tech/jm2mp.js/</a></li>
-</ul>
-<p>It contains several tutorials to help you get started and learn more
-about these topics.</p>
-<p>Documentation has been generated using a customized version of both
-<a href="https://jsdoc.app/">JSDoc</a> and
-<a href="doc/jsdoc/tmpl/tidy-jsdoc/layout.tmpl">tidy-jsdoc</a> (thanks to the
-authors for their willingness to share they work).</p>
-<h2>Authors</h2>
-<h3>Main author</h3>
-<ul>
-<li>Luis Maria CAMARA ROSSI
-<ul>
-<li>Ph.D. Student</li>
-<li><a href="mailto:lcamara8@alumno.uned.es">lcamara8@alumno.uned.es</a></li>
-<li><a href="https://www.uned.es/universidad/facultades/en/departamentos/ingenieria-del-softw-y-sist-informaticos.html">https://www.uned.es/universidad/facultades/en/departamentos/ingenieria-del-softw-y-sist-informaticos.html</a></li>
-</ul>
+<li>
+<p>The subdirectory <code>./doc/jsdoc/static/</code> is configured to be copied to
+the generated documentation, and as its name implied, contains static
+files (CSS stylesheets, images and TXT website files).</p>
+</li>
+<li>
+<p>The subdirectory <code>./doc/jsdoc/tmpl/tidy-jsdoc/</code> contains modified
+files to be manually overwritten over the distributed
+<a href="https://github.com/julie-ng/tidy-jsdoc">tidy-jsdoc source code</a>,
+before the generation process runs.</p>
+<p>It's worth noting the JavaScript code injections in <code>tutorial.tmpl</code>
+used to properly configure the <em>table of contents</em> and mark <em>external
+links</em> in each <a href="https://jsdoc.app/plugins-markdown">Markdown-based</a>
+tutorial.</p>
+</li>
+<li>
+<p>The subdirectory <code>./doc/jsdoc/tutorials/</code> contains all
+<a href="https://jsdoc.app/about-tutorials">tutorials</a> for <code>JM2MP.JS</code>,
+presented using the additional configuration file <code>tutorials.json</code>.</p>
 </li>
 </ul>
-<h3>Contributors</h3>
-<ul>
-<li>Elena RUIZ LARROCHA
-<ul>
-<li>Ph.D. Tutor</li>
-<li><a href="https://www.uned.es/universidad/docentes/informatica/elena-ruiz-larrocha.html">https://www.uned.es/universidad/docentes/informatica/elena-ruiz-larrocha.html</a></li>
-</ul>
-</li>
-<li>Jose Antonio CERRADA SOMOLINOS
-<ul>
-<li>Ph.D. Director</li>
-<li><a href="https://www.uned.es/universidad/docentes/informatica/jose-antonio-cerrada-somolinos.html">https://www.uned.es/universidad/docentes/informatica/jose-antonio-cerrada-somolinos.html</a></li>
-</ul>
-</li>
-</ul>
-<h2>Licensing</h2>
-<p>The <strong>JM2MP</strong> syntax, the <strong>JM2MP.JS</strong> library, and all their related
-projects are licensed under the <em>BSD-3-Clause</em> license:</p>
-<ul>
-<li><a href="./LICENSE.txt">BSD-3-Clause license</a></li>
-</ul>
-<h1>JM2MP &amp; JM2MP.JS Change Log</h1>
-<p>All notable changes to this project will be documented in this file.</p>
-<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog (1.1.0)</a>,
-and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning (2.0.0)</a>.</p>
-<h2>[1.0.0] - 2026-08-17</h2>
-<h3>Added</h3>
-<p>First released version.</p></article>
-    </section>
-
-
-
-
-
+<p>The <code>./src/README.md</code> and <code>./src/LICENSE.txt</code> files are also
+<a href="https://jsdoc.app/about-including-readme">included</a> into the final
+documentation generated.</p>
+<p>The file <code>./src/JSDoc.config.json</code> contains the <em>configuration</em> for both
+<a href="https://jsdoc.app/about-configuring-jsdoc">JSDoc (about configuring the engine)</a> and
+<a href="https://github.com/julie-ng/tidy-jsdoc/blob/main/README.md#customize-the-template">tidy-jsdoc (customize the template)</a>,
+in order to properly generate the desired final documentation.</p>
+<h2>Generation and releasing</h2>
+<p>The <code>JM2MP.JS</code> project file, <code>./src/package.json</code>, defines several
+<a href="https://docs.npmjs.com/cli/v12/using-npm/scripts">scripts</a>
+to completely generate the project documentation:</p>
+<pre class="prettyprint source lang-json"><code>  &quot;scripts&quot;: {
+    &quot;all&quot;: &quot;npm run test:coverage && npm run eslint && npm run jsdoc&quot;,
+    &quot;jsdoc&quot;: &quot;npm run jsdoc@windows&quot;,
+    &quot;jsdoc@windows&quot;: &quot;DEL /Q /F /S ..\\doc\\jsdoc-out\\ && .\\node_modules\\.bin\\jsdoc.cmd --configure .\\JSDoc.config.json&quot;,
+    &quot;jsdoc@linux&quot;: &quot;./node_modules/.bin/jsdoc --configure ./JSDoc.config.json&quot;,
+    // ...other scripts also declared.
+  },
+</code></pre>
+<p>As you can read, by default documentation generation will execute the
+<em>Windows</em> version but it is easy to change such configuration to execute
+by default the <em>Linux/UNIX</em> variation. Note that these changes can be
+applied to both
+<a href="https://jsdoc.app/about-commandline">JSDoc (document generation)</a> and
+<a href="https://ajv.js.org/packages/ajv-cli.html">AJV-CLI (CLI for JSON-Schema validator)</a>.</p>
+<p>Executing <code>npm run jsdoc</code> from <code>${JM2MP.JS_ROOT}/src/</code> in your <em>shell</em> will create a new directory
+<code>${JM2MP.JS_ROOT}/doc/jsdoc-out/</code> containing the final documentation, which can be
+archived using any utility (like
+<a href="https://manpages.debian.org/trixie/tar/tar.1.en.html">TAR</a> or
+<a href="https://manpages.debian.org/trixie/gzip/gzip.1.en.html">GZIP</a>, to name
+a few) and released as desired.</p>
+<p>The original source code repository
+<a href="https://github.com/JSON-MDE/JM2MP.JS">https://github.com/JSON-MDE/JM2MP.JS</a>
+contains a copy of all releases made, including both source code and documentation.</p>
+  </article>
+  <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
+    const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
+    const all_tutorial_sections = all_tutorials.filter( (e) => ( e?.tagName?.toLowerCase() === "section" ) ) ;
+    // console.log('all_tutorial_sections',all_tutorial_sections);
+    const this_tutorial_sections = all_tutorial_sections &&
+                                   all_tutorial_sections.length &&
+                                   all_tutorial_sections[0] ;
+    // console.log('this_tutorial_sections',this_tutorial_sections);
+    if ( this_tutorial_sections ) {
+        ['h1','h2','h3','h4','h5','h6'].forEach( (tag) => {
+            const tutorial_headers = Array.from( this_tutorial_sections.getElementsByTagName(tag) ) ;
+            // console.log('tutorial_headers',tutorial_headers);
+            tutorial_headers.forEach( (current_header) => {
+                let header_text = current_header.innerText ;
+                header_text = header_text.replace(/\s/ig,"-")
+                                         .replace(/[^-A-Za-z0-9]/g,"")
+                                         .toLowerCase() ;
+                // console.log(tag,'header_text',header_text);
+                current_header.id = header_text ;
+            });
+        }) ;
+    }
+  </script>
+  <script type="module" id="LCamara8_TableOfCOntents">
+    const toc_header = document.getElementById( "table-of-contents" ) ;
+    // console.log('toc_header',toc_header) ;
+    if ( toc_header ) {
+        let toc_ul = toc_header.nextElementSibling ;
+        // console.log('toc_ul',toc_ul) ;
+        if ( toc_ul.tagName.toLowerCase() === "ul" ) {
+            toc_ul.className = ( ((toc_ul.className)?(toc_ul.className+" "):("")) + "table-of-contents" ) ;
+        }
+    }
+  </script>
+  <script type="module" id="LCamara8_TargetExternalUrls">
+    const this_tutorial_origin = document.location.origin ;
+    // console.log('this_tutorial_origin',this_tutorial_origin);
+    const all_anchors = Array.from( document.getElementsByTagName("a") ) ;
+    // console.log('all_anchors',all_anchors);
+    const all_external_anchors = all_anchors.filter(
+      (a) => ( !!(a.href) && !(a.target) && URL.canParse(a.href) &&
+               URL.canParse(this_tutorial_origin) &&
+               ["http:","https:"].includes( URL.parse(a.href,this_tutorial_origin).protocol ) &&
+               ( URL.parse(a.href,this_tutorial_origin).origin !== URL.parse(this_tutorial_origin).origin ) )
+    ) ;
+    // console.log('all_external_anchors',all_external_anchors);
+    all_external_anchors.forEach( (a) => {
+        a.target = "_blank" ;
+        a.className = ( ((a.className)?(a.className+" "):("")) + "external" ) ;
+        a.insertAdjacentHTML( "afterend", "&nbsp;<span class=\"external\">&#x1F875</span>" ) ;
+    });
+  </script>
+</section>
 
   </div>
 </main>
@@ -156,7 +208,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-08-29T01:13:38.358Z
+       on 2026-08-29T01:13:38.481Z
     </div>
   </footer>
 

@@ -39,101 +39,320 @@
     <p class="page-kind"></p>
     <h1 class="page-title"></h1>
     
-
-
-
-
-
-    
-
-
-    <h3>@json-mde/jm2mp 1.0.0</h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section class="readme">
-        <article><h1>JSON Model-to-Model Projection (JM2MP)</h1>
+<section class="tutorial">
+  <header>
+    <h1>Use in CLI</h1>
+  </header>
+  
+  <article>
+    <h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#software-architecture-and-components">Software Architecture and Components</a></li>
+<li><a href="#options-and-arguments">Options and Arguments</a>
+<ul>
+<li><a href="#version">Version</a></li>
+<li><a href="#verbose">Verbose</a></li>
+<li><a href="#source-encoding">Source Encoding</a></li>
+<li><a href="#stdin-as-source">STDIN as Source</a></li>
+<li><a href="#cli-argument-as-source">CLI Argument as Source</a></li>
+<li><a href="#file-as-source">File as Source</a></li>
+<li><a href="#projection-encoding">Projection Encoding</a></li>
+<li><a href="#file-as-projection">File as Projection</a></li>
+<li><a href="#projection-base-url-fetch">Projection Base URL (Fetch)</a></li>
+<li><a href="#projection-base-directory-filesystem">Projection Base Directory (FileSystem)</a></li>
+<li><a href="#resultant-encoding">Resultant Encoding</a></li>
+<li><a href="#resultant-as-stdout">Resultant as STDOUT</a></li>
+<li><a href="#resultant-as-file">Resultant as File</a></li>
+<li><a href="#overwrite-resultant-file-if-exists">Overwrite Resultant File If Exists</a></li>
+<li><a href="#maximum-number-of-modules">Maximum Number of Modules</a></li>
+<li><a href="#maximum-depth-of-nesting">Maximum Depth of Nesting</a></li>
+<li><a href="#jmespath">JMESPath</a></li>
+<li><a href="#jsonata">JSONata</a></li>
+<li><a href="#jsonata-timeout">JSONata TimeOut</a></li>
+<li><a href="#jsonpath">JSONPath</a></li>
+<li><a href="#json-pointer">JSON Pointer</a></li>
+<li><a href="#json-query">JSON Query</a></li>
+<li><a href="#display-the-help">Display the Help</a></li>
+</ul>
+</li>
+<li><a href="#example-of-use">Example of Use</a></li>
+</ul>
 <h2>Introduction</h2>
-<p><strong>JSON Model-to-Model Projection (JM2MP)</strong> is both a JSON-based syntax
-to transform algebraically any input JSON document into another output
-JSON document, and a library to execute such transformations.</p>
-<h2>Source code</h2>
-<p>As part of this work, the <a href="https://github.com/JSON-MDE/">JSON-MDE</a>
-<em>organization</em> has been created on <a href="https://github.com/">GitHub</a>, which
-encompasses numerous projects, the main one
-<a href="https://GitHub.com/JSON-MDE/JM2MP.JS">JM2MP.JS</a> as well as others for
-illustrative and utility purposes.</p>
-<p>The source code for all projects related to <strong>JM2MP</strong> can be retrieved
-from there.</p>
-<h2>Documentation</h2>
-<p>The documentation about this <strong>JM2MP.JS</strong> library, the <strong>JM2MP</strong>
-syntax, and their related projects, can be found online at:</p>
+<p>The <code>JM2MP.JS-CLI</code> project is a <strong>command line interface (CLI)</strong> console
+application.</p>
+<p>It enables the use of <code>JM2MP.JS</code> library an <code>JM2MP</code> format in online
+interactive <em>shells</em> , or as part of batch processing <em>scripts</em>.</p>
+<h2>Software Architecture and Components</h2>
+<p>The <code>JM2MP.JS-CLI</code> project uses the following library to build its
+command line interface:</p>
 <ul>
-<li><a href="https://GitHub.JSON-MDE.Tech/jm2mp.js/">https://GitHub.JSON-MDE.Tech/jm2mp.js/</a></li>
+<li><a href="https://www.npmjs.com/package/commander">commander@15.0.x</a></li>
 </ul>
-<p>It contains several tutorials to help you get started and learn more
-about these topics.</p>
-<p>Documentation has been generated using a customized version of both
-<a href="https://jsdoc.app/">JSDoc</a> and
-<a href="doc/jsdoc/tmpl/tidy-jsdoc/layout.tmpl">tidy-jsdoc</a> (thanks to the
-authors for their willingness to share they work).</p>
-<h2>Authors</h2>
-<h3>Main author</h3>
+<h2>Options and Arguments</h2>
+<p>Execution of the following command line will show the help information
+about all its options and arguments.</p>
+<pre class="prettyprint source lang-bash"><code>node ./index.js --help
+</code></pre>
+<p>It is mandatory to use one and only one option to specify the <em>source
+document</em> (<a href="#stdin-as-source">stdin</a>, <a href="#cli-argument-as-source">content</a>,
+or <a href="#file-as-source">source</a>).</p>
+<p>It is mandatory to specify a <a href="#file-as-projection">projection document</a>,
+that will be loaded using the specified URL of filename; optionally, the
+corresponding <a href="#projection-base-url-fetch">base URL</a> or
+<a href="#projection-base-directory-filesystem">base directory</a> can also be
+specified (but not both).</p>
+<p>For the <em>resultant document</em>, if no output mechanism is specified
+(<a href="#resultant-as-stdout">stdout</a> or <a href="#resultant-as-file">resultant</a>) then
+by default a new file <code>name--resultant--YYYYMMDDThhmmss.json</code> will be
+created at the <em>working directory</em>, where <code>name</code> will be <code>stdin</code>,
+<code>content</code>, or <code>basename(file)</code> depending on the specified input
+mechanism.</p>
+<p>If any of the <em>external query languages</em> will be used (like
+<a href="./tutorial-02--jm2mp-syntax.html#jmespath">JMESPath</a> or
+<a href="./tutorial-02--jm2mp-syntax.html#jsonpath">JSONPath</a>, for instance),
+you must first install their respective <em>packages</em>. For example, the
+following command line does this through
+<a href="https://docs.npmjs.com/cli/v12/commands/npm-install#include">NPM</a>:</p>
+<pre class="prettyprint source lang-bash"><code>npm install --include=optional
+</code></pre>
+<h3>Version</h3>
 <ul>
-<li>Luis Maria CAMARA ROSSI
-<ul>
-<li>Ph.D. Student</li>
-<li><a href="mailto:lcamara8@alumno.uned.es">lcamara8@alumno.uned.es</a></li>
-<li><a href="https://www.uned.es/universidad/facultades/en/departamentos/ingenieria-del-softw-y-sist-informaticos.html">https://www.uned.es/universidad/facultades/en/departamentos/ingenieria-del-softw-y-sist-informaticos.html</a></li>
+<li><code>-V</code></li>
+<li><code>--version</code></li>
 </ul>
+<p>It outputs the version number.</p>
+<h3>Verbose</h3>
+<ul>
+<li><code>-v</code></li>
+<li><code>--verbose</code></li>
+</ul>
+<p>Writes to <code>STDERR</code> more information about the process (especially when
+errors happened).</p>
+<p>By default: <code>false</code>.</p>
+<h3>Source Encoding</h3>
+<ul>
+<li><code>-e</code></li>
+<li><code>--source-encoding &lt;encoding&gt;</code></li>
+</ul>
+<p>It specifies the encoding character set of the <em>source document</em>.</p>
+<p>The available choices come from the <code>Node.js</code> platform: <code>ascii</code>, <code>latin1</code>, <code>utf8</code>, <code>utf-8</code>, <code>ucs2</code>, <code>ucs-2</code>, <code>utf16le</code>, <code>utf-16le</code>, <code>utf16be</code>, <code>utf-16be</code>, <code>hex</code>, <code>base64</code>, and <code>base64url</code>.</p>
+<p>By default: <code>utf8</code>.</p>
+<h3>STDIN as Source</h3>
+<ul>
+<li><code>-i</code></li>
+<li><code>--stdin</code></li>
+</ul>
+<p>It uses the <em>standard input</em> <code>STDIN</code> as the <em>source document</em>.</p>
+<h3>CLI Argument as Source</h3>
+<ul>
+<li><code>-c</code></li>
+<li><code>--content &lt;content&gt;</code></li>
+</ul>
+<p>It uses the command line option argument to express the JSON content of
+the <em>source document</em>.</p>
+<h3>File as Source</h3>
+<ul>
+<li><code>-s</code></li>
+<li><code>--source &lt;source&gt;</code></li>
+</ul>
+<p>The filename of the <em>source document</em> that will be transformed.</p>
+<h3>Projection Encoding</h3>
+<ul>
+<li><code>-f</code></li>
+<li><code>--projection-encoding &lt;encoding&gt;</code></li>
+</ul>
+<p>It specifies the encoding character set of the <em>projection document</em>.</p>
+<p>It offers the same choices as the <a href="#source-encoding">source encoding</a> option.</p>
+<p>By default: <code>utf8</code>.</p>
+<h3>File as Projection</h3>
+<ul>
+<li><code>-p</code></li>
+<li><code>--projection &lt;projection&gt;</code></li>
+</ul>
+<p>The URL (<em>fetch</em>) or the local filename (<em>filesystem</em>) of the
+<em>projection document</em> that will be used to transform the <em>source</em>.</p>
+<p>By default: it tries to use a <code>projection.json</code> file from the working
+directory, raising an error if not exists.</p>
+<h3>Projection Base URL (Fetch)</h3>
+<ul>
+<li><code>-u</code></li>
+<li><code>--projection-base-url &lt;URL&gt;</code></li>
+</ul>
+<p>The base URL, to (securize) limit access to projection modularization.</p>
+<h3>Projection Base Directory (FileSystem)</h3>
+<ul>
+<li><code>-d</code></li>
+<li><code>--projection-base-dir &lt;directory&gt;</code></li>
+</ul>
+<p>The directory name, absolute or relative to the working directory, to
+(securize) limit access to projection modularization.</p>
+<p>By default: the working directory.</p>
+<h3>Resultant Encoding</h3>
+<ul>
+<li><code>-g</code></li>
+<li><code>--resultant-encoding &lt;encoding&gt;</code></li>
+</ul>
+<p>It specifies the encoding character set for the <em>resultant document</em>.</p>
+<p>It offers the same choices as the <a href="#source-encoding">source encoding</a> option.</p>
+<p>By default: <code>utf8</code>.</p>
+<h3>Resultant as STDOUT</h3>
+<ul>
+<li><code>-o</code></li>
+<li><code>--stdout</code></li>
+</ul>
+<p>It writes the resultant document into the <em>standard output</em> <code>STDOUT</code>
+(like <code>console.log</code>).</p>
+<h3>Resultant as File</h3>
+<ul>
+<li><code>-r</code></li>
+<li><code>--resultant &lt;resultant&gt;</code></li>
+</ul>
+<p>The filename for the <em>resultant document</em> from the transformation; if a
+directory is specified, the name will be the default; if a relative
+filename is specified, it will be saved into the <em>working directory</em>.</p>
+<p>By default: it tries to save into the working directory the file
+<code>&lt;stdin|content|basename(source)&gt;--resultant--YYYYMMDDThhmmss.json</code>.</p>
+<h3>Overwrite Resultant File If Exists</h3>
+<ul>
+<li><code>-w</code></li>
+<li><code> --force-resultant</code></li>
+</ul>
+<p>If the filename for the <em>resultant document</em> already exists, this option
+allows that it will be overwritten; otherwise, an error will be raised
+avoiding it.</p>
+<p>By default: <code>false</code>.</p>
+<h3>Maximum Number of Modules</h3>
+<ul>
+<li><code>--max-modules [integer]</code></li>
+</ul>
+<p>The maximum number of <em>projection modules</em> that a single <em>projection
+document</em> can, directly or indirectly, import.</p>
+<p>By default: <code>1000</code>. But if the option is present but no number is
+specified, then the value will be preset to
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER">Number.MAX_SAFE_INTEGER</a>.</p>
+<h3>Maximum Depth of Nesting</h3>
+<ul>
+<li><code>--max-depth [integer]</code></li>
+</ul>
+<p>The maximum logical nesting depth that <code>JM2MP</code> will evaluated as part of
+any <em>projection document</em>.</p>
+<p>By default: <code>1000</code>. But if the option is present but no number is
+specified, then the value will be preset to
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER">Number.MAX_SAFE_INTEGER</a>.</p>
+<h3>JMESPath</h3>
+<ul>
+<li><code>--jmespath</code></li>
+</ul>
+<p>It imports the <em>query adapter</em> to use <code>jmespath</code> syntax as part of any
+<code>JM2MP</code> <em>projection module</em>.</p>
+<p>By default: <code>false</code>.</p>
+<h3>JSONata</h3>
+<ul>
+<li><code>--jsonata</code></li>
+</ul>
+<p>It imports the query adapter to use <code>jsonata</code> syntax as part of any
+<code>JM2MP</code> <em>projection module</em>.</p>
+<p>By default: <code>false</code>.</p>
+<h3>JSONata TimeOut</h3>
+<ul>
+<li><code>--jsonata-timeout [seconds]</code></li>
+</ul>
+<p>If <code>jsonata</code> syntax will be used, it allows to configure the <em>timeout
+period (in seconds)</em> before an error will be raised.</p>
+<p>By default: <code>60</code>; also preset to <code>60</code> if option is presented but without
+any specified value.</p>
+<h3>JSONPath</h3>
+<ul>
+<li><code>--jsonpath</code></li>
+</ul>
+<p>It imports the query adapter to use <code>jsonpath</code> syntax as part of any
+<code>JM2MP</code> projection module.</p>
+<p>By default: <code>false</code>.</p>
+<h3>JSON Pointer</h3>
+<ul>
+<li><code>--jsonpointer</code></li>
+</ul>
+<p>It imports the query adapter to use <code>jsonpointer</code> syntax as part of any
+<code>JM2MP</code> projection module.</p>
+<p>By default: <code>false</code>.</p>
+<h3>JSON Query</h3>
+<ul>
+<li><code>--jsonquery</code></li>
+</ul>
+<p>It imports the query adapter to use <code>jsonquery</code> syntax as part of any
+<code>JM2MP</code> projection module.</p>
+<p>By default: <code>false</code>.</p>
+<h3>Display the Help</h3>
+<ul>
+<li>
+<p><code>-h, --help</code></p>
+<p>It displays this help for command.</p>
 </li>
 </ul>
-<h3>Contributors</h3>
-<ul>
-<li>Elena RUIZ LARROCHA
-<ul>
-<li>Ph.D. Tutor</li>
-<li><a href="https://www.uned.es/universidad/docentes/informatica/elena-ruiz-larrocha.html">https://www.uned.es/universidad/docentes/informatica/elena-ruiz-larrocha.html</a></li>
-</ul>
-</li>
-<li>Jose Antonio CERRADA SOMOLINOS
-<ul>
-<li>Ph.D. Director</li>
-<li><a href="https://www.uned.es/universidad/docentes/informatica/jose-antonio-cerrada-somolinos.html">https://www.uned.es/universidad/docentes/informatica/jose-antonio-cerrada-somolinos.html</a></li>
-</ul>
-</li>
-</ul>
-<h2>Licensing</h2>
-<p>The <strong>JM2MP</strong> syntax, the <strong>JM2MP.JS</strong> library, and all their related
-projects are licensed under the <em>BSD-3-Clause</em> license:</p>
-<ul>
-<li><a href="./LICENSE.txt">BSD-3-Clause license</a></li>
-</ul>
-<h1>JM2MP &amp; JM2MP.JS Change Log</h1>
-<p>All notable changes to this project will be documented in this file.</p>
-<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog (1.1.0)</a>,
-and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning (2.0.0)</a>.</p>
-<h2>[1.0.0] - 2026-08-17</h2>
-<h3>Added</h3>
-<p>First released version.</p></article>
-    </section>
-
-
-
-
-
+<h2>Example of Use</h2>
+<p>Next screen capture shows how to <em>project</em> (transform) a JSON document
+using <code>JM2MP</code> syntax via this <em>command line</em> utility <code>JM2MP.JS-CLI</code>, which
+can be used interactively in any <em>shell</em> or as part of batch processing
+using <em>scripts</em>.</p>
+<p>You can view this complete example of an
+<a href="./tutorial-04--examples.html#inventory-management">inventory</a>
+in the corresponding tutorial.</p>
+<p><img src="./images/JM2MP.JS-CLI--ScreenCapture.png" alt="JM2MP.JS-CLI screen capture"></p>
+  </article>
+  <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
+    const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
+    const all_tutorial_sections = all_tutorials.filter( (e) => ( e?.tagName?.toLowerCase() === "section" ) ) ;
+    // console.log('all_tutorial_sections',all_tutorial_sections);
+    const this_tutorial_sections = all_tutorial_sections &&
+                                   all_tutorial_sections.length &&
+                                   all_tutorial_sections[0] ;
+    // console.log('this_tutorial_sections',this_tutorial_sections);
+    if ( this_tutorial_sections ) {
+        ['h1','h2','h3','h4','h5','h6'].forEach( (tag) => {
+            const tutorial_headers = Array.from( this_tutorial_sections.getElementsByTagName(tag) ) ;
+            // console.log('tutorial_headers',tutorial_headers);
+            tutorial_headers.forEach( (current_header) => {
+                let header_text = current_header.innerText ;
+                header_text = header_text.replace(/\s/ig,"-")
+                                         .replace(/[^-A-Za-z0-9]/g,"")
+                                         .toLowerCase() ;
+                // console.log(tag,'header_text',header_text);
+                current_header.id = header_text ;
+            });
+        }) ;
+    }
+  </script>
+  <script type="module" id="LCamara8_TableOfCOntents">
+    const toc_header = document.getElementById( "table-of-contents" ) ;
+    // console.log('toc_header',toc_header) ;
+    if ( toc_header ) {
+        let toc_ul = toc_header.nextElementSibling ;
+        // console.log('toc_ul',toc_ul) ;
+        if ( toc_ul.tagName.toLowerCase() === "ul" ) {
+            toc_ul.className = ( ((toc_ul.className)?(toc_ul.className+" "):("")) + "table-of-contents" ) ;
+        }
+    }
+  </script>
+  <script type="module" id="LCamara8_TargetExternalUrls">
+    const this_tutorial_origin = document.location.origin ;
+    // console.log('this_tutorial_origin',this_tutorial_origin);
+    const all_anchors = Array.from( document.getElementsByTagName("a") ) ;
+    // console.log('all_anchors',all_anchors);
+    const all_external_anchors = all_anchors.filter(
+      (a) => ( !!(a.href) && !(a.target) && URL.canParse(a.href) &&
+               URL.canParse(this_tutorial_origin) &&
+               ["http:","https:"].includes( URL.parse(a.href,this_tutorial_origin).protocol ) &&
+               ( URL.parse(a.href,this_tutorial_origin).origin !== URL.parse(this_tutorial_origin).origin ) )
+    ) ;
+    // console.log('all_external_anchors',all_external_anchors);
+    all_external_anchors.forEach( (a) => {
+        a.target = "_blank" ;
+        a.className = ( ((a.className)?(a.className+" "):("")) + "external" ) ;
+        a.insertAdjacentHTML( "afterend", "&nbsp;<span class=\"external\">&#x1F875</span>" ) ;
+    });
+  </script>
+</section>
 
   </div>
 </main>
@@ -156,7 +375,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-08-29T01:13:38.358Z
+       on 2026-08-29T01:13:38.477Z
     </div>
   </footer>
 
