@@ -65,6 +65,7 @@
 <li><a href="#nodejs-and-node-package-manager-npm">Node.JS and Node Package Manager (NPM)</a></li>
 </ul>
 </li>
+<li><a href="#running-in-cli">Running in CLI</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +92,7 @@ tutorial for information about this format and its library.</p>
 to use this feature.</p>
 </li>
 <li>
-<p>An static web page <code>./JM2MP.JS-WWW/index.html</code>, part of this
+<p>A set of static web pages <code>./JM2MP.JS-WWW/</code>, part of this
 documentation, to test interactively in your own web browser how to
 use <code>JM2MP</code>.</p>
 <p>Consider the <a href="./tutorial-08--web.html">Use in WWW</a> tutorial to read
@@ -164,18 +165,21 @@ them from your own applications and services.</p>
 <h5>Content Delivery Network (CDN)</h5>
 <p>Using <a href="https://www.akamai.com/glossary/what-is-a-cdn">CDN</a> services like
 <a href="https://www.jsdelivr.com/">jsDelivr</a> allows the <code>JM2MP.JS</code> library to
-be used in web applications without the need for prior installation, <span style="background:yellow">
-thanks to the use of <a href="https://webpack.js.org/concepts/">WebPack</a> as a
-code <em>bundler</em></span>.</p>
-<p>Next, you can see an extract from file <code>./web/jm2mp-cdn.html</code>. You can
-save it to your hard disk drive and open it with any modern browser to
-see it working:</p>
+be used in web applications without the need for prior installation.</p>
+<p>They offer more efficient ways to directly use complex JavaScript
+libraries, such as <code>JM2MP.JS</code>, by embedding them in web pages (both
+static and dynamic), which saves developers from having to download and
+install the libraries beforehand.</p>
+<p>In addition, they optimize content delivery by combining everything into
+a single download and even compressing the content to speed up the
+transmission of code over the Wolrd Wide Web.</p>
+<p>Next, you can see an extract from file
+<a href="./jm2mp.js-www/cdn.html">./jm2mp.js-www/cdn.html</a>. You can save it to
+your hard disk drive and open it with any modern browser to see it working:</p>
 <pre class="prettyprint source lang-html"><code>&lt;script type=&quot;module&quot;>
   import JM2MP from 'https://cdn.jsdelivr.net/npm/@json-mde/jm2mp@1.0.0/+esm' ;
 &lt;/script>
 </code></pre>
-<p>As previuosly mentioned, you can access the full file from
-<a href="https://raw.githubusercontent.com/json-mde/jm2mp.js/refs/heads/master/src/index.js">https://raw.githubusercontent.com/json-mde/jm2mp.js/refs/heads/master/src/index.js</a> URL.</p>
 <h3>Installation</h3>
 <h4>GitHub download</h4>
 <p>Source code of the <code>JM2MP.JS</code> library is published in <a href="https://github.com/">GitHub</a>:</p>
@@ -189,11 +193,18 @@ tagged as <code>1.0.0</code> has also been published; it consists of several fil
 to make it easier to download the desired content: everything, only the
 source code, or only this documentation.</p>
 <h4>Node.JS and Node Package Manager (NPM)</h4>
-<p>You can install <code>JM2MP.JS</code> using <a href="https://npmjs.org/">Node Package Manager (NPM)</a> for <a href="https://nodejs.org/en/download">Node.JS</a> (version 22, at least) runtime.</p>
+<p>You can install <code>JM2MP.JS</code> using <a href="https://npmjs.org/">Node Package Manager (NPM)</a>
+for <a href="https://nodejs.org/en/download">Node.JS</a> (version 22, at least) runtime.</p>
 <pre class="prettyprint source lang-bash"><code>npm install --save @json-mde/jm2mp
 </code></pre>
 <p>This is the way how to use <code>JM2MP.JS</code> library as part of a project that
 isn't just a simple web page, such as complex applications or services.</p>
+<h3>Running in CLI</h3>
+<p>Using <a href="https://docs.npmjs.com/cli/v12/commands/npx">NPX</a> it is even
+possible to run directly <code>JM2MP.JS</code> through <code>JM2MP.JS-CLI</code> without a
+previous download.</p>
+<p>Please, refer to the <a href="./tutorial-07--cli.html">Use in CLI</a> tutorial for
+more information and implications about this option.</p>
   </article>
   <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
     const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
@@ -271,7 +282,7 @@ isn't just a simple web page, such as complex applications or services.</p>
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-08-30T16:28:37.898Z
+       on 2026-08-30T22:51:20.106Z
     </div>
   </footer>
 
