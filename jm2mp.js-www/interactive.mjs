@@ -2,7 +2,7 @@
  * @author Luis Maria CAMARA ROSSI
  * @copyright Universidad Nacional de Educación a Distancia (U.N.E.D.) 2026
  * @license BSD-3-Clause
- * @file ESLINT configuration file.
+ * @file ESM Module for Interactive Example of Using JM2MP.JS in WWW.
 **/
 
 /* ------------------------------------------------------------------ */
@@ -61,7 +61,7 @@ const InjectFunction_LoadCoursesAndStudentsExample = function ( id_button_for_lo
                 try
                 {
                     const example_source_file = await import("../examples/courses-students/source.json", { with: { type: "json" } });
-                    const example_source_content = JSON.stringify(example_source_file);
+                    const example_source_content = JSON.stringify(example_source_file,undefined,2);
                     source_editor.session.setValue(example_source_content);
                 }
                 catch (error)
@@ -75,7 +75,7 @@ const InjectFunction_LoadCoursesAndStudentsExample = function ( id_button_for_lo
                 try
                 {
                     const example_projection_file = await import("../examples/courses-students/projection.json", { with: { type: "json" } });
-                    const example_projection_content = JSON.stringify(example_projection_file);
+                    const example_projection_content = JSON.stringify(example_projection_file,undefined,2);
                     projection_editor.session.setValue(example_projection_content);
                 }
                 catch (error)
@@ -116,7 +116,7 @@ const InjectFunction_LoadInventoryExample = function ( id_button_for_load_exampl
                 try
                 {
                     const example_source_file = await import("../examples/inventory/source.json", { with: { type: "json" } });
-                    const example_source_content = JSON.stringify(example_source_file);
+                    const example_source_content = JSON.stringify(example_source_file,undefined,2);
                     source_editor.session.setValue(example_source_content);
                 }
                 catch (error)
@@ -130,7 +130,7 @@ const InjectFunction_LoadInventoryExample = function ( id_button_for_load_exampl
                 try
                 {
                     const example_projection_file = await import("../examples/inventory/projection.json", { with: { type: "json" } });
-                    const example_projection_content = JSON.stringify(example_projection_file);
+                    const example_projection_content = JSON.stringify(example_projection_file,undefined,2);
                     projection_editor.session.setValue(example_projection_content);
                 }
                 catch (error)
@@ -207,11 +207,11 @@ const InjectValidationFunction = function (id_button_for_validation)
                         { "projection" : JSON.stringify(projection_object_model) }
                     );
                     // When no registry is specified, a native-only wull be created.
-                    const actualRegistry = await createAdapterRegistry();
+                    const actualRegistry = await JM2MP.createAdapterRegistry();
                     // Stage 1/3: resolve and normalize modules.
-                    const resolvedModule = await _resolve(rootName, loader, {maxModules:1000,});
+                    const resolvedModule = await JM2MP.resolve(rootName, loader, {maxModules:1000,});
                     // Stage 2/3: validate the final module.
-                    await _validate(resolvedModule, actualRegistry);
+                    await JM2MP.validate(resolvedModule, actualRegistry);
                     result_editor.session.setValue("OK... projection is valid!");
                 }
                 catch ( error )
