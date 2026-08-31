@@ -211,7 +211,7 @@ const InjectValidationFunction = function (id_button_for_validation)
                     // Stage 1/3: resolve and normalize modules.
                     const resolvedModule = await JM2MP.resolve(rootName, loader, {maxModules:1000,});
                     // Stage 2/3: validate the final module.
-                    await JM2MP.validate(resolvedModule, actualRegistry);
+                    await JM2MP.validateModule(resolvedModule, actualRegistry);
                     result_editor.session.setValue("OK... projection is valid!");
                 }
                 catch ( error )
