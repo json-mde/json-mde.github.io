@@ -1,3 +1,10 @@
+/***
+ * @author Luis Maria CAMARA ROSSI
+ * @copyright Universidad Nacional de Educación a Distancia (U.N.E.D.) 2026
+ * @license BSD-3-Clause
+ * @file ${JM2MP.JS}/doc/jsdoc/tmpl/tidy-jsdoc/styles.css
+**/
+
 :root {
   --primary-color: #0664a8;
   --secondary-color: #107e7d;
@@ -24,6 +31,8 @@
   --nav-heading-color: #aaa;
   --nav-link-color: #666;
   --nav-text-color: #aaa;
+  --nav-type-tutorial-color: rgb(192,222,192) ;
+  --nav-type-tutorial-bg: Green ;
   --nav-type-class-color: #fff;
   --nav-type-class-bg: #FF8C00;
   --nav-type-member-color: #39b739;
@@ -39,13 +48,13 @@
   --nav-type-event-color: #948b34;
   --nav-type-event-bg: #fff6a6;
   --max-content-width: 900px;
-  --nav-width: 320px;
+  --nav-width: min(25%, 350px);
   --padding-unit: 30px;
   --layout-footer-color: #aaa;
   --member-name-signature-display: none;
   --base-font-size: 16px;
   --base-line-height: 1.7;
-  --body-font: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --body-font: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --code-font: Consolas, Monaco, "Andale Mono", monospace;
 }
 
@@ -180,6 +189,10 @@ code {
   margin-top: 1em;
   font-weight: 500;
 }
+.nav-heading-tutorial {
+  margin-top: 0.25em;
+  font-weight: 500;
+}
 .nav-heading a {
   color: var(--nav-link-color);
 }
@@ -200,6 +213,10 @@ code {
   text-align: center;
   border-radius: 0.2em;
   margin-right: 0.5em;
+}
+.nav-item-type.type-tutorial {
+  color: var(--nav-type-tutorial-color);
+  background: var(--nav-type-tutorial-bg);
 }
 .nav-item-type.type-class {
   color: var(--nav-type-class-color);
@@ -361,16 +378,17 @@ table p:last-child {
 }
 
 .readme h2 {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgb(192,222,192) ; /* var(--border-color); */
   margin: 1em 0;
   padding-bottom: 0.5rem;
-  color: var(--subheading-color);
+  color: Green ; /* var(--subheading-color); */
 }
 .readme h2 + h3 {
   margin-top: 0;
 }
 .readme h3 {
   margin: 2rem 0 1rem 0;
+  color: Green ; /* var(--subheading-color); */
 }
 
 article.event, article.member, article.method {
