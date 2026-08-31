@@ -61,7 +61,7 @@ const InjectFunction_LoadCoursesAndStudentsExample = function ( id_button_for_lo
                 try
                 {
                     const example_source_file = await import("../examples/courses-students/source.json", { with: { type: "json" } });
-                    const example_source_content = JSON.stringify(example_source_file,undefined,2);
+                    const example_source_content = JSON.stringify(example_source_file.default,undefined,2);
                     source_editor.session.setValue(example_source_content);
                 }
                 catch (error)
@@ -75,7 +75,7 @@ const InjectFunction_LoadCoursesAndStudentsExample = function ( id_button_for_lo
                 try
                 {
                     const example_projection_file = await import("../examples/courses-students/projection.json", { with: { type: "json" } });
-                    const example_projection_content = JSON.stringify(example_projection_file,undefined,2);
+                    const example_projection_content = JSON.stringify(example_projection_file.default,undefined,2);
                     projection_editor.session.setValue(example_projection_content);
                 }
                 catch (error)
@@ -116,7 +116,7 @@ const InjectFunction_LoadInventoryExample = function ( id_button_for_load_exampl
                 try
                 {
                     const example_source_file = await import("../examples/inventory/source.json", { with: { type: "json" } });
-                    const example_source_content = JSON.stringify(example_source_file,undefined,2);
+                    const example_source_content = JSON.stringify(example_source_file.default,undefined,2);
                     source_editor.session.setValue(example_source_content);
                 }
                 catch (error)
@@ -130,7 +130,7 @@ const InjectFunction_LoadInventoryExample = function ( id_button_for_load_exampl
                 try
                 {
                     const example_projection_file = await import("../examples/inventory/projection.json", { with: { type: "json" } });
-                    const example_projection_content = JSON.stringify(example_projection_file,undefined,2);
+                    const example_projection_content = JSON.stringify(example_projection_file.default,undefined,2);
                     projection_editor.session.setValue(example_projection_content);
                 }
                 catch (error)
