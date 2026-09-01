@@ -583,13 +583,69 @@ first remove the comments or convert the syntax (see
 <h2>Calculating Pi Recursively</h2>
 <p>The <em>projection document</em> contains the
 <a href="https://www.kirupa.chat/p/life-of-pi-calculating-its-value">Gregory-Liebniz (or Madhava-Leibniz) Series</a>
-formulae to calculate an approximation of number
+formula to calculate an approximation of the number
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI">Pi (π)</a>
 in a recursive manner.</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mi>&pi;</mi>
+    <mo>&#x2248;</mo>
+    <mrow>
+      <mn>4</mn>
+      <mo>&middot;</mo>
+      <mrow>
+        <munderover>
+          <mo>&sum;</mo>
+          <mrow>
+            <mi>n</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow>
+            <mn>&infin;</mn>
+          </mrow>
+        </munderover>
+        <mo>(</mo>
+        <mfrac>
+          <mrow>
+            <msup>
+              <mrow>
+                <mo>(</mo>
+                <mn>-1</mn>
+                <mo>)</mo>
+              </mrow>
+              <mi>n</mi>
+            </msup>
+          </mrow>
+          <mrow>
+            <mo>(</mo>
+            <mo>(</mo>
+            <mn>2</mn>
+            <mo>&middot;</mo>
+            <mi>n</mi>
+            <mo>)</mo>
+            <mo>+</mo>
+            <mn>1</mn>
+            <mo>)</mo>
+          </mrow>
+        </mfrac>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mrow>
+</math>
 <h3>Source Document (Pi)</h3>
+<p>The <em>source document</em> just contains the (natural) number of iterations that will be calculated:</p>
 <pre class="prettyprint source lang-JSON"><code>331
 </code></pre>
+<p>Due to the recursive nature of the <em>projection document</em> and the default
+maximum limit of logical depth for <em>template commands</em> of <code>1.000</code> (see
+<a href="module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">MaxDepth</a>), this number
+of iterations must be between <code>1</code> and <code>331</code>.</p>
 <h3>Projection Document (Pi)</h3>
+<p>The <em>projection document</em> is actually the formula to calculate the
+<a href="https://www.kirupa.chat/p/life-of-pi-calculating-its-value">Gregory-Liebniz (or Madhava-Leibniz) Series</a>
+written in <code>JM2MP</code> syntax:</p>
 <pre class="prettyprint source lang-JSON"><code>{
   &quot;$schema&quot;: &quot;https://github.json-mde.tech/schemas/jm2mp/1.0.0/JM2MP-v1.0.0--JSON-Schema-Draft-2020-12.json&quot;,
   &quot;$options&quot;: {
@@ -638,41 +694,49 @@ in a recursive manner.</p>
 </code></pre>
 <h3>A Note of Caution</h3>
 <p>Although it is technically possible, given the versatility and
-capabilities of the <code>JM2MP</code> format, the truth is that it is not the
+capabilities of the <code>JM2MP</code> format, the truth is that this is not the
 optimal approach for running processes that involve high computational
 demands.</p>
 <p><img src="./images/JM2MP.JS-CLI--ScreenCapture-04--JavaScriptEquivalence.png" alt="Equivalent JavaScript code"></p>
 <p>By default, the <a href="./module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">MaxModules</a>
 and <a href="./module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">MaxDepth</a> arguments
-have been defined as a protective mechanism to prevent an inappropriate or
-malicious <em>projection document</em> from exhausting the processor or memory
-resources on the device running <code>JM2MP.JS</code>.</p>
+have been defined as a protective mechanism to prevent that an
+inappropriate or malicious <em>projection document</em> will exhaust all the
+processor or memory resources on the device running <code>JM2MP.JS</code>.</p>
 <p>However, it is possible to modify the parameters of the runtime environment
 itself to set a different value that increases or decreases
-the environment’s final capabilities.</p>
+the environment’s assigned resources.</p>
 <p>For example, with the default value for <code>MaxDepth</code> set to <code>1,000</code>, this
 example only allows <code>331</code> iterations before reaching that limit. If you
 increase the number of iterations without allowing a greater depth, an
 <a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a> will occur
 during execution.</p>
 <p><img src="./images/JM2MP.JS-CLI--ScreenCapture-02--MaximumDepthExceeded.png" alt="JM2MP.JS-CLI running with default configuration"></p>
-<p>However, as you increase the <code>MaxDepth</code> value, there will come a point
-where the runtime environment will also fail to complete the <em>projection</em>
-because it will have run out of memory before finishing it. To address
-this issue, you will also need to increase the runtime environment's
-working memory. In the case of <a href="https://nodejs.org/learn/diagnostics/memory">Node.js' memory</a>,
-this can be done by configuring the underlying <code>V8 engine</code>, as discussed in
+<p>As you increase the <code>MaxDepth</code> configuration value of <code>JM2MP.JS</code>, there
+will come a point where the runtime environment will also fail to
+complete the <em>projection</em> because it will have run out of memory before
+finishing it. To address this issue, you will also need to increase the
+runtime environment's working memory. In the case of
+<a href="https://nodejs.org/learn/diagnostics/memory">Node.js' memory</a>, this can
+be done by configuring the underlying
+<a href="https://nodejs.org/learn/getting-started/the-v8-javascript-engine">V8 JavaScript Engine</a>,
+as discussed in
 <a href="https://nodejs.org/learn/diagnostics/memory/understanding-and-tuning-memory">Learn Node.js: Understanding and Tuning Memory</a>.</p>
-<p>Using the <em>shell</em>, if you execute the <a href="https://docs.npmjs.com/cli/v12/commands/npx">NPX</a>
-command, you can configure it setting the <code>--max-old-space-size</code> value
-in the <code>--node-options</code> parameter.</p>
+<p>Using the <em>shell</em>, if you execute the
+<a href="https://docs.npmjs.com/cli/v12/commands/npx">NPX</a>
+command, you can configure the
+<a href="https://nodejs.org/learn/getting-started/the-v8-javascript-engine">Node.js' V8 Engine</a>
+execution by setting the <code>--max-old-space-size</code> value in the
+<code>--node-options</code> parameter.</p>
 <p>For example, during our benchmark tests, by configuring <code>8GB</code> of memory,
 we were able to run <code>2,000,000</code> iterations, obtaining a precision for
-<code>Pi</code> of <code>3.1415921535897935</code> in 47 seconds. To do this, we used the following command line:</p>
+<code>Pi</code> of <code>3.1415921535897935</code> in 47 seconds (compared to the virtually
+instantaneous execution time of the JavaScript-based solution). To do
+this, we used the following command line:</p>
 <pre class="prettyprint source lang-bash"><code>npx --node-options=&quot;--max-old-space-size=8192&quot; -- \
     @json-mde/jm2mp-cli \
       -c 2000000 \
-      -p ./pi-projection.json \
+      -p ../Examples/Pi/projection.json \
       -o \
       --max-depth \
 | cat ;
@@ -755,7 +819,7 @@ we were able to run <code>2,000,000</code> iterations, obtaining a precision for
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-09-01T21:19:39.885Z
+       on 2026-09-01T22:55:52.744Z
     </div>
   </footer>
 

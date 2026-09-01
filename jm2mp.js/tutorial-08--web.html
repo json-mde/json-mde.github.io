@@ -52,13 +52,66 @@
 <li><a href="#examples-of-use">Examples of Use</a></li>
 </ul>
 <h2>Introduction</h2>
-<p>...</p>
+<p>As noted in the <a href="./tutorial-01--getting-started.html">Getting Started</a>
+tutorial, the <code>JM2MP</code> format can be used directly on web pages by
+utilizing the <code>JM2MP.JS</code> library through various <em>content delivery networks</em>
+(<strong>CDN</strong>) solutions, or even the source code published on
+<a href="https://github.com/">GitHub</a>.</p>
+<p>Direct use via
+<a href="https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api">GitHub's Raw User Content</a>
+is not recommended, since these websites throttle all requests they
+receive and, when the number of requests becomes excessive, they block
+access.</p>
+<p>On the other hand, using <em>content delivery networks</em> such as
+<a href="https://www.jsdelivr.com/about">jsDelivr</a> is an easy and
+high-performance solution.</p>
 <h2>Software Architecture and Components</h2>
-<p>...</p>
+<p>The JavaScript source code of <code>JM2MP.JS</code> is based on modern
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ESM modules</a>.
+That means that, as a library, must be imported into other solutions in
+a specific way.</p>
+<p>The <a href="https://www.jsdelivr.com/documentation">jsDelivr's documentation</a>
+is an excellent starting point for learning not only how to integrate
+any existing package, such as <code>JM2MP.JS</code>, into your own solution, but
+also how to publish your solution so that others can integrate it into
+theirs.</p>
 <h2>Examples of Use</h2>
+<p>The <a href="../jm2mp.js-www/index.html">JM2MP-JS-WWW</a> directory offers two
+different examples about how to integrate <code>JM2MP.JS</code> into web pages:</p>
 <ul>
-<li><a href="../jm2mp.js-www/index.html">JM2MP-JS-WWW</a></li>
+<li><a href="#static-example-cdn">Static Example (CDN)</a></li>
+<li><a href="#interactive-example">Interactive Example</a></li>
 </ul>
+<h3>Static Example (CDN)</h3>
+<p>The source code of the <a href="../jm2mp.js-www/cdn.html">Static Example (CDN)</a>
+shows how easy it is to integrate the JavaScript code from the <code>JM2MP</code>
+library into an HTML web page.</p>
+<p>Basically, it involves creating an <em>ESM module</em> in a separate file and
+calling it from the HTML page.</p>
+<p>Readers should keep in mind that using <em>ESM modules</em> requires meeting
+certain conditions. The most notable difference from traditional scripts
+(now called <em>Common JavaScript</em>, or <em>CSJ</em> for short) is that each module
+has its own <em>scope</em>, and any element intended for use outside the module
+ust first be <em>exported</em>.</p>
+<h3>Interactive Example</h3>
+<p>The <a href="../jm2mp.js-www/interactive.html">Interactive Example</a> is a
+comprehensive example in HTML format that allows you to edit both the
+<em>source document</em> and the <em>projection document</em> on a single web page, as
+well as validate and execute the <em>projection</em> on the <em>source</em> and
+directly obtain the <em>resultant document</em>.</p>
+<p>Furthermore, thanks to the use of the <a href="https://ace.c9.io/">Ace9</a>
+web-based source code editor, the edited documents feature both <strong>syntax highlighting</strong> and <strong>real-time syntax validation</strong> (JSON in all cases).</p>
+<p>Due to the complexity of the source code editor, this example may need
+to be viewed on a computer to be fully functional, rather than on mobile
+devices.</p>
+<p>For the user's convenience, this
+<a href="../jm2mp.js-www/interactive.html">Interactive Example</a> includes buttons
+to immediately load the three main examples used throughout the <code>JM2MP</code>
+documentation:
+<a href="./tutorial-04--examples.html#courses-and-students">courses and students</a>,
+<a href="./tutorial-04--examples.html#inventory-management">inventory management</a>, and
+<a href="./tutorial-04--examples.html#calculating-pi-recursively">calculating Pi (π) recursively</a>.
+Please refer to the <a href="./tutorial-04--examples.html">Examples tutorial</a> for more details about each one.</p>
   </article>
   <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
     const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
@@ -136,7 +189,7 @@
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-09-01T21:19:39.893Z
+       on 2026-09-01T22:55:52.753Z
     </div>
   </footer>
 

@@ -49,14 +49,46 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#software-architecture-and-components">Software Architecture and Components</a></li>
-<li><a href="#example-of-use">Example of Use</a></li>
+<li><a href="#examples-of-use">Examples of Use</a></li>
 </ul>
 <h2>Introduction</h2>
-<p>...</p>
+<p>As noted in the <a href="./tutorial-01--getting-started.html">Getting Started</a>
+tutorial, the <code>JM2MP</code> format can be used through web services by
+utilizing the <code>JM2MP.JS</code> library. This kind of client application or
+server integration must use the <a href="https://nodejs.org/en/about">Node.js</a>
+(or compatible) platform and the <a href="https://docs.npmjs.com/about-npm">NPM</a>
+<em>package manager</em>.</p>
+<p>To install <code>JM2MP.JS</code> as a dependency of your project, you must first
+install it:</p>
+<pre class="prettyprint source lang-bash"><code>npm install --save @json-mde/jm2mp
+</code></pre>
 <h2>Software Architecture and Components</h2>
-<p>...</p>
-<h2>Example of Use</h2>
-<p>...</p>
+<p>The JavaScript source code of <code>JM2MP.JS</code> is based on modern
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ESM modules</a>.
+That means that, as a library, must be imported into other solutions in
+this specific way.</p>
+<p>The <code>JM2MP.JS</code> library offers a two-level <em>application programming
+interface</em> (<strong>API</strong>). The documentation contained in the module
+<a href="./module-jm2mp_index.html">jm2mp/index</a> explains how to use each level.</p>
+<h2>Examples of Use</h2>
+<p>The <em>packages</em> <a href="https://www.npmjs.com/package/@json-mde/jm2mp-express4">@json-mde/jm2mp-express4</a>
+and <a href="https://www.npmjs.com/package/@json-mde/jm2mp-express5">@json-mde/jm2mp-express5</a> have been
+developed as examples of the combined use of <code>JM2MP.JS</code> as part of the
+<a href="https://expressjs.com/en/5x/guide/using-middleware/">middleware</a> for
+the popular <em>web development framework</em> <a href="https://expressjs.com/">Express.js</a>.</p>
+<p>Due to the changes in the internal architecture of this framework between
+<a href="https://expressjs.com/en/guide/migrating-5/">versions 4 and 5</a>, two
+different packages are therefore provided, each one adapted to the
+corresponding version of <a href="https://expressjs.com/en/resources/">Express.js</a>.
+Note that, for practical purposes, version 4 is designed with synchronous
+components in mind, while version 5 has been adapted to primarily support
+asynchronous (more modern) components.</p>
+<pre class="prettyprint source lang-bash"><code># It clones the source code repository in your own computer.
+git clone https://github.com/json-mde/jm2mp.js-express5.git MyJm2mpExpress5;
+# It starts the demonstration web server integration JM2MP in it.
+cd MyJm2mpExpress5;
+npm start;
+</code></pre>
   </article>
   <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
     const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
@@ -134,7 +166,7 @@
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-09-01T21:19:39.894Z
+       on 2026-09-01T22:55:52.755Z
     </div>
   </footer>
 
