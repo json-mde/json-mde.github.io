@@ -62,6 +62,14 @@
 <li><a href="#resultant-document-im">Resultant Document</a></li>
 </ul>
 </li>
+<li><a href="#calculating-pi-recursively">Calculating Pi Recursively</a>
+<ul>
+<li><a href="#source-document-pi">Source Document</a></li>
+<li><a href="#projection-document-pi">Projection Document</a></li>
+<li><a href="#resultant-document-pi">Resultant Document</a></li>
+<li><a href="#a-note-of-caution">A Note of Caution</a></li>
+</ul>
+</li>
 </ul>
 <h2>Introduction</h2>
 <p>Apart from the simple examples described in the
@@ -572,6 +580,104 @@ first remove the comments or convert the syntax (see
   }
 }
 </code></pre>
+<h2>Calculating Pi Recursively</h2>
+<p>The <em>projection document</em> contains the
+<a href="https://www.kirupa.chat/p/life-of-pi-calculating-its-value">Gregory-Liebniz (or Madhava-Leibniz) Series</a>
+formulae to calculate an approximation of number
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI">Pi (π)</a>
+in a recursive manner.</p>
+<h3>Source Document (Pi)</h3>
+<pre class="prettyprint source lang-JSON"><code>331
+</code></pre>
+<h3>Projection Document (Pi)</h3>
+<pre class="prettyprint source lang-JSON"><code>{
+  &quot;$schema&quot;: &quot;https://github.json-mde.tech/schemas/jm2mp/1.0.0/JM2MP-v1.0.0--JSON-Schema-Draft-2020-12.json&quot;,
+  &quot;$options&quot;: {
+    &quot;$version&quot;: &quot;1.0&quot;,
+    &quot;$default-query-language&quot;: &quot;native&quot;,
+    &quot;$annotations&quot;: &quot;The _projection document_ contains the [Gregory-Liebniz (or Madhava-Leibniz) Series](https://www.kirupa.chat/p/life-of-pi-calculating-its-value) formulae to calculate an approximation of number [Pi (π)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI) in a recursive manner.&quot;
+  },
+  &quot;$&quot;: {
+    &quot;$op&quot;: &quot;mul&quot;,
+    &quot;$left&quot;: 4,
+    &quot;$right&quot;: { &quot;$op&quot;: &quot;call&quot;,
+                &quot;$ref&quot;: &quot;Pi&quot;,
+                &quot;$at&quot;: 0 }
+  },
+
+  &quot;Pi&quot;: {
+    &quot;$op&quot;: &quot;if&quot;,
+    &quot;$cond&quot;: {
+      &quot;$op&quot;: &quot;lt&quot;,
+      &quot;$left&quot;:  { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; },
+      &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;$&quot; }
+    },
+    &quot;$then&quot;: {
+      &quot;$op&quot;: &quot;sub&quot;,
+      &quot;$left&quot;: { &quot;$op&quot;: &quot;div&quot;,
+                 &quot;$left&quot;: 1,
+                 &quot;$right&quot;: { &quot;$op&quot;: &quot;add&quot;,
+                             &quot;$left&quot;: { &quot;$op&quot;: &quot;mul&quot;,
+                                        &quot;$left&quot;: 2,
+                                        &quot;$right&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; } },
+                             &quot;$right&quot;: 1 }
+      },
+      &quot;$right&quot;: { &quot;$op&quot;: &quot;call&quot;,
+                  &quot;$ref&quot;: &quot;Pi&quot;,
+                  &quot;$at&quot;: { &quot;$op&quot;: &quot;add&quot;,
+                           &quot;$left&quot;: { &quot;$op&quot;: &quot;get&quot;, &quot;$path&quot;: &quot;@&quot; },
+                           &quot;$right&quot;: 1 }
+      }
+    },
+    &quot;$else&quot;: 0
+  }
+}
+</code></pre>
+<h3>Resultant Document (Pi)</h3>
+<pre class="prettyprint source lang-JSON"><code>3.144613794732368
+</code></pre>
+<h3>A Note of Caution</h3>
+<p>Although it is technically possible, given the versatility and
+capabilities of the <code>JM2MP</code> format, the truth is that it is not the
+optimal approach for running processes that involve high computational
+demands.</p>
+<p><img src="./images/JM2MP.JS-CLI--ScreenCapture-04--JavaScriptEquivalence.png" alt="Equivalent JavaScript code"></p>
+<p>By default, the <a href="./module-jm2mp_modules_resolver.html#.DEFAULT_MAX_MODULES">MaxModules</a>
+and <a href="./module-jm2mp_evaluator.html#.DEFAULT_MAX_DEPTH">MaxDepth</a> arguments
+have been defined as a protective mechanism to prevent an inappropriate or
+malicious <em>projection document</em> from exhausting the processor or memory
+resources on the device running <code>JM2MP.JS</code>.</p>
+<p>However, it is possible to modify the parameters of the runtime environment
+itself to set a different value that increases or decreases
+the environment’s final capabilities.</p>
+<p>For example, with the default value for <code>MaxDepth</code> set to <code>1,000</code>, this
+example only allows <code>331</code> iterations before reaching that limit. If you
+increase the number of iterations without allowing a greater depth, an
+<a href="./module-jm2mp_errors.EvaluationError.html">EvaluationError</a> will occur
+during execution.</p>
+<p><img src="./images/JM2MP.JS-CLI--ScreenCapture-02--MaximumDepthExceeded.png" alt="JM2MP.JS-CLI running with default configuration"></p>
+<p>However, as you increase the <code>MaxDepth</code> value, there will come a point
+where the runtime environment will also fail to complete the <em>projection</em>
+because it will have run out of memory before finishing it. To address
+this issue, you will also need to increase the runtime environment's
+working memory. In the case of <a href="https://nodejs.org/learn/diagnostics/memory">Node.js' memory</a>,
+this can be done by configuring the underlying <code>V8 engine</code>, as discussed in
+<a href="https://nodejs.org/learn/diagnostics/memory/understanding-and-tuning-memory">Learn Node.js: Understanding and Tuning Memory</a>.</p>
+<p>Using the <em>shell</em>, if you execute the <a href="https://docs.npmjs.com/cli/v12/commands/npx">NPX</a>
+command, you can configure it setting the <code>--max-old-space-size</code> value
+in the <code>--node-options</code> parameter.</p>
+<p>For example, during our benchmark tests, by configuring <code>8GB</code> of memory,
+we were able to run <code>2,000,000</code> iterations, obtaining a precision for
+<code>Pi</code> of <code>3.1415921535897935</code> in 47 seconds. To do this, we used the following command line:</p>
+<pre class="prettyprint source lang-bash"><code>npx --node-options=&quot;--max-old-space-size=8192&quot; -- \
+    @json-mde/jm2mp-cli \
+      -c 2000000 \
+      -p ./pi-projection.json \
+      -o \
+      --max-depth \
+| cat ;
+</code></pre>
+<p><img src="./images/JM2MP.JS-CLI--ScreenCapture-03--GrantMoreResources.png" alt="JM2MP.JS-CLI running with more resources"></p>
   </article>
   <script type="module" id="LCamara8_CorrectMarkdownHeaderAnchors">
     const all_tutorials = Array.from( document.getElementsByClassName("tutorial") ) ;
@@ -649,7 +755,7 @@ first remove the comments or convert the syntax (see
     <div class="container">
       Documentation generated using <a href="https://jsdoc.app/" target="JSDoc">JSDoc 3.6.11</a>
       and <a href="https://www.npmjs.com/package/tidy-jsdoc" target="Tidy-JSDoc">tidy-jsdoc 1.4.1</a>
-       on 2026-08-31T21:23:27.734Z
+       on 2026-09-01T19:41:47.505Z
     </div>
   </footer>
 
