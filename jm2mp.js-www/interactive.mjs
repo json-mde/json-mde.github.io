@@ -410,6 +410,9 @@ function InjectCopyToClipboardFunction( id_button_for_projection )
             'click',
             async function ResultantDocument_CopyToClipboard__OnClick(event)
             {
+                /* */
+                event.preventDefault();
+                /* */
                 if ( resultant_editor )
                 {
                     try
